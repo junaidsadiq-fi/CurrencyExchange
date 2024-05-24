@@ -1,15 +1,7 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  .nunito_sans {
-    font-family: var(--font-nunito-sans);
-  }
-  
-  :root {
-    --font-nunito-sans: 'Nunito Sans', sans-serif;
-  }
-  
-  body {
-    font-family: 'Poppins', sans-serif, var(--font-nunito-sans);
-  }
+body {
+  font-family: "Poppins", sans-serif;
+}

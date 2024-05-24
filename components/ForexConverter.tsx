@@ -145,7 +145,7 @@ const ConverterContainer = () => {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="from">From</Label>
-            <Select defaultValue="USD" id="from">
+            <Select defaultValue="USD">
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
@@ -158,7 +158,7 @@ const ConverterContainer = () => {
           </div>
           <div>
             <Label htmlFor="to">To</Label>
-            <Select defaultValue="USD" id="to">
+            <Select defaultValue="USD">
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
