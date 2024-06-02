@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LinearGradient from "./ui/linear-gradient";
 import Image from "next/image";
+import RadialGradient from "./ui/radial-gradient";
 
 export const Footer = () => {
   const navigationItems = [
@@ -63,24 +64,22 @@ export const Footer = () => {
 
   return (
     <div className="w-full relative py-20 lg:py-40 bg-foreground text-background">
-      <LinearGradient/>
+     {/*  <LinearGradient/> */}
+     <RadialGradient/>
       <div className="container z-10 mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="flex gap-8 flex-col items-start">
             <div className="flex gap-2 flex-col">
-              {/* <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                PakCurrency™
-              </h2> */}
-              <Image src='/logo.png' width='350' height='350' alt="logo"  />
+              <Image src='/images/Logo.png' width='350' height='350' alt="logo"  />
               <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                All sort forex related services under one roof.
+              Telephonopiu' Exchange Company is a leading currency exchange and money transfer company based in Italy with five brnaches in italy so far.
               </p>
             </div>
             <div className="flex gap-20 flex-row">
               <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <p>1 Road Milan</p>
-                <p>Menlo Park</p>
-                <p>ITL 94025</p>
+                <p>Viale Antonio Gramsci</p>
+                <p>97 Modena 41122</p>
+                <p>ITALY</p>
               </div>
               <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
                 <Link href="/">Terms of service</Link>

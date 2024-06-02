@@ -48,7 +48,7 @@ interface LinearGradientProps {
 
   /**
    * The point at which the transition occurs
-   * @default 50%
+   * @default 60%
    * @type string
    * */
   transitionPoint?: string;
@@ -62,11 +62,11 @@ interface LinearGradientProps {
 }
 
 const LinearGradient = ({
-  from = "#00000000",
-  to = "rgba(120,119,198,0.3)",
+  from = "rgba(0,0,11,0.1)",
+  to = "rgba(0,0,220,0.7)",
   width = "100%",
   height = "100%",
-  transitionPoint = "50%",
+  transitionPoint = "70%",
   direction = "bottom",
   className,
 }: LinearGradientProps) => {

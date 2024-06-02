@@ -47,7 +47,7 @@ const words = ["fast", "secure", "reliable", "easy"];
 export default function Hero() {
   return (
     <div className="h-full w-full">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="w-full relative bg-background">
         <div className="z-10 container mx-auto">
           <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2 lg:flex-row">
@@ -57,18 +57,18 @@ export default function Hero() {
                 alt="Currency Exchange Illustration"
                 width={500}
                 height={500}
-                className="w-full h-full object-cover md:w-[30rem] lg:w-[40rem] lg:h-[40rem]"
+                className="w-full h-full object-cover md:mx-auto lg:w-[40rem] lg:h-[40rem]"
               />
             </div>
-            <div className="flex gap-4 flex-col">
-           {/*  <RadialGradient /> */}
+            <div className="flex gap-4 md:mx-auto  flex-col">
+              {/*  <RadialGradient /> */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
                 className="flex gap-4 flex-col"
               >
-                <h1 className="text-5xl md:text-7xl lg:text-8xl max-w-lg tracking-tighter text-left font-regular">
+                <h1 className="text-5xl md:text-5xl lg:text-8xl max-w-lg tracking-tighter text-left font-regular">
                   Powerful Currency Exchange
                 </h1>
                 <p className="text-xl leading-relaxed tracking-tight text-muted-foreground max-w-md text-left">
@@ -77,16 +77,13 @@ export default function Hero() {
                 </p>
               </motion.div>
               <div className="flex flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="gap-4 bg-blue-800 rounded-full text-white focus:bg-blue-600 hover:bg-blue-400 px-6 py-2"
+                <Link
+                  href="/contact_us"
+                  className="gap-4 flex py-4 justify-center items-center bg-blue-800 rounded-full text-white focus:bg-blue-600 hover:bg-blue-400 px-6"
                   variant="outline"
                 >
-                  Contact Us <PhoneCall className="w-4 h-4" />
-                </Button>
-                <Button size="lg" className="gap-4">
-                  Find Us <MoveRight className="w-4 h-4" />
-                </Button>
+                  Get A Quote <PhoneCall className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
