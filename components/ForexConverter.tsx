@@ -1,3 +1,4 @@
+"use client";
 import {
   TableHead,
   TableRow,
@@ -32,7 +33,7 @@ export default function Component() {
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-       <div className="grid grid-cols-none lg:grid-cols-2 md:grid-cols-2 gap-8 relative z-10">
+      <div className="grid grid-cols-none lg:grid-cols-2 md:grid-cols-2 gap-8 relative z-10">
         <TableContainer />
         <ConverterContainer />
       </div>
@@ -70,8 +71,8 @@ const TableContainer = () => {
         "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
       )}
     >
-      <Table className="">
-        <TableHeader className="bg-gradient-to-b from-blue-700 to-blue-900">
+      <Table id="converter" className="">
+        <TableHeader className="bg-gradient-to-b from-sky-600 to-blue-900">
           <TableRow className=" h-16">
             <TableHead className="font-poppins text-white text-xl">
               Currency
@@ -169,7 +170,7 @@ function ConverterContainer() {
   return (
     <Card className="w-full md:grid-cols-2 lg:grid-cols-2 bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
       <CardHeader>
-        <div className="rounded-full bg-gradient-to-b from-blue-700 to-blue-900 px-4 py-4 font-poppins text-xl text-white">
+        <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-4 font-poppins text-xl text-white">
           Currency Converter
         </div>
       </CardHeader>
@@ -225,7 +226,7 @@ function ConverterContainer() {
         </div>
         <div className="mt-4 flex justify-end">
           <Button
-            className="bg-gradient-to-b from-blue-700 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
+            className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
             onClick={() =>
               calculateConversion(amount, fromCurrency, toCurrency)
             }

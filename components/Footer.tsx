@@ -11,16 +11,12 @@ export const Footer = () => {
       description: "",
       items: [
         {
-          title: "Forex Converter",
-          href: "/",
-        },
-        {
           title: "Forex Rates",
-          href: "/",
+          href: "#converter",
         },
         {
           title: "Forex Calculator",
-          href: "/",
+          href: "#converter",
         },
       ],
     },
@@ -47,23 +43,31 @@ export const Footer = () => {
       description: "find out more about us.",
       items: [
         {
-          title: "About us",
+          title: "Who We Are",
           href: "/about",
         },
         {
-          title: "Locate Us",
+          title: "Branch Network",
           href: "/locations",
         },
         {
           title: "Contact us",
           href: "/contact",
         },
+        {
+          title: "FAQS",
+          href: "/faqs",
+        },
+        {
+          title: "Media center",
+          href: "/media",
+        },
       ],
     },
   ];
 
   return (
-    <div className="w-full relative py-20 lg:py-40 bg-foreground text-background">
+    <div className="w-full bg-gray-50 relative py-20 lg:py-20 bg-foreground text-background">
      {/*  <LinearGradient/> */}
      <RadialGradient/>
       <div className="container z-10 mx-auto">
@@ -72,7 +76,7 @@ export const Footer = () => {
             <div className="flex gap-2 flex-col">
               <Image src='/images/Logo.png' width='350' height='350' alt="logo"  />
               <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-              Telephonopiu' Exchange Company is a leading currency exchange and money transfer company based in Italy with five brnaches in italy so far.
+              TELEFONOPIÚ Exchange Company is a leading currency exchange and money transfer company based in Italy with five brnaches in italy so far.
               </p>
             </div>
             <div className="flex gap-20 flex-row">
@@ -82,8 +86,9 @@ export const Footer = () => {
                 <p>ITALY</p>
               </div>
               <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <Link href="/">Terms of service</Link>
-                <Link href="/">Privacy Policy</Link>
+                <Link href="/">Terms & Conditions</Link>
+                <Link href="/">File A Complaint</Link>
+                <Link href="/">AML-KYC-CFT Policy</Link>
               </div>
             </div>
           </div>
@@ -116,6 +121,9 @@ export const Footer = () => {
                         </span>
                       </Link>
                     ))}
+                </div>
+                <div className="">
+                  <p className="Copyrights © 2024 TELEFONOPIÚ. All rights reserved."></p>
                 </div>
               </div>
             ))}

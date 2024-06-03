@@ -139,7 +139,7 @@ const ReviewCard = ({
 
 const MarqueeSection = () => {
   return (
-    <div className="relative bg-gradient-to-b from-blue-700 to-blue-900 flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
+    <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
         <h2 className="font-bold text-5xl text-white mb-4">Our Partners</h2>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (

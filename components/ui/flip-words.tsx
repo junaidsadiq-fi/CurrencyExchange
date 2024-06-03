@@ -16,24 +16,24 @@ export const FlipWords = ({
   const [currentWord, setCurrentWord] = useState(words[0]);
 
   useEffect(() => {
-    startAnimation();
+    const startAnimation = () => {
+      let i = 0;
+      interval = setInterval(() => {
+        i++;
+        if (i === words.length) {
+          i = 0;
+        }
+        const word = words[i];
+        setCurrentWord(word);
+      }, duration);
+    };
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [duration, words]);
 
-  const startAnimation = () => {
-    let i = 0;
-    interval = setInterval(() => {
-      i++;
-      if (i === words.length) {
-        i = 0;
-      }
-      const word = words[i];
-      setCurrentWord(word);
-    }, duration);
-  };
+
 
   return (
     <AnimatePresence>

@@ -15,6 +15,7 @@ import ForexConverter from "@/components/ForexConverter";
 import MarqueeSection from "@/components/MarqueeSection";
 import CurrencyMovingList from "@/components/CurrencyMovingList";
 import LocateUs from "@/components/LocateUs";
+import { WhatsappButton } from "@/components/WhatsappButton";
 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <div className="">
       <MarqueeSection />
       </div>
+      <WhatsappButton/>
       <VisitSection />
       {/* <div className="mx-16 my-8">
       <Bento/>

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CurrencyProvider } from "@/context/CurrencyContext";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 /* import Navbar from "@/components/Navbar";
 import {Footer} from "@/components/Footer" */
 const fontSans = FontSans({
@@ -14,6 +15,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: "telephonopia",
   description: "Currency Exchange: Fast, Secure, Reliable, Easy",
 };
@@ -31,6 +35,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <SpeedInsights/>
         <Navbar />
         <CurrencyProvider>
           <ThemeProvider

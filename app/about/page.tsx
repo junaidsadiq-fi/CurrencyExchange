@@ -1,3 +1,4 @@
+"use client";
 import { MoveDownLeft, MoveUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";

@@ -38,18 +38,18 @@ function VisitSection() {
                 </p>
               </div>
             </div>
-            <Link href="/locate" className="flex items-center justify-around w-32 bg-gradient-to-b from-blue-700 to-blue-900 rounded-full px-4 py-2">
+            <Link href="/locate" className="flex items-center justify-around w-32 bg-gradient-to-b from-sky-600 to-blue-900 rounded-full px-4 py-2">
             <FaLocationArrow className="text-white w-4 h-4" />
             <span className="text-white">Locate Us</span>
           </Link>
           </div>
           <div className="rounded-md aspect-square">
             <Image
-              src="/images/map.jpg"
+              src="/map.jpg"
               alt="Locate Us"
-              width={750}
+              width={1000}
               height={1000}
-              className="rounded-md lg:mt-20 opacity-90"
+              className="rounded-md lg:mt-40 opacity-90"
             />
           </div>
          
