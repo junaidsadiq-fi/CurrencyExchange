@@ -161,7 +161,7 @@ function ConverterContainer() {
   }, [activeTool, amount, calculateConversion, fromCurrency, toCurrency, transferAmount, transferFee]);
 
   return (
-    <Card className="w-full md:grid-cols-2 lg:grid-cols-2 bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
+    <Card className="w-full md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
       <CardHeader>
         <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-4 font-poppins text-xl text-white">
           Currency Converter

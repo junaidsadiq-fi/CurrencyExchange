@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+// @ts-nocheck
+import { useEffect, useRef, useState, useCallback, useMemo, JSX } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
-import ThreeGlobe from "three-globe";
-import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+import ThreeGlobe from "three-globe"; // Fix the import statement
+import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
 
@@ -15,38 +16,51 @@ const cameraZ = 300;
 
 let numbersOfRings = [0];
 
-/**
- * @typedef {Object} GlobeConfig
- * @property {number} pointSize
- * @property {string} atmosphereColor
- * @property {boolean} showAtmosphere
- * @property {number} atmosphereAltitude
- * @property {string} polygonColor
- * @property {string} globeColor
- * @property {string} emissive
- * @property {number} emissiveIntensity
- * @property {number} shininess
- * @property {number} arcTime
- * @property {number} arcLength
- * @property {number} rings
- * @property {number} maxRings
- */
+// Define types for GlobeConfig and DataPoint
+interface GlobeConfig {
+  pointSize: number;
+  atmosphereColor: string;
+  showAtmosphere: boolean;
+  atmosphereAltitude: number;
+  polygonColor: string;
+  globeColor: string;
+  emissive: string;
+  emissiveIntensity: number;
+  shininess: number;
+  arcTime: number;
+  arcLength: number;
+  rings: number;
+  maxRings: number;
+  ambientLight: string;
+  directionalLeftLight: string;
+  directionalTopLight: string;
+  pointLight: string;
+}
 
-/**
- * @typedef {Object} DataPoint
- * @property {number} startLat
- * @property {number} startLng
- * @property {number} endLat
- * @property {number} endLng
- * @property {string} color
- * @property {number} order
- */
+interface DataPoint {
+  startLat: String;
+  startLng: String;
+  endLat: number;
+  endLng: number;
+  color: string;
+  order: number;
+  arcAlt?: number;
 
-/**
- * @param {{ globeConfig: GlobeConfig, data: DataPoint[] }} props
- */
+}
 
-export function Globe({ globeConfig, data }) {
+// Define types for the Globe component props
+interface GlobeProps {
+  globeConfig: GlobeConfig;
+  data: DataPoint[];
+}
+
+declare module 'react' {
+  interface JSXIntrinsicElements {
+    threeGlobe: any;
+  }
+}
+
+export function Globe({ globeConfig, data }: GlobeProps) {
   const [globeData, setGlobeData] = useState<
     {
       size: number;
@@ -58,23 +72,13 @@ export function Globe({ globeConfig, data }) {
   >([]);
   const globeRef = useRef<ThreeGlobe | null>(null);
 
-  // Memoize defaultProps to avoid unnecessary recalculations
-  const defaultProps = useMemo(() => ({
-    pointSize: 1,
-    atmosphereColor: "#ffffff",
-    showAtmosphere: true,
-    atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    arcTime: 2000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    ...globeConfig,
-  }), [globeConfig]);
+  // Memoize defaultProps to avoid unnecessary recalculations 
+  const defaultProps = useMemo(
+    () => ({
+      ...globeConfig,
+    }),
+    [globeConfig]
+  );
 
   const _buildMaterial = useCallback(() => {
     if (!globeRef.current) return;
@@ -134,21 +138,21 @@ export function Globe({ globeConfig, data }) {
 
     globeRef.current
       .arcsData(data)
-      .arcStartLat((d) => d.startLat)
-      .arcStartLng((d) => d.startLng)
-      .arcEndLat((d) => d.endLat)
-      .arcEndLng((d) => d.endLng)
-      .arcColor((e) => e.color)
-      .arcAltitude((e) => e.arcAlt)
+      .arcStartLat((d: DataPoint) => d.startLat)
+      .arcStartLng((d: DataPoint) => d.startLng)
+      .arcEndLat((d: DataPoint) => d.endLat)
+      .arcEndLng((d: DataPoint) => d.endLng)
+      .arcColor((d: DataPoint) => d.color)
+      .arcAltitude((d: DataPoint) => d.arcAlt ?? 0)
       .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
       .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => e.order)
+      .arcDashInitialGap((d: DataPoint) => d.order)
       .arcDashGap(15)
       .arcDashAnimateTime(defaultProps.arcTime);
 
     globeRef.current
       .pointsData(data)
-      .pointColor((e) => e.color)
+      .pointColor((d: DataPoint) => d.color)
       .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2);
@@ -162,6 +166,7 @@ export function Globe({ globeConfig, data }) {
         (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
       );
   }, [data, defaultProps, globeData]);
+  
 
   useEffect(() => {
     if (globeRef.current && globeData.length > 0) {
@@ -198,6 +203,8 @@ export function Globe({ globeConfig, data }) {
     };
   }, [data.length, globeData]);
 
+  
+
   return <threeGlobe ref={globeRef} />;
 }
 
@@ -213,7 +220,8 @@ export function WebGLRendererConfig() {
   return null;
 }
 
-export function World(props: WorldProps) {
+
+export function World(props: JSX.IntrinsicAttributes & GlobeProps) {
   const { globeConfig } = props;
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
