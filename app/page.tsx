@@ -16,7 +16,7 @@ import MarqueeSection from "@/components/MarqueeSection";
 import CurrencyMovingList from "@/components/CurrencyMovingList";
 import LocateUs from "@/components/LocateUs";
 import { WhatsappButton } from "@/components/WhatsappButton";
-
+import { FeaturesBlock } from "@/components/FeaturesBlock";
 
 export default function Home() {
   return (
@@ -29,6 +29,7 @@ export default function Home() {
       </div>
       <WhatsappButton/>
       <VisitSection />
+     {/*  <FeaturesBlock/> */}
       <div className="mx-16 my-8">
       <Bento/>
       </div>

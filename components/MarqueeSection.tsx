@@ -87,8 +87,8 @@ const reviews2 = [
 ];
 
 
-const firstRow = reviews;
-const secondRow = reviews2;
+const firstRow = reviews2;
+const secondRow = reviews;
 
 const ReviewCard = ({
   img,

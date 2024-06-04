@@ -33,23 +33,23 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
         const initialCurrencies: Omit<Currency, 'rate'>[] = [
           {
             name: 'USD',
-            img: '/images/flags/Americas/Svg/United-States-Circle.svg',
+            img: '/images/flags/United-States-Circle.svg',
           },
           {
             name: 'EUR',
-            img: '/images/flags/Europe/Svg/European-Union-Circle.svg',
+            img: '/images/flags/European-Union-Circle.svg',
           },
           {
             name: 'GBP',
-            img: '/images/flags/Europe/Svg/United-Kingdom-Circle.svg',
+            img: '/images/flags/United-Kingdom-Circle.svg',
           },
           {
             name: 'SAR',
-            img: '/images/flags/Asia/Svg/Saudi-Arabia-Circle.svg',
+            img: '/images/flags/Saudi-Arabia-Circle.svg',
           },
           {
             name: 'AED',
-            img: '/images/flags/Asia/Svg/United-Arab-Emirates-Circle.svg',
+            img: '/images/flags/United-Arab-Emirates-Circle.svg',
           },
           {
             name: 'AUD',
@@ -57,23 +57,23 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
           },
           {
             name: 'CAD',
-            img: '/images/flags/Americas/Svg/Canada-Circle.svg',
+            img: '/images/flags/Canada-Circle.svg',
           },
           {
             name: 'JPY',
-            img: '/images/flags/Asia/Svg/Japan-Circle.svg',
+            img: '/images/flags/Japan-Circle.svg',
           },
           {
             name: 'TRY',
-            img: '/images/flags/Asia/Svg/Turkey-Circle.svg',
+            img: '/images/flags/Turkey-Circle.svg',
           },
           {
             name: 'INR',
-            img: '/images/flags/Asia/Svg/India-Circle.svg',
+            img: '/images/flags/India-Circle.svg',
           },
           {
             name: 'CNY',
-            img: '/images/flags/Asia/Svg/China-Circle.svg',
+            img: '/images/flags/China-Circle.svg',
           },
           {
             name: 'NZD',
@@ -81,23 +81,23 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
           },
           {
             name: 'ZAR',
-            img: '/images/flags/Africa/Svg/South-Africa-Circle.svg',
+            img: '/images/flags/South-Africa-Circle.svg',
           },
           {
             name: 'BRL',
-            img: '/images/flags/Americas/Svg/Brazil-Circle.svg',
+            img: '/images/flags/Brazil-Circle.svg',
           },
           {
             name: 'ARS',
-            img: '/images/flags/Americas/Svg/Argentina-Circle.svg',
+            img: '/images/flags/Argentina-Circle.svg',
           },
           {
             name: 'MXN',
-            img: '/images/flags/Americas/Svg/Mexico-Circle.svg',
+            img: '/images/flags/Mexico-Circle.svg',
           },
           {
             name: 'RUB',
-            img: '/images/flags/Asia/Svg/Russia-Circle.svg',
+            img: '/images/flags/Russia-Circle.svg',
           },
         ];
 

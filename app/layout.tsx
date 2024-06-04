@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
-  title: "telephonopia",
-  description: "Currency Exchange: Fast, Secure, Reliable, Easy",
+  title: " TELEFONOPIÚ",
+  description: "Europs most reliable Currency Exchange",
 };
 
 export default function RootLayout({
