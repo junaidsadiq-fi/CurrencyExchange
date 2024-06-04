@@ -73,7 +73,7 @@ export const Footer = () => {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="flex gap-8 flex-col items-start">
             <div className="flex gap-2 flex-col">
-              <Image src='/images/Logo.png' width='350' height='350' alt="logo"  />
+              <Image src='/images/logo.png' width='350' height='350' alt="logo"  />
               <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
               TELEFONOPIÚ Exchange Company is a leading currency exchange and money transfer company based in Italy with five brnaches in italy so far.
               </p>
