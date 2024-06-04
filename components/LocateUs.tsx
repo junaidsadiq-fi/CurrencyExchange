@@ -3,9 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const LocateUs = () => (
-  <div className="w-full py-20 lg:py-40">
+  <div className="w-full py-20 lg:py-20">
     <div className="container mx-auto">
-      <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2">
+      <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2 ">
         <div className="flex gap-10 flex-col">
           <div className="flex gap-4 flex-col">
             <div>
@@ -20,7 +20,7 @@ const LocateUs = () => (
               </p>
             </div>
           </div>
-          <div className="grid lg:pl-6 grid-cols-1 sm:grid-cols-3 items-start lg:grid-cols-1 gap-6">
+          <div className="grid lg:pl-6 grid-cols-1 sm:grid-cols-3 items-start lg:grid-cols-1 xl gap-6">
             <div className="flex flex-row gap-6 items-start">
               <Check className="w-4 h-4 mt-2 text-primary" />
               <div className="flex flex-col gap-1">
