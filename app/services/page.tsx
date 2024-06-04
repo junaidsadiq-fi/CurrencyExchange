@@ -3,10 +3,11 @@ import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Bento } from "@/components/Bento";
 
 export default function page() {
   return (
-    <div className="w-full py-20 lg:py-40">
+    <div className="w-full py-10 lg:py-20">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2">
           <div className="flex gap-4 flex-col">
@@ -37,6 +38,9 @@ export default function page() {
             />
           </div>
         </div>
+      </div>
+      <div className="mx-16 my-8">
+      <Bento/>
       </div>
     </div>
   );
