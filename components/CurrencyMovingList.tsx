@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Marquee from "./ui/Marquee";
 import { cn } from "@/lib/utils";
-import LinearGradient from "./ui/linear-gradient";
 import { useCurrencies } from "@/context/CurrencyContext";
 
 type Currency = {
@@ -51,7 +50,6 @@ const CurrencyMovingList = () => {
   const currencies = useCurrencies() as Currency[];
   return (
     <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-2 ">
-      {/* <LinearGradient /> */}
       <Marquee pauseOnHover className="[--duration:40s]">
         {currencies.map((currency) => (
           <CurrencyCard key={currency.name} {...currency} />

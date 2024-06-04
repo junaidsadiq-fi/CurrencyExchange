@@ -13,13 +13,7 @@ const reviews = [
     name: "Small World",
     username: "@smallworld",
     body: "Your local money transfer service",
-    img: "/images/partners/SmallWorld.png",
-  },
-  {
-    name: "Ria",
-    username: "@ria",
-    body: "Bringing families closer",
-    img: "/RIA.png",
+    img: "/images/partners/RIA.png",
   },
   {
     name: "MoneyGram",
@@ -31,12 +25,6 @@ const reviews = [
     name: "Orange Money",
     username: "@orangemoney",
     body: "The mobile money revolution",
-    img: "/images/partners/OrangePayment.png",
-  },
-  {
-    name: "Monty",
-    username: "@monty",
-    body: "Send money, pay bills, feel great",
     img: "/images/partners/Monty.png",
   },
   {
