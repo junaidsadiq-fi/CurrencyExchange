@@ -24,7 +24,7 @@ const Navbar = () => {
         <SheetContent className="opacity-[1] bg-white py-2" side="right">
           <Link href="/">
             <Image 
-              src='/images/Logo.png'
+              src='/images/logo.png'
               alt="logo"
               width={190}
               height={190}
@@ -49,7 +49,7 @@ const Navbar = () => {
       </Sheet>
       <Link className="mr-6 hidden lg:flex" href="/">
         <Image 
-          src='/images/Logo.png'
+          src='/images/logo.png'
           alt="logo"
           width={200}
           height={200}
