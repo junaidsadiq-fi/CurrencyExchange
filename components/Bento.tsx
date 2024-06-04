@@ -40,8 +40,13 @@ import { RiTimeZoneLine } from "react-icons/ri";
 import { GrSend } from "react-icons/gr";
 import { useCurrencies } from "@/context/CurrencyContext";
 
+type Currency = {
+  name: string;
+  rate: string;
+};
+
 export function Bento() {
-  const currencies = useCurrencies();
+  const currencies = useCurrencies() as Currency[];
 
   const files = [
     {

@@ -29,9 +29,9 @@ export default function Home() {
       </div>
       <WhatsappButton/>
       <VisitSection />
-      {/* <div className="mx-16 my-8">
+      <div className="mx-16 my-8">
       <Bento/>
-      </div> */}
+      </div>
     </div>
   );
 }

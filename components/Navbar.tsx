@@ -60,22 +60,22 @@ const Navbar = () => {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-md font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
+              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
                 Home
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group  inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-md font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
+              <Link className="group  inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
                 Services
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-md font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
+              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
                 About
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-md font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contact">
+              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contact">
                 Contact
               </Link>
             </NavigationMenuLink>

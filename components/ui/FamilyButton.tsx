@@ -2,7 +2,10 @@
 
 import { FC, ReactNode, useState } from "react";
 import { motion } from "framer-motion";
-import { PlusIcon, XIcon } from "lucide-react";
+import { PhoneOutgoing, PlusIcon, XIcon } from "lucide-react";
+import { BiPhoneCall } from "react-icons/bi";
+import { RiWhatsappFill } from "react-icons/ri";
+import { PiPhoneDisconnectBold } from "react-icons/pi";
 
 import { cn } from "@/lib/utils";
 
@@ -28,7 +31,7 @@ const FamilyButton: React.FC<FamilyButtonProps> = ({ children }) => {
     >
       <div className="rounded-[23px] border   border-black/10 ">
         <div className="rounded-[22px] border  dark:border-stone-800 border-white/50 ">
-          <div className="rounded-[21px] border    border-neutral-950/20   flex items-center justify-center ">
+          <div className="rounded-[21px] border    border-neutral-950/10   flex items-center justify-center ">
             <FamilyButtonContainer
               isExpanded={isExpanded}
               toggleExpand={toggleExpand}
@@ -78,7 +81,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
       )}
       layoutRoot
       layout
-      initial={{ borderRadius: 21, width: "4rem", height: "4rem" }}
+      initial={{ borderRadius: 21, width: "2rem", height: "2rem" }}
       animate={
         isExpanded
           ? {
@@ -120,7 +123,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
       >
         {isExpanded ? (
           <motion.div
-            className="p-[10px] group bg-blue-800/50 dark:bg-black/50 border border-cyan-100/30 hover:border-neutral-200 text-orange-50 rounded-full shadow-2xl transition-colors duration-300 "
+            className="p-[8px] group bg-blue-800/10 dark:bg-black/50 border border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300 "
             onClick={toggleExpand}
             layoutId="expand-toggle"
             initial={false}
@@ -140,7 +143,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
         ) : (
           <motion.div
             className={cn(
-              "p-[10px] group bg-blue-800 to-black dark:bg-cyan-500/90 text-white border border-cyan-100/10  shadow-2xl transition-colors duration-200"
+              "p-[8px] group bg-blue-800/10 dark:bg-black/50 border border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300"
             )}
             style={{ borderRadius: 24 }}
             onClick={toggleExpand}
@@ -153,7 +156,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
               },
             }}
           >
-            <PlusIcon className="h-7 w-7 text-white dark:text-neutral-900" />
+            <PlusIcon  className="h-7 w-7 text-white dark:text-neutral-900" />
           </motion.div>
         )}
       </motion.div>

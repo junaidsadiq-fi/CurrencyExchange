@@ -1,4 +1,3 @@
-"use client";
 import {
   TableHead,
   TableRow,
@@ -19,9 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import DotPattern from "./ui/dot-pattern";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useCurrencies } from "@/context/CurrencyContext";
 import Image from "next/image";
 
@@ -61,13 +59,17 @@ const staticCurrencies = {
 
 const TableContainer = () => {
   const currencies = useCurrencies();
+
+  const convertedCurrencies = currencies.map((currency) => ({
+    ...currency,
+    rate: Number(currency.rate),
+  }));
+
   return (
     <div
       className={cn(
         "border rounded-[20px] overflow-hidden",
-        // light styles
         "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.5)]",
-        // dark styles
         "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
       )}
     >
@@ -83,24 +85,22 @@ const TableContainer = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {currencies.map(
-            (currency: { name: string; img: string; rate: number }) => (
-              <TableRow key={currency.name}>
-                <TableCell className="flex items-center space-x-2">
-                  <Image
-                    src={currency.img}
-                    alt={`${currency.name} flag`}
-                    width="30"
-                    height="20"
-                  />
-                  <span className="text-xl">{currency.name}</span>
-                </TableCell>
-                <TableCell className="text-right text-xl font-bold">
-                  {currency.rate}
-                </TableCell>
-              </TableRow>
-            )
-          )}
+          {convertedCurrencies.map((currency) => (
+            <TableRow key={currency.name}>
+              <TableCell className="flex items-center space-x-2">
+                <Image
+                  src={currency.img}
+                  alt={`${currency.name} flag`}
+                  width="30"
+                  height="20"
+                />
+                <span className="text-xl">{currency.name}</span>
+              </TableCell>
+              <TableCell className="text-right text-xl font-bold">
+                {currency.rate}
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>
@@ -118,13 +118,13 @@ function ConverterContainer() {
   const [transferTotal, setTransferTotal] = useState(105);
   const currencies = useCurrencies();
 
-  const getCurrencyRate = (from: string, to: string) => {
+  const getCurrencyRate = useCallback((from: string, to: string) => {
     const fromRate =
-      currencies.find((currency: any) => currency.name === from)?.rate || 1;
+      Number(currencies.find((currency) => currency.name === from)?.rate) || 1;
     const toRate =
-      currencies.find((currency: any) => currency.name === to)?.rate || 1;
+      Number(currencies.find((currency) => currency.name === to)?.rate) || 1;
     return toRate / fromRate;
-  };
+  }, [currencies]);
 
   const handleToolChange = (tool: string) => {
     setActiveTool(tool);
@@ -139,11 +139,11 @@ function ConverterContainer() {
     calculateConversion(amount, currency, toCurrency);
   };
 
-  const calculateConversion = (value: number, from: string, to: string) => {
+  const calculateConversion = useCallback((value: number, from: string, to: string) => {
     const rate = getCurrencyRate(from, to);
     const convertedValue = value * rate;
     setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
-  };
+  }, [getCurrencyRate]);
 
   const calculateTransfer = (amount: number, fee: number) => {
     const total = amount + fee;
@@ -158,14 +158,7 @@ function ConverterContainer() {
     } else {
       calculateTransfer(transferAmount, transferFee);
     }
-  }, [
-    activeTool,
-    amount,
-    fromCurrency,
-    toCurrency,
-    transferAmount,
-    transferFee,
-  ]);
+  }, [activeTool, amount, calculateConversion, fromCurrency, toCurrency, transferAmount, transferFee]);
 
   return (
     <Card className="w-full md:grid-cols-2 lg:grid-cols-2 bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
@@ -185,7 +178,7 @@ function ConverterContainer() {
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-100">
+              <SelectContent className="bg-slate-400">
                 {Object.entries(staticCurrencies).map(([value, name]) => (
                   <SelectItem key={value} value={value}>
                     {name}
@@ -203,7 +196,7 @@ function ConverterContainer() {
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-gray-500 hover:bg-gray-900">
                 {Object.entries(staticCurrencies).map(([value, name]) => (
                   <SelectItem key={value} value={value}>
                     {name}

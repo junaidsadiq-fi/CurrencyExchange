@@ -1,7 +1,6 @@
 import Link from "next/link";
 import LinearGradient from "./ui/linear-gradient";
 import Image from "next/image";
-import RadialGradient from "./ui/radial-gradient";
 
 export const Footer = () => {
   const navigationItems = [
@@ -69,7 +68,7 @@ export const Footer = () => {
   return (
     <div className="w-full bg-gray-50 relative py-20 lg:py-20 bg-foreground text-background">
      {/*  <LinearGradient/> */}
-     <RadialGradient/>
+    {/*  <RadialGradient/> */}
       <div className="container z-10 mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="flex gap-8 flex-col items-start">

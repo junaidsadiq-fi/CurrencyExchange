@@ -6,6 +6,11 @@ import { cn } from "@/lib/utils";
 import LinearGradient from "./ui/linear-gradient";
 import { useCurrencies } from "@/context/CurrencyContext";
 
+type Currency = {
+  name: string;
+  rate: number | string;
+  img: string;
+};
 // Currency Card component
 const CurrencyCard = ({
   img,
@@ -14,7 +19,7 @@ const CurrencyCard = ({
 }: {
   img: string;
   name: string;
-  rate: string;
+  rate: string | number; 
 }) => {
   return (
     <figure
@@ -43,8 +48,7 @@ const CurrencyCard = ({
 
 // Marquee Section
 const CurrencyMovingList = () => {
-  const currencies = useCurrencies();
-
+  const currencies = useCurrencies() as Currency[];
   return (
     <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-2 ">
       {/* <LinearGradient /> */}

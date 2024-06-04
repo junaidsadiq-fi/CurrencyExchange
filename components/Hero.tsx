@@ -80,7 +80,6 @@ export default function Hero() {
                 <Link
                   href="/contact_us"
                   className="gap-4 flex py-4 justify-center items-center bg-gradient-to-b from-sky-600 to-blue-900 rounded-full text-white px-6"
-                  variant="outline"
                 >
                   Get A Quote <PhoneCall className="text-blue-50 w-4 h-4" />
                 </Link>

@@ -46,13 +46,13 @@ export function OgImageSection() {
       case 0:
         return (
           <div className="flex items-center justify-center">
-            <FaWhatsapp className="w-24 h-24 text-[#25D366] cursor-pointer" onClick={handleWhatsappClick} />
+            <FaWhatsapp className="w-16 h-16 hover:text-green-200 text-[#25D366] cursor-pointer" onClick={handleWhatsappClick} />
           </div>
         );
       case 1:
         return (
           <div className="flex items-center justify-center">
-            <FiPhoneCall className="w-20 h-20 text-blue-200 cursor-pointer" onClick={handlePhoneClick} />
+            <FiPhoneCall className="w-16 h-16 text-blue-200 hover:text-blue-600 cursor-pointer" onClick={handlePhoneClick} />
           </div>
         );
       default:
@@ -88,6 +88,7 @@ export function OgImageSection() {
 
   return (
     <div className="flex flex-col items-center pt-4 ">
+        <p className="mb-1 font-bold font-sm">Contact Us</p>
       <div className="flex space-x-1 border border-none rounded-[8px] cursor-pointer bg-gradient-to-b from-blue-900 to-gray-700  px-[3px] py-[3.2px] shadow-inner-shadow">
         {tabs.map((tab, i) => (
           <button
@@ -101,7 +102,7 @@ export function OgImageSection() {
             {activeTab === tab.id && (
               <motion.span
                 layoutId="family-bubble"
-                className="absolute inset-0 z-10 bg-blue-50  mix-blend-difference shadow-inner-shadow"
+                className="absolute inset-0 z-10 text-white bg-gradient-to-b from-green-200 to-blue-200  mix-blend-difference shadow-inner-shadow"
                 style={{ borderRadius: 5 }}
                 transition={{ type: "spring", bounce: 0.19, duration: 0.4 }}
               />

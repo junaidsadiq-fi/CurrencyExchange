@@ -2,8 +2,15 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
-// Create the context
-const CurrencyContext = createContext({});
+// Define the Currency type
+type Currency = {
+  name: string;
+  img: string;
+  rate: string;
+};
+
+// Create the context with an initial empty array of Currency
+const CurrencyContext = createContext<Currency[]>([]);
 
 // Provider component
 export const CurrencyProvider = ({ children }: { children: React.ReactNode }) => {
@@ -23,7 +30,7 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
         );
         console.log('API Response Data:', response.data);
         const rates = response.data.data;
-        const initialCurrencies = [
+        const initialCurrencies: Omit<Currency, 'rate'>[] = [
           {
             name: 'USD',
             img: '/images/flags/Americas/Svg/United States-Circle.svg',
@@ -37,24 +44,12 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
             img: '/images/flags/Europe/Svg/United Kingdom-Circle.svg',
           },
           {
-            name: 'RYL',
+            name: 'SAR',
             img: '/images/flags/Asia/Svg/Saudi Arabia-Circle.svg',
           },
           {
-            name: 'DNR',
+            name: 'AED',
             img: '/images/flags/Asia/Svg/United Arab Emirates-Circle.svg',
-          },
-          {
-            name: 'YEN',
-            img: '/images/flags/Asia/Svg/Japan-Circle.svg',
-          },
-          {
-            name: 'INR',
-            img: '/images/flags/Asia/Svg/India-Circle.svg',
-          },
-          {
-            name: 'CNY',
-            img: '/images/flags/Asia/Svg/China-Circle.svg',
           },
           {
             name: 'AUD',
@@ -63,6 +58,22 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
           {
             name: 'CAD',
             img: '/images/flags/Americas/Svg/Canada-Circle.svg',
+          },
+          {
+            name: 'JPY',
+            img: '/images/flags/Asia/Svg/Japan-Circle.svg',
+          },
+          {
+            name: 'TRY',
+            img: '/images/flags/Asia/Svg/Turkey-Circle.svg',
+          },
+          {
+            name: 'INR',
+            img: '/images/flags/Asia/Svg/India-Circle.svg',
+          },
+          {
+            name: 'CNY',
+            img: '/images/flags/Asia/Svg/China-Circle.svg',
           },
           {
             name: 'NZD',
@@ -87,14 +98,6 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
           {
             name: 'RUB',
             img: '/images/flags/Asia/Svg/Russia-Circle.svg',
-          },
-          {
-            name: 'TRY',
-            img: '/images/flags/Asia/Svg/Turkey-Circle.svg',
-          },
-          {
-            name: 'AED',
-            img: '/images/flags/Asia/Svg/United Arab Emirates-Circle.svg',
           },
         ];
 
