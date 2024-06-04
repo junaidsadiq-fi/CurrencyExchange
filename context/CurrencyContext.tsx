@@ -23,7 +23,9 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
           'https://api.currencyapi.com/v3/latest',
           {
             params: {
-              apikey: 'cur_live_7U2crTn9NMvMG2FiJDL1Nvy88oNWCPao4pluKhgN',
+              //new api cur_live_ZwyeIdDOcO3JnMS4JaNwnqTZRtNkh3k5iAgLzUUb
+              // previous ur_live_7U2crTn9NMvMG2FiJDL1Nvy88oNWCPao4pluKhgN 
+              apikey: 'cur_live_ZwyeIdDOcO3JnMS4JaNwnqTZRtNkh3k5iAgLzUUb',
               base_currency: 'PKR',
             },
           }

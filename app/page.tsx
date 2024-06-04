@@ -30,9 +30,9 @@ export default function Home() {
       <WhatsappButton/>
       <VisitSection />
      {/*  <FeaturesBlock/> */}
-      <div className="mx-16 my-8">
+     {/*  <div className="mx-16 my-8">
       <Bento/>
-      </div>
+      </div> */}
     </div>
   );
 }
