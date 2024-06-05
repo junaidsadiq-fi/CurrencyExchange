@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { WhatsappButton } from "@/components/WhatsappButton";
 /* import Navbar from "@/components/Navbar";
 import {Footer} from "@/components/Footer" */
 const fontSans = FontSans({
@@ -45,6 +46,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <WhatsappButton />
             <Footer />
           </ThemeProvider>
         </CurrencyProvider>

@@ -98,7 +98,7 @@ export function Bento() {
             <AiFillDollarCircle size={210} />
           </OrbitingCircles>
           <OrbitingCircles
-            className="h-[30px] w-[30px] border-none border-blue-800 border-opacity-50 bg-transparent"
+            className="h-[30px] w-[30px] border-none border-opacity-50 bg-transparent"
             duration={20}
             delay={10}
             radius={80}
@@ -149,7 +149,7 @@ export function Bento() {
             >
               <div className="flex flex-row items-center gap-2">
                 <div className="flex gap-2 justify-between">
-                  <figcaption className="flex text-sm font-medium dark:text-white">
+                  <figcaption className="flex text-sm font-bold dark:text-white">
                     {f.name}
                     {/* Add the arrow icon here */}
                    

@@ -23,74 +23,96 @@ const Navbar = () => {
         </SheetTrigger>
         <SheetContent className="opacity-[1] bg-white py-2" side="right">
           <Link href="/">
-            <Image 
-              src='/images/logo.png'
-              alt="logo"
-              width={150}
-              height={150}
-            />
+            <Image src="/images/logo.png" alt="logo" width={150} height={150} />
             <span className="sr-only">Money Exchange</span>
           </Link>
           <div className="grid gap-2 py-2">
-            <Link className="flex w-full items-center py-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 text-lg font-semibold" href="/">
+            <Link
+              className="flex w-full items-center py-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 text-lg font-semibold"
+              href="/"
+            >
               Home
             </Link>
-            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/services">
+            <Link
+              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              href="/services"
+            >
               Services
             </Link>
-            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/about">
-              About
-            </Link>
-            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/contactus">
+
+            <Link
+              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              href="/contact-us"
+            >
               Contact
             </Link>
-            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/locations">
+            <Link
+              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              href="/locations"
+            >
               Locations
+            </Link>
+            <Link
+              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              href="/about"
+            >
+              About
             </Link>
           </div>
         </SheetContent>
       </Sheet>
       <Link className="mr-4 hidden lg:flex" href="/">
-        <Image 
-          src='/images/logo.png'
-          alt="logo"
-          width={150}
-          height={150}
-        />
+        <Image src="/images/logo.png" alt="logo" width={150} height={150} />
         <span className="sr-only">Money</span>
       </Link>
       <div className="flex w-full justify-center">
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900  focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
+              <Link
+                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900  focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                href="/"
+              >
                 Home
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
+              <Link
+                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                href="/services"
+              >
                 Services
               </Link>
             </NavigationMenuLink>
+
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900  focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
-                About
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contactus">
+              <Link
+                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                href="/contact-us"
+              >
                 Contact
               </Link>
             </NavigationMenuLink>
-          <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/locations">
+            <NavigationMenuLink asChild>
+              <Link
+                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                href="/locations"
+              >
                 Locations
               </Link>
             </NavigationMenuLink>
           </NavigationMenuList>
+          <NavigationMenuLink asChild>
+            <Link
+              className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900  focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+              href="/about"
+            >
+              About
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenu>
       </div>
-      <Link href='/location' className="ml-auto">
+      <Link href="#visit" className="ml-auto">
         <Button className="py-2 rounded-full font-bold bg-gradient-to-b from-sky-600 to-blue-900 focus:text-white hover:bg-blue-100 text-white hover:text-white">
           Visit Today
         </Button>

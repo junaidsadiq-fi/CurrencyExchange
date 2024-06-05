@@ -26,7 +26,7 @@ export default function Home() {
       <CurrencyMovingList />
       <ForexConverter />
       <MarqueeSection />
-      <WhatsappButton />
+ {/*      <WhatsappButton /> */}
       <VisitSection />
       <FaqSection />
       <SubscribeSection />
