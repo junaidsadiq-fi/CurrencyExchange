@@ -2,11 +2,46 @@ import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Map from "@/components/ui/Map";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa"; // Import react-icons
 
-const page = () => (
+const locations = [
+  {
+    name: "Viale Antonio Gramsci 97",
+    address: "City Modena cap 41122",
+    phone: "059454430",
+    whatsapp: "3276688805",
+  },
+  {
+    name: "Viale Guido Mazzoni 31/33",
+    address: "City Modena cap 41121",
+    phone: "0597874540",
+    whatsapp: "3511699193",
+  },
+  {
+    name: "Piazza della libertà 37",
+    address: "Sassuolo cap 41049",
+    phone: "0536583874",
+    whatsapp: "3401094619",
+  },
+  {
+    name: "Viale Guido Mazzoni 31/33",
+    address: "City Modena cap 41121",
+    phone: "0597874540",
+    whatsapp: "3511699193",
+  },
+  {
+    name: "Piazza della libertà 37",
+    address: "Sassuolo cap 41049",
+    phone: "0536583874",
+    whatsapp: "3401094619",
+  },
+
+];
+
+const Page = () => (
   <div className="w-full my-16 py-20 lg:py-20">
     <div className="container mx-auto">
-      <div className="grid container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2 ">
+      <div className="grid container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2">
         <div className="flex gap-10 flex-col">
           <div className="flex gap-4 flex-col">
             <div>
@@ -70,72 +105,33 @@ const page = () => (
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
-            {" "}
-            <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-              <Image
-                src="/images/store.png"
-                alt="branch"
-                width={200}
-                height={200}
-                className="object-cover rounded-xl mb-2"
-              />
-              <h3 className="text-sm tracking-tight text-gray-600">Branch Location</h3>{" "}
-              <p className="text-muted-foreground text-sm">
-                Viale Antonio Gramsci 97 Modena 41122 ITALY
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-              <Image
-                src="/images/store.png"
-                alt="branch"
-                width={200}
-                height={200}
-                className="object-cover rounded-xl mb-2"
-              />
-              <h3 className="text-sm tracking-tight text-gray-600">Branch Location</h3>{" "}
-              <p className="text-muted-foreground text-sm">
-                Viale Antonio Gramsci 97 Modena 41122 ITALY
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-              <Image
-                src="/images/store.png"
-                alt="branch"
-                width={200}
-                height={200}
-                className="object-cover rounded-xl mb-2"
-              />
-              <h3 className="text-sm tracking-tight text-gray-600">Branch Location</h3>{" "}
-              <p className="text-muted-foreground text-sm">
-                Viale Antonio Gramsci 97 Modena 41122 ITALY
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-              <Image
-                src="/images/store.png"
-                alt="branch"
-                width={200}
-                height={200}
-                className="object-cover rounded-xl mb-2"
-              />
-              <h3 className="text-sm tracking-tight text-gray-600">Branch Location</h3>{" "}
-              <p className="text-muted-foreground text-sm">
-                Viale Antonio Gramsci 97 Modena 41122 ITALY
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-              <Image
-                src="/store.png"
-                alt="branch"
-                width={200}
-                height={200}
-                className="object-cover rounded-xl mb-2"
-              />
-              <h3 className="text-sm tracking-tight text-gray-600">Branch Location</h3>{" "}
-              <p className="text-muted-foreground text-sm">
-                Viale Antonio Gramsci 97 Modena 41122 ITALY
-              </p>
-            </div>
+            {locations.map((location, index) => (
+              <div key={index} className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
+                <Image
+                  src="/images/store.png"
+                  alt="branch"
+                  width={200}
+                  height={200}
+                  className="object-cover rounded-xl mb-2"
+                />
+                <h3 className="text-lg font-bold tracking-tight">
+                  {location.name}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {location.address}
+                </p>
+                <div className="flex gap-6 items-center justify-between">                
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <FaPhoneAlt className="w-4 h-4" />
+                  <span>{location.phone}</span>
+                </div>
+                <div className="flex items-center  gap-2 text-sm text-muted-foreground">
+                  <FaWhatsapp className="w-4 h-4" />
+                  <span>{location.whatsapp}</span>
+                </div>
+              </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -143,4 +139,4 @@ const page = () => (
   </div>
 );
 
-export default page;
+export default Page;

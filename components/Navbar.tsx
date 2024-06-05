@@ -13,7 +13,7 @@ import { CiMenuFries } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <header className="flex fixed top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-gray-950/80 shadow-sm shrink-0 bg-gray-900 py-2 items-center px-4 md:px-6 lg:px-8">
+    <header className="flex fixed top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-gray-950/80 shadow-sm shrink-0 bg-gray-900 py-2 lg:py-1 items-center px-4 md:px-6 lg:px-8">
       <Sheet>
         <SheetTrigger asChild>
           <Button className="lg:hidden" size="icon">
@@ -62,7 +62,7 @@ const Navbar = () => {
         </SheetContent>
       </Sheet>
       <Link className="mr-4 hidden lg:flex" href="/">
-        <Image src="/images/logo.png" alt="logo" width={150} height={150} />
+        <Image src="/images/logo.png" alt="logo" width={130} height={130} />
         <span className="sr-only">Money</span>
       </Link>
       <div className="flex w-full justify-center">

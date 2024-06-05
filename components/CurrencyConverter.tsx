@@ -1,11 +1,7 @@
-import {
-  TableHead,
-  TableRow,
-  TableHeader,
-  TableCell,
-  TableBody,
-  Table,
-} from "@/components/ui/table";
+"use client";
+import { useCurrencies } from "@/context/CurrencyContext";
+import React, { useCallback, useEffect, useState } from "react";
+import { Card, CardContent, CardHeader } from "./ui/card";
 import { Label } from "@/components/ui/label";
 import {
   SelectValue,
@@ -16,82 +12,10 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import DotPattern from "./ui/dot-pattern";
-import { cn } from "@/lib/utils";
-import { useState, useEffect, useCallback } from "react";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { useCurrencies } from "@/context/CurrencyContext";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-export default function Component() {
-  return (
-    <section className="w-full max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-6 relative">
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
-        )}
-      />
-      <div className="grid grid-cols-none lg:grid-cols-2 md:grid-cols-2 gap-8 relative z-10">
-        <TableContainer />
-        <ConverterContainer />
-      </div>
-    </section>
-  );
-}
-
-
-const TableContainer = () => {
-  const currencies = useCurrencies();
-
-  const convertedCurrencies = currencies.map((currency) => ({
-    ...currency,
-    rate: Number(currency.rate),
-  }));
-
-  return (
-    <div
-      className={cn(
-        "border rounded-[20px] overflow-hidden",
-        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.5)]",
-        "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-      )}
-    >
-      <Table id="converter" className="">
-        <TableHeader className="bg-gradient-to-b from-sky-600 to-blue-900">
-          <TableRow className=" h-16">
-            <TableHead className="font-poppins text-white text-xl">
-              Currency
-            </TableHead>
-            <TableHead className="text-right font-poppins text-white text-xl">
-              Exchange Rate (in PKR)
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {convertedCurrencies.map((currency) => (
-            <TableRow key={currency.name}>
-              <TableCell className="flex items-center space-x-2">
-                <Image
-                  src={currency.img}
-                  alt={`${currency.name} flag`}
-                  width="30"
-                  height="20"
-                />
-                <span className="text-xl">{currency.name}</span>
-              </TableCell>
-              <TableCell className="text-right text-xl font-bold">
-                {currency.rate}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
-  );
-};
-
-
-function ConverterContainer() {
+function CurrencyConverter({ className }: { className?: string }) {
   const [activeTool, setActiveTool] = useState("converter");
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("USD");
@@ -102,17 +26,22 @@ function ConverterContainer() {
   const [transferTotal, setTransferTotal] = useState(105);
   const currencies = useCurrencies();
 
-  const getCurrencyRate = useCallback((from, to) => {
-    const fromCurrencyObj = currencies.find((currency) => currency.name === from);
-    const toCurrencyObj = currencies.find((currency) => currency.name === to);
+  const getCurrencyRate = useCallback(
+    (from, to) => {
+      const fromCurrencyObj = currencies.find(
+        (currency) => currency.name === from
+      );
+      const toCurrencyObj = currencies.find((currency) => currency.name === to);
 
-    if (fromCurrencyObj && toCurrencyObj) {
-      const fromRate = parseFloat(fromCurrencyObj.rate) || 1;
-      const toRate = parseFloat(toCurrencyObj.rate) || 1;
-      return toRate / fromRate;
-    }
-    return 1; // Fallback rate if currencies are not found
-  }, [currencies]);
+      if (fromCurrencyObj && toCurrencyObj) {
+        const fromRate = parseFloat(fromCurrencyObj.rate) || 1;
+        const toRate = parseFloat(toCurrencyObj.rate) || 1;
+        return toRate / fromRate;
+      }
+      return 1; // Fallback rate if currencies are not found
+    },
+    [currencies]
+  );
 
   const handleToolChange = (tool) => {
     setActiveTool(tool);
@@ -127,11 +56,14 @@ function ConverterContainer() {
     calculateConversion(amount, fromCurrency, toCurrency);
   };
 
-  const calculateConversion = useCallback((value, from, to) => {
-    const rate = getCurrencyRate(from, to);
-    const convertedValue = value * rate;
-    setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
-  }, [getCurrencyRate]);
+  const calculateConversion = useCallback(
+    (value, from, to) => {
+      const rate = getCurrencyRate(from, to);
+      const convertedValue = value * rate;
+      setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
+    },
+    [getCurrencyRate]
+  );
 
   const calculateTransfer = (amount, fee) => {
     const total = amount + fee;
@@ -146,12 +78,25 @@ function ConverterContainer() {
     } else {
       calculateTransfer(transferAmount, transferFee);
     }
-  }, [activeTool, amount, calculateConversion, fromCurrency, toCurrency, transferAmount, transferFee]);
+  }, [
+    activeTool,
+    amount,
+    calculateConversion,
+    fromCurrency,
+    toCurrency,
+    transferAmount,
+    transferFee,
+  ]);
 
   return (
-    <Card className="w-full bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
+    <Card
+      className={cn(
+        "w-full bg-white max-h-[29rem] max-w-md rounded-3xl shadow-2xl",
+        className
+      )}
+    >
       <CardHeader>
-        <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-4 font-poppins text-xl text-white">
+        <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-2 font-poppins text-xl text-white">
           Currency Converter
         </div>
       </CardHeader>
@@ -166,11 +111,16 @@ function ConverterContainer() {
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-400">
+              <SelectContent className="bg-gray-200">
                 {currencies.map(({ name, img }) => (
                   <SelectItem key={name} value={name}>
                     <div className="flex items-center">
-                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
+                      <Image
+                        src={img}
+                        alt={`${name} flag`}
+                        width={20}
+                        height={20}
+                      />
                       <span className="ml-2">{name}</span>
                     </div>
                   </SelectItem>
@@ -191,7 +141,12 @@ function ConverterContainer() {
                 {currencies.map(({ name, img }) => (
                   <SelectItem key={name} value={name}>
                     <div className="flex items-center">
-                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
+                      <Image
+                        src={img}
+                        alt={`${name} flag`}
+                        width={20}
+                        height={20}
+                      />
                       <span className="ml-2">{name}</span>
                     </div>
                   </SelectItem>
@@ -200,7 +155,7 @@ function ConverterContainer() {
             </Select>
           </div>
         </div>
-        <div className="mt-4">
+        <div className="">
           <Label htmlFor="amount">Amount</Label>
           <Input
             id="amount"
@@ -214,7 +169,9 @@ function ConverterContainer() {
         <div className="mt-4 flex justify-end">
           <Button
             className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
-            onClick={() => calculateConversion(amount, fromCurrency, toCurrency)}
+            onClick={() =>
+              calculateConversion(amount, fromCurrency, toCurrency)
+            }
           >
             Convert
           </Button>
@@ -234,3 +191,4 @@ function ConverterContainer() {
   );
 }
 
+export default CurrencyConverter;
