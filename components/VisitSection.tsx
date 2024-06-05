@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
+import Map from "./ui/Map";
 
 function VisitSection() {
   return (
@@ -30,7 +31,7 @@ function VisitSection() {
                 <Badge variant="outline">find us</Badge>
               </div>
               <div className="flex gap-2 flex-col">
-                <h2 className="text-6xl font-extrabold tracking-tigh lg:text-9xl tracking-tighter max-w-xl text-left font-regular">
+                <h2 className="text-6xl font-extrabold tracking-tigh lg:text-8xl tracking-tighter max-w-xl text-left font-regular">
                   Find our branches
                 </h2>
                 <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
@@ -38,19 +39,20 @@ function VisitSection() {
                 </p>
               </div>
             </div>
-            <Link href="/locate" className="flex items-center justify-around w-32 bg-gradient-to-b from-sky-600 to-blue-900 rounded-full px-4 py-2">
+            <Link href="/locations" className="flex items-center justify-around w-32 bg-gradient-to-b from-sky-600 to-blue-900 rounded-full px-4 py-2">
             <FaLocationArrow className="text-white w-4 h-4" />
             <span className="text-white">Locate Us</span>
           </Link>
           </div>
-          <div className="rounded-md aspect-square">
-            <Image
+          <div className="rounded-md pt-12 aspect-square">
+            <Map />
+           {/*  <Image
               src="/map.jpg"
               alt="Locate Us"
               width={1000}
               height={1000}
               className="rounded-md lg:mt-40 opacity-90"
-            />
+            /> */}
           </div>
          
         </div>

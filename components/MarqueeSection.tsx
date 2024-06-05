@@ -127,8 +127,8 @@ const ReviewCard = ({
 /* bg-gradient-to-b from-sky-600 to-blue-900 */
 const MarqueeSection = () => {
   return (
-    <div className="relative  bg-gradient-to-b from-sky-600 to-blue-900 backdrop-blur-md flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
-        <h2 className="text-5xl font-extrabold tracking-tight text-white mb-4">Our Partners</h2>
+    <div className="relative  bg-gradient-to-b from-sky-50 to-blue-700 backdrop-blur-md flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
+        <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">Our Partners</h2>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

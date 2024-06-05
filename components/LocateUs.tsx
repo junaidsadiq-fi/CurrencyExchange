@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import Map from "./ui/Map";
 
 const LocateUs = () => (
   <div className="w-full py-20 lg:py-20">
@@ -16,7 +17,7 @@ const LocateUs = () => (
                 Find our office
               </h2>
               <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                We are rapidly expanding our branches across italy and europe.
+                We are rapidly expanding our branches across Italy and europe.
               </p>
             </div>
           </div>
@@ -59,6 +60,7 @@ const LocateUs = () => (
             className="rounded-md"
           />
         </div>
+        <Map />
       </div>
     </div>
   </div>

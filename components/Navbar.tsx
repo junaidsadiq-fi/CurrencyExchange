@@ -32,17 +32,20 @@ const Navbar = () => {
             <span className="sr-only">Money Exchange</span>
           </Link>
           <div className="grid gap-2 py-2">
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/">
+            <Link className="flex w-full items-center py-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 text-lg font-semibold" href="/">
               Home
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/services">
+            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/services">
               Services
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/about_us">
+            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/about">
               About
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/contact_us">
+            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/contactus">
               Contact
+            </Link>
+            <Link className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold" href="/locations">
+              Locations
             </Link>
           </div>
         </SheetContent>
@@ -60,23 +63,28 @@ const Navbar = () => {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900  focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900  focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
                 Home
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
                 Services
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900  focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
                 About
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contact">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contactus">
                 Contact
+              </Link>
+            </NavigationMenuLink>
+          <NavigationMenuLink asChild>
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/locations">
+                Locations
               </Link>
             </NavigationMenuLink>
           </NavigationMenuList>

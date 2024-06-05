@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
 import LinearGradient from "./ui/linear-gradient";
 import Image from "next/image";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { BsInstagram } from "react-icons/bs";
 
 export const Footer = () => {
   const navigationItems = [
@@ -64,18 +69,28 @@ export const Footer = () => {
       ],
     },
   ];
-
+  const handleWhatsappClick = () => {
+    const phoneNumber = "+393276688805";
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
   return (
-    <div className="w-full bg-gray-50 relative py-20 lg:py-20 bg-foreground text-background">
-     {/*  <LinearGradient/> */}
-    {/*  <RadialGradient/> */}
+    <div className="w-full bg-gray-50 relative pt-10 bg-foreground text-background">
+      {/*  <LinearGradient/> */}
+      {/*  <RadialGradient/> */}
       <div className="container z-10 mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="flex gap-8 flex-col items-start">
             <div className="flex gap-2 flex-col">
-              <Image src='/images/logo.png' width='350' height='350' alt="logo"  />
+              <Image
+                src="/images/logo.png"
+                width="350"
+                height="350"
+                alt="logo"
+              />
               <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-              TELEFONOPIÚ Exchange Company is a leading currency exchange and money transfer company based in Italy with five brnaches in italy so far.
+                TELEFONOPIÚ Exchange Company is a leading currency exchange and
+                money transfer company based in Italy with five branches in Ialy
+                so far and continuously expnadning.
               </p>
             </div>
             <div className="flex gap-20 flex-row">
@@ -87,7 +102,6 @@ export const Footer = () => {
               <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
                 <Link href="/">Terms & Conditions</Link>
                 <Link href="/">File A Complaint</Link>
-                <Link href="/">AML-KYC-CFT Policy</Link>
               </div>
             </div>
           </div>
@@ -126,6 +140,28 @@ export const Footer = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+      <div className="container py-8 mx-auto">
+        <hr /> {/* Separator line */}
+        <div className="flex justify-between items-center pt-2">
+          <div>
+            <p>Copyrights © 2024 TELEFONOPIÚ. All rights reserved.</p>
+          </div>
+          <div className="flex items-center pt-2 justify-center">
+            <Link href="https.twitter.com" className="mx-2">
+              <FaXTwitter className="h-6 w-6" />
+            </Link>
+            <Link href="https.facebook.com" className="mx-2">
+              <FaFacebook className="h-6 w-6" />
+            </Link>
+            <div onClick={handleWhatsappClick} className="mx-2">
+              <IoLogoWhatsapp className="h-6 w-6" />
+            </div>
+            <Link href="https.Instagram.com" className="mx-2">
+              <BsInstagram className="h-6 w-6" />
+            </Link>
           </div>
         </div>
       </div>
