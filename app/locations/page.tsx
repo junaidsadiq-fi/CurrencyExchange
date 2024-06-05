@@ -125,7 +125,7 @@ const page = () => (
             </div>
             <div className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
               <Image
-                src="/images/store.png"
+                src="/store.png"
                 alt="branch"
                 width={200}
                 height={200}

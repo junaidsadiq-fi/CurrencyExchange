@@ -76,7 +76,7 @@ const reviews2 = [
     name: "Ryan Air",
     username: "@ryanair",
     body: "Low fares. Made simple.",
-    img: "/images/PaymentPartners/RyanAir.png",
+    img: "/images/partners/ryan.png",
   },
   {
     name: "Turkish Airline",
