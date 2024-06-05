@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+const currency_api = process.env.NEXT_PUBLIC_CURRENCY_API_KEY;
 // Define the Currency type
 type Currency = {
   name: string;
@@ -22,10 +23,8 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
         const response = await axios.get(
           'https://api.currencyapi.com/v3/latest',
           {
-            params: {
-              //new api cur_live_ZwyeIdDOcO3JnMS4JaNwnqTZRtNkh3k5iAgLzUUb
-              // previous ur_live_7U2crTn9NMvMG2FiJDL1Nvy88oNWCPao4pluKhgN 
-              apikey: 'cur_live_ZwyeIdDOcO3JnMS4JaNwnqTZRtNkh3k5iAgLzUUb',
+            params: { 
+              apikey: currency_api,
               base_currency: 'PKR',
             },
           }

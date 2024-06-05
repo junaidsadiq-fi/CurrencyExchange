@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoianVuYWlkc2FkaXEiLCJhIjoiY2xwb3BqYmE2MHVycDJycXliNmY5bWc1NSJ9.E7gPZkBMMyb7Et2JAA7arg";
+const mapbox_api = process.env.NEXT_PUBLIC_MAPBOX_API_KEY ?? '';
+mapboxgl.accessToken = mapbox_api;
 
 const locations = [
   /*  Viale Antonio Gramsci 97 Modena 41122 ITALY */
