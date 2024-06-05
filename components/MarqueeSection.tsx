@@ -45,6 +45,12 @@ const reviews = [
     body: "Everywhere you go",
     img: "/images/partners/mtn.png",
   },
+  {
+    name: "Connect Plus",
+    username: "@connectplus",
+    body: "Connecting you to the world",
+    img: "/images/partners/ConnectMoney.png",
+  },
 ];
 
 const reviews2 = [
@@ -78,17 +84,11 @@ const reviews2 = [
     body: "Widen your world",
     img: "/images/PaymentPartners/TurkishAirline.png",
   },
-  {
-    name: "Connect Plus",
-    username: "@connectplus",
-    body: "Connecting you to the world",
-    img: "/images/partners/ConnectMoney.png",
-  },
 ];
 
 
-const firstRow = reviews2;
-const secondRow = reviews;
+const firstRow = reviews;
+const secondRow = reviews2;
 
 const ReviewCard = ({
   img,
@@ -112,7 +112,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <Image className="rounded-full" width="52" height="52" alt="" src={img} />
+        <Image className="rounded-full" width="52" height="52"  alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -124,11 +124,11 @@ const ReviewCard = ({
     </figure>
   );
 };
-
+/* bg-gradient-to-b from-sky-600 to-blue-900 */
 const MarqueeSection = () => {
   return (
-    <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
-        <h2 className="font-bold text-5xl text-white mb-4">Our Partners</h2>
+    <div className="relative  bg-gradient-to-b from-sky-600 to-blue-900 backdrop-blur-md flex h-full my-16 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
+        <h2 className="text-5xl font-extrabold tracking-tight text-white mb-4">Our Partners</h2>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

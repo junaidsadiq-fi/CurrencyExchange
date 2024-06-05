@@ -17,22 +17,20 @@ import CurrencyMovingList from "@/components/CurrencyMovingList";
 import LocateUs from "@/components/LocateUs";
 import { WhatsappButton } from "@/components/WhatsappButton";
 import { FeaturesBlock } from "@/components/FeaturesBlock";
-
+import SubscribeSection from "@/components/SubscribeSection";
+import FaqSection from "@/components/FaqSection";
 export default function Home() {
   return (
     <div className="w-full h-full overflow-hidden">
       <Hero />
-      <CurrencyMovingList/>
+      <CurrencyMovingList />
       <ForexConverter />
-      <div className="">
       <MarqueeSection />
-      </div>
-      <WhatsappButton/>
+      <WhatsappButton />
       <VisitSection />
-     {/*  <FeaturesBlock/> */}
-     {/*  <div className="mx-16 my-8">
-      <Bento/>
-      </div> */}
+      <FaqSection />
+      <SubscribeSection />
+      {/*  <FeaturesBlock/> */}
     </div>
   );
 }

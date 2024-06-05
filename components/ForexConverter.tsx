@@ -39,7 +39,7 @@ export default function Component() {
   );
 }
 
-const staticCurrencies = {
+/* const staticCurrencies = {
   USD: "United States Dollar (USD)",
   EUR: "Euro (EUR)",
   JPY: "Japanese Yen (JPY)",
@@ -55,7 +55,7 @@ const staticCurrencies = {
   ZAR: "South African Rand (ZAR)",
   MXN: "Mexican Peso (MXN)",
   BRL: "Brazilian Real (BRL)",
-};
+}; */
 
 const TableContainer = () => {
   const currencies = useCurrencies();
@@ -107,6 +107,26 @@ const TableContainer = () => {
   );
 };
 
+const initialCurrencies = [
+  { name: 'USD', img: '/images/flags/United-States-Circle.svg' },
+  { name: 'EUR', img: '/images/flags/European-Union-Circle.svg' },
+  { name: 'GBP', img: '/images/flags/United-Kingdom-Circle.svg' },
+  { name: 'SAR', img: '/images/flags/Saudi-Arabia-Circle.svg' },
+  { name: 'AED', img: '/images/flags/United-Arab-Emirates-Circle.svg' },
+  { name: 'AUD', img: '/images/flags/Australia-Circle.svg' },
+  { name: 'CAD', img: '/images/flags/Canada-Circle.svg' },
+  { name: 'JPY', img: '/images/flags/Japan-Circle.svg' },
+  { name: 'TRY', img: '/images/flags/Turkey-Circle.svg' },
+  { name: 'INR', img: '/images/flags/India-Circle.svg' },
+  { name: 'CNY', img: '/images/flags/China-Circle.svg' },
+  { name: 'NZD', img: '/images/flags/New-Zealand-Circle.svg' },
+  { name: 'ZAR', img: '/images/flags/South-Africa-Circle.svg' },
+  { name: 'BRL', img: '/images/flags/Brazil-Circle.svg' },
+  { name: 'ARS', img: '/images/flags/Argentina-Circle.svg' },
+  { name: 'MXN', img: '/images/flags/Mexico-Circle.svg' },
+  { name: 'RUB', img: '/images/flags/Russia-Circle.svg' },
+];
+
 function ConverterContainer() {
   const [activeTool, setActiveTool] = useState("converter");
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -118,34 +138,38 @@ function ConverterContainer() {
   const [transferTotal, setTransferTotal] = useState(105);
   const currencies = useCurrencies();
 
-  const getCurrencyRate = useCallback((from: string, to: string) => {
-    const fromRate =
-      Number(currencies.find((currency) => currency.name === from)?.rate) || 1;
-    const toRate =
-      Number(currencies.find((currency) => currency.name === to)?.rate) || 1;
-    return toRate / fromRate;
+  const getCurrencyRate = useCallback((from, to) => {
+    const fromCurrencyObj = currencies.find((currency) => currency.name === from);
+    const toCurrencyObj = currencies.find((currency) => currency.name === to);
+
+    if (fromCurrencyObj && toCurrencyObj) {
+      const fromRate = parseFloat(fromCurrencyObj.rate) || 1;
+      const toRate = parseFloat(toCurrencyObj.rate) || 1;
+      return toRate / fromRate;
+    }
+    return 1; // Fallback rate if currencies are not found
   }, [currencies]);
 
-  const handleToolChange = (tool: string) => {
+  const handleToolChange = (tool) => {
     setActiveTool(tool);
   };
 
-  const handleCurrencyChange = (currency: string, type: string) => {
+  const handleCurrencyChange = (currency, type) => {
     if (type === "from") {
       setFromCurrency(currency);
     } else {
       setToCurrency(currency);
     }
-    calculateConversion(amount, currency, toCurrency);
+    calculateConversion(amount, fromCurrency, toCurrency);
   };
 
-  const calculateConversion = useCallback((value: number, from: string, to: string) => {
+  const calculateConversion = useCallback((value, from, to) => {
     const rate = getCurrencyRate(from, to);
     const convertedValue = value * rate;
     setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
   }, [getCurrencyRate]);
 
-  const calculateTransfer = (amount: number, fee: number) => {
+  const calculateTransfer = (amount, fee) => {
     const total = amount + fee;
     setTransferAmount(amount);
     setTransferFee(fee);
@@ -161,7 +185,7 @@ function ConverterContainer() {
   }, [activeTool, amount, calculateConversion, fromCurrency, toCurrency, transferAmount, transferFee]);
 
   return (
-    <Card className="w-full md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
+    <Card className="w-full bg-white max-h-[31rem] max-w-md rounded-3xl p-2 shadow-2xl">
       <CardHeader>
         <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-4 font-poppins text-xl text-white">
           Currency Converter
@@ -179,9 +203,12 @@ function ConverterContainer() {
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
               <SelectContent className="bg-slate-400">
-                {Object.entries(staticCurrencies).map(([value, name]) => (
-                  <SelectItem key={value} value={value}>
-                    {name}
+                {currencies.map(({ name, img }) => (
+                  <SelectItem key={name} value={name}>
+                    <div className="flex items-center">
+                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
+                      <span className="ml-2">{name}</span>
+                    </div>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -196,10 +223,13 @@ function ConverterContainer() {
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-500 hover:bg-gray-900">
-                {Object.entries(staticCurrencies).map(([value, name]) => (
-                  <SelectItem key={value} value={value}>
-                    {name}
+              <SelectContent className="bg-gray-200">
+                {currencies.map(({ name, img }) => (
+                  <SelectItem key={name} value={name}>
+                    <div className="flex items-center">
+                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
+                      <span className="ml-2">{name}</span>
+                    </div>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -220,9 +250,7 @@ function ConverterContainer() {
         <div className="mt-4 flex justify-end">
           <Button
             className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
-            onClick={() =>
-              calculateConversion(amount, fromCurrency, toCurrency)
-            }
+            onClick={() => calculateConversion(amount, fromCurrency, toCurrency)}
           >
             Convert
           </Button>
@@ -241,3 +269,4 @@ function ConverterContainer() {
     </Card>
   );
 }
+

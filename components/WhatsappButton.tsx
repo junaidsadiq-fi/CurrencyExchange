@@ -10,8 +10,8 @@ import FamilyButton from "@/components/ui/FamilyButton";
 
 export function WhatsappButton() {
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <div className="absolute bottom-4 right-4">
+    <div className="fixed backdrop-blur-lg sm:max-w-8 md:max-w-12 lg:max-w-16 x:max-w-20 bottom-4 right-4 z-50">
+      <div className="absolute backdrop-blur-lg bottom-4 right-4">
         <FamilyButton>
           <OgImageSection />
         </FamilyButton>
@@ -45,7 +45,7 @@ export function OgImageSection() {
     switch (activeTab) {
       case 0:
         return (
-          <div className="flex items-center justify-center">
+          <div className="flex backdrop-blur-lg items-center justify-center">
             <FaWhatsapp className="w-16 h-16 hover:text-green-200 text-[#25D366] cursor-pointer" onClick={handleWhatsappClick} />
           </div>
         );

@@ -13,7 +13,7 @@ import { CiMenuFries } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <header className="flex h-full w-full shrink-0 items-center px-8 my-4 md:px-12 lg:px-16 ">
+    <header className="flex fixed top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-gray-950/80 shadow-sm shrink-0 bg-gray-900 py-2 items-center px-4 md:px-6 lg:px-8">
       <Sheet>
         <SheetTrigger asChild>
           <Button className="lg:hidden" size="icon">
@@ -26,8 +26,8 @@ const Navbar = () => {
             <Image 
               src='/images/logo.png'
               alt="logo"
-              width={190}
-              height={190}
+              width={150}
+              height={150}
             />
             <span className="sr-only">Money Exchange</span>
           </Link>
@@ -47,12 +47,12 @@ const Navbar = () => {
           </div>
         </SheetContent>
       </Sheet>
-      <Link className="mr-6 hidden lg:flex" href="/">
+      <Link className="mr-4 hidden lg:flex" href="/">
         <Image 
           src='/images/logo.png'
           alt="logo"
-          width={200}
-          height={200}
+          width={150}
+          height={150}
         />
         <span className="sr-only">Money</span>
       </Link>
@@ -60,31 +60,33 @@ const Navbar = () => {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900  focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/">
                 Home
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group  inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/services">
                 Services
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/about">
                 About
               </Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
-              <Link className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-xl font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contact">
+              <Link className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-blueish focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50" href="/contact">
                 Contact
               </Link>
             </NavigationMenuLink>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="ml-auto">
-        <Button className="py-4 rounded-full font-bold  bg-gradient-to-b from-sky-600 to-blue-900 focus:text-white hover:bg-blue-100 text-white hover:text-white">Get Started</Button>
-      </div>
+      <Link href='/location' className="ml-auto">
+        <Button className="py-2 rounded-full font-bold bg-gradient-to-b from-sky-600 to-blue-900 focus:text-white hover:bg-blue-100 text-white hover:text-white">
+          Visit Today
+        </Button>
+      </Link>
     </header>
   );
 };

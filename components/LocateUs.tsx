@@ -50,7 +50,7 @@ const LocateUs = () => (
             </div>
           </div>
         </div>
-        <div className="rounded-md aspect-square">
+        <div className="rounded-md">
           <Image
             src="/images/map.jpg"
             alt="Locate Us"
