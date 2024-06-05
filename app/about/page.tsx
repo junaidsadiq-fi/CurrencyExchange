@@ -29,7 +29,7 @@ const page = () => (
         </div>
         <div className="flex justify-center items-center">
           <div className="grid text-left grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 w-full gap-2">
-            <div className="flex gap-0 flex-col justify-between p-6 border rounded-lg bg-blue-50">
+            <div className="flex gap-0 flex-col justify-between p-6 border rounded-xl bg-blue-50">
               <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
               <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
                 5
@@ -39,7 +39,7 @@ const page = () => (
                 euprope.
               </p>
             </div>
-            <div className="flex gap-0 flex-col justify-between p-6 border rounded-md bg-green-50">
+            <div className="flex gap-0 flex-col justify-between p-6 border rounded-xl bg-green-50">
               <MoveDownLeft className="w-4 h-4 mb-10 text-destructive" />
               <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
                 20.105
@@ -48,7 +48,7 @@ const page = () => (
                 With same day money transfer and hundreds of happy customers.
               </p>
             </div>
-            <div className="flex gap-0 flex-col justify-between p-6 border rounded-md bg-red-50">
+            <div className="flex gap-0 flex-col justify-between p-6 border rounded-xl bg-red-50">
               <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
               <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
                 $523.520
@@ -60,7 +60,7 @@ const page = () => (
                 Monthly recurring revenue
               </p>
             </div>
-            <div className="flex gap-0 flex-col justify-between p-6 border rounded-md bg-purple-50">
+            <div className="flex gap-0 flex-col justify-between p-6 border rounded-xl bg-purple-50">
               <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
               <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
                 $1052
