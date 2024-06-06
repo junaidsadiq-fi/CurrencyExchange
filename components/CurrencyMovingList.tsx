@@ -23,15 +23,15 @@ const CurrencyCard = ({
   return (
     <figure
       className={cn(
-        "relative w-40 cursor-pointer border-white   overflow-hidden p-2"
+        "relative w-40 cursor-pointer border-white overflow-hidden px-2 lg:py-2"
       )}
     >
       <div className="flex flex-row items-center gap-2">
         <Image
-          className="rounded-full"
-          width="52"
-          height="52"
-          alt=""
+          className="rounded-full lg:w-12 lg:h-12  md:h-10 md:w-10 "
+          width="48"
+          height="48"
+          alt="country flag"
           src={img}
         />
         <div className="flex flex-col">
@@ -49,7 +49,7 @@ const CurrencyCard = ({
 const CurrencyMovingList = () => {
   const currencies = useCurrencies() as Currency[];
   return (
-    <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full my-12 w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-1 ">
+    <div className="relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full xl:my-12 sm:my-2 md:my-4 lg:my-6  w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-1 ">
       <Marquee pauseOnHover className="[--duration:40s]">
         {currencies.map((currency) => (
           <CurrencyCard key={currency.name} {...currency} />

@@ -10,6 +10,39 @@ import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
 import Map from "./ui/Map";
 
+const locations = [
+  {
+    name: "Viale Antonio Gramsci 97",
+    address: "City Modena cap 41122",
+    phone: "059454430",
+    whatsapp: "3276688805",
+  },
+  {
+    name: "Viale Guido Mazzoni 31/33",
+    address: "City Modena cap 41121",
+    phone: "0597874540",
+    whatsapp: "3511699193",
+  },
+  {
+    name: "Piazza della libertà 37",
+    address: "Sassuolo cap 41049",
+    phone: "0536583874",
+    whatsapp: "3401094619",
+  },
+  {
+    name: "Viale Guido Mazzoni 31/33",
+    address: "City Modena cap 41121",
+    phone: "0597874540",
+    whatsapp: "3511699193",
+  },
+  {
+    name: "Via Ciro Menotti 26",
+    address: "Carpi cap 41012",
+    phone: "3514304021",
+    whatsapp: "3401094619",
+  },
+];
+
 function VisitSection() {
   return (
     <div id="visit" className="w-full relative bg-white py-10 lg:py-20">
@@ -24,12 +57,9 @@ function VisitSection() {
         )}
       />
       <div className="container z-10 mx-auto">
-        <div className="grid border-[2px] border-grey-50 bg-white shadow-2xl rounded-xl container py-4 grid-cols-1 gap-8 items-center lg:grid-cols-2">
+      <div className="grid w-full bg-white rounded-xl container py-4 grid-cols-1 gap-16 items-center lg:grid-cols-2">
           <div className="flex gap-10 flex-col">
             <div className="flex gap-4 flex-col">
-              <div>
-                <Badge variant="outline">find us</Badge>
-              </div>
               <div className="flex gap-2 flex-col">
                 <h2 className="text-6xl font-extrabold tracking-tigh lg:text-8xl tracking-tighter max-w-xl text-left font-regular">
                   Find our branches
@@ -39,22 +69,27 @@ function VisitSection() {
                 </p>
               </div>
             </div>
-            <Link href="/locations" className="flex items-center justify-around w-32 bg-gradient-to-b from-sky-600 to-blue-900 rounded-full px-4 py-2">
-            <FaLocationArrow className="text-white w-4 h-4" />
-            <span className="text-white">Locate Us</span>
-          </Link>
+            <Link
+              href="/locations"
+              className="flex items-center justify-around w-32 bg-gradient-to-b from-sky-600 to-blue-900 rounded-full px-4 py-2 "
+            >
+              <FaLocationArrow className="text-white w-4 h-4" />
+              <span className="text-white">Locate Us</span>
+            </Link>
+            <div className="mt-2 flex align-center flex-row gap-8 flex-wrap">
+              {locations.map((location, index) => (
+                <div key={index} className="mb-4">
+                  <h2 className="text-md font-semibold">{location.name}</h2>
+                  <p>{location.address}</p>
+                  <p>Phone: {location.phone}</p>
+                  <p>WhatsApp: {location.whatsapp}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="rounded-md pt-12 aspect-square">
             <Map />
-           {/*  <Image
-              src="/map.jpg"
-              alt="Locate Us"
-              width={1000}
-              height={1000}
-              className="rounded-md lg:mt-40 opacity-90"
-            /> */}
           </div>
-         
         </div>
       </div>
     </div>
@@ -62,4 +97,3 @@ function VisitSection() {
 }
 
 export default VisitSection;
-

@@ -10,30 +10,35 @@ const locations = [
     address: "City Modena cap 41122",
     phone: "059454430",
     whatsapp: "3276688805",
+    image: "/images/store/viale.jpeg"
   },
   {
     name: "Viale Guido Mazzoni 31/33",
     address: "City Modena cap 41121",
     phone: "0597874540",
     whatsapp: "3511699193",
+     image: "/images/store/viale.jpeg"
   },
   {
     name: "Piazza della libertà 37",
     address: "Sassuolo cap 41049",
     phone: "0536583874",
     whatsapp: "3401094619",
+     image: "/images/store/piazza.jpeg"
   },
   {
     name: "Viale Guido Mazzoni 31/33",
     address: "City Modena cap 41121",
     phone: "0597874540",
     whatsapp: "3511699193",
+     image: "/images/store/mazzoni.jpeg"
   },
   {
     name: "Piazza della libertà 37",
     address: "Sassuolo cap 41049",
     phone: "0536583874",
     whatsapp: "3401094619",
+    image: "/images/store/Sassuolo.jpeg"
   },
 
 ];
@@ -48,7 +53,7 @@ const Page = () => (
               <Badge variant="outline">Our Branches</Badge>
             </div>
             <div className="flex gap-2 flex-col">
-              <h2 className="text-3xl lg:text-5xl tracking-tighter max-w-xl text-left font-regular">
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-tighter max-w-xl text-left font-regular">
                 Find our office
               </h2>
               <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
@@ -108,7 +113,7 @@ const Page = () => (
             {locations.map((location, index) => (
               <div key={index} className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
                 <Image
-                  src="/images/store.png"
+                  src='/store.png'
                   alt="branch"
                   width={200}
                   height={200}

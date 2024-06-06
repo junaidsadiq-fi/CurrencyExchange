@@ -7,11 +7,13 @@ import MarqueeSection from "@/components/MarqueeSection";
 import CurrencyMovingList from "@/components/CurrencyMovingList";
 import SubscribeSection from "@/components/SubscribeSection";
 import FaqSection from "@/components/FaqSection";
+import NewHero  from "@/components/NewHero";
 
 export default function Home() {
   return (
     <div className="w-full h-full overflow-hidden">
-      <Hero />
+      {/* <Hero /> */}
+      <Hero/>
       {/* <CurrencyMovingList /> */}
       <ForexConverter />
       <MarqueeSection />

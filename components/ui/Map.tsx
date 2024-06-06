@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const mapbox_api = process.env.NEXT_PUBLIC_MAPBOX_API_KEY ?? '';
+const mapbox_api = process.env.NEXT_PUBLIC_MAPBOX_API_KEY ?? "";
 mapboxgl.accessToken = mapbox_api;
 
 const locations = [
@@ -13,11 +13,15 @@ const locations = [
   },
   {
     name: "Viale Guido Mazzoni 31/33, Modena 41121",
-    coordinates: [10.9247, 44.6460],
+    coordinates: [10.9247, 44.646],
   },
   {
     name: "Piazza della libertà 37, Sassuolo 41049",
     coordinates: [10.7845, 44.5535],
+  },
+  {
+    name: "Via Ciro Menotti 26, Carpi 41012",
+    coordinates: [10.8833, 44.7828],
   },
 ];
 
@@ -36,20 +40,30 @@ const Map = () => {
     });
 
     // Add zoom and rotation controls to the map.
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    map.current.on('load', () => {
+    map.current.on("load", () => {
       // Create bounds to fit all locations
       const bounds = new mapboxgl.LngLatBounds();
-      
+
       locations.forEach((location) => {
         // Extend bounds to include each location's coordinates
         bounds.extend(location.coordinates);
 
-        new mapboxgl.Marker()
+        const marker = new mapboxgl.Marker({
+          color: "blue", // Change marker color here
+        })
           .setLngLat(location.coordinates)
           .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(location.name))
           .addTo(map.current);
+
+        // Add click event listener to each marker
+        marker.getElement().addEventListener("click", () => {
+          map.current.flyTo({
+            center: location.coordinates,
+            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          });
+        });
       });
 
       // Fit the map to the bounds with padding
@@ -63,7 +77,7 @@ const Map = () => {
   return (
     <div
       ref={mapContainer}
-      style={{ width: "100%", height: "500px", borderRadius: "40px" }}
+      style={{ width: "100%", height: "700px", borderRadius: "40px" }}
     />
   );
 };
