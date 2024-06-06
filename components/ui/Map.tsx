@@ -77,7 +77,7 @@ const Map = () => {
   return (
     <div
       ref={mapContainer}
-      style={{ width: "100%", height: "700px", borderRadius: "40px" }}
+      style={{ width: "150%", height: "700px", borderRadius: "40px" }}
     />
   );
 };

@@ -31,9 +31,9 @@ export default function Component() {
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-      <div className="grid grid-cols-none lg:grid-cols-2 md:grid-cols-2 gap-8 relative z-10">
+      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 mx-20 lg:mx-24 lx:mx-32 gap-8 relative z-10">
         <TableContainer />
-        <ConverterContainer />
+       {/*  <ConverterContainer /> */}
       </div>
     </section>
   );

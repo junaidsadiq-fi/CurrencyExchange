@@ -148,9 +148,12 @@ export default function page() {
           </div>
         </div>
       </div>
+      <div className="mx-20 my-16 xl:mx-32 2xl:mx-64">
+        <Bento />
+      </div>
       {/* Still got questions call us section */}
-      <div className="container z-10 mx-auto">
-        <div className="grid border-[2px] border-grey-50 bg-blue-800 shadow-2xl rounded-xl container py-4 grid-cols-1 gap-4 items-center lg:grid-cols-2">
+      <div className="z-10 w-screen mx-2">
+        <div className="grid border-[2px] border-grey-50 bg-gradient-to-b from-blue-400 to-black shadow-2xl rounded-xl container py-4 grid-cols-1 gap-4 items-center lg:grid-cols-2">
           <div className="flex gap-4 flex-col">
             <div className="flex gap-2 flex-col">
               <h2 className="text-4xl font-extrabold tracking-tight text-white lg:text-6xl max-w-xl text-left">
@@ -171,7 +174,7 @@ export default function page() {
               </Button>
             </div>
           </div>
-          <div className="rounded-md pt-2 lg:flex lg:justify-end">
+          <div className="rounded-md pt-2 lg:flex lg:justify-center">
             <Image
               src="/images/faces/thinking.png"
               alt="Locate Us"
@@ -181,9 +184,6 @@ export default function page() {
             />
           </div>
         </div>
-      </div>
-       <div className="mx-20 my-16">
-        <Bento />
       </div>
     </div>
   );

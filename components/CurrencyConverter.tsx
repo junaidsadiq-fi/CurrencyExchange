@@ -14,16 +14,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { BorderBeam } from "./ui/border-beam";
 
 function CurrencyConverter({ className }: { className?: string }) {
-  const [activeTool, setActiveTool] = useState("converter");
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("USD");
   const [amount, setAmount] = useState(100);
   const [convertedAmount, setConvertedAmount] = useState(0);
-  const [transferAmount, setTransferAmount] = useState(100);
   const [transferFee, setTransferFee] = useState(5);
-  const [transferTotal, setTransferTotal] = useState(105);
+  const [totalAmount, setTotalAmount] = useState(0);
   const currencies = useCurrencies();
 
   const getCurrencyRate = useCallback(
@@ -43,60 +42,40 @@ function CurrencyConverter({ className }: { className?: string }) {
     [currencies]
   );
 
-  const handleToolChange = (tool) => {
-    setActiveTool(tool);
-  };
-
   const handleCurrencyChange = (currency, type) => {
     if (type === "from") {
       setFromCurrency(currency);
     } else {
       setToCurrency(currency);
     }
-    calculateConversion(amount, fromCurrency, toCurrency);
+    calculateConversion(amount, transferFee, fromCurrency, toCurrency);
   };
 
   const calculateConversion = useCallback(
-    (value, from, to) => {
+    (value, fee, from, to) => {
       const rate = getCurrencyRate(from, to);
       const convertedValue = value * rate;
+      const totalValue = convertedValue + fee;
       setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
+      setTotalAmount(parseFloat(totalValue.toFixed(2)));
     },
     [getCurrencyRate]
   );
 
-  const calculateTransfer = (amount, fee) => {
-    const total = amount + fee;
-    setTransferAmount(amount);
-    setTransferFee(fee);
-    setTransferTotal(total);
-  };
-
   useEffect(() => {
-    if (activeTool === "converter") {
-      calculateConversion(amount, fromCurrency, toCurrency);
-    } else {
-      calculateTransfer(transferAmount, transferFee);
-    }
-  }, [
-    activeTool,
-    amount,
-    calculateConversion,
-    fromCurrency,
-    toCurrency,
-    transferAmount,
-    transferFee,
-  ]);
+    calculateConversion(amount, transferFee, fromCurrency, toCurrency);
+  }, [amount, transferFee, fromCurrency, toCurrency, calculateConversion]);
 
   return (
     <Card
       className={cn(
-        "w-full bg-white max-h-[29rem] max-w-md rounded-3xl shadow-2xl",
+        "w-full max-h-[40rem] max-w-md rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25",
         className
       )}
     >
+       <BorderBeam />
       <CardHeader>
-        <div className="rounded-full bg-gradient-to-b from-sky-600 to-blue-900 px-4 py-2 font-poppins text-xl text-white">
+        <div className="rounded-full font-poppins text-2xl text-gray-600 font-bold">
           Currency Converter
         </div>
       </CardHeader>
@@ -166,11 +145,22 @@ function CurrencyConverter({ className }: { className?: string }) {
             className="rounded-full"
           />
         </div>
+        <div className="">
+          <Label htmlFor="fee">Transfer Fee</Label>
+          <Input
+            id="fee"
+            type="number"
+            value={transferFee}
+            onChange={(e) => setTransferFee(parseFloat(e.target.value))}
+            placeholder="Enter transfer fee"
+            className="rounded-full"
+          />
+        </div>
         <div className="mt-4 flex justify-end">
           <Button
             className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
             onClick={() =>
-              calculateConversion(amount, fromCurrency, toCurrency)
+              calculateConversion(amount, transferFee, fromCurrency, toCurrency)
             }
           >
             Convert
@@ -182,6 +172,16 @@ function CurrencyConverter({ className }: { className?: string }) {
             id="converted"
             type="text"
             value={convertedAmount}
+            readOnly
+            className="rounded-full"
+          />
+        </div>
+        <div className="mt-4">
+          <Label htmlFor="total">Total Amount (with fee)</Label>
+          <Input
+            id="total"
+            type="text"
+            value={totalAmount}
             readOnly
             className="rounded-full"
           />

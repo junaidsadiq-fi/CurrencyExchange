@@ -7,23 +7,24 @@ import { PhoneCall } from "lucide-react";
 import CurrencyMovingList from "./CurrencyMovingList";
 import CurrencyConverter from "./CurrencyConverter";
 
+
 export default function Hero() {
   return (
-    <div className="">
+    <div>
        <div className="w-full flex justify-between items-center bg-background min-h-[calc(100vh-15vh)]">
         <div className="w-full max-w-screen-xl relative px-4 md:px-8 lg:px-12 mx-auto flex flex-col justify-center h-full">
           <div className="grid grid-cols-1 gap-8 2xl:gap-16 items-center lg:grid-cols-2">
-            <div className="flex justify-center order-first lg:order-last items-center lg:items-end">
-              <Image
+            <div className="flex justify-center lg:ml-32 order-last lg:order-last items-center lg:items-end">
+             {/*  <Image
                 src="/banner.png"
                 alt="Currency Exchange Illustration"
                 width={750}
                 height={750}
                 className="w-full h-auto sm:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-              />
-              {/* <CurrencyConverter /> */}
+              /> */}
+              <CurrencyConverter />
             </div>
-            <div className="flex flex-col gap-4 items-center lg:items-start max-w-full lg:max-w-xl xl:max-w-4xl xl:mr-80 2xl:max-w-8xl">
+            <div className="flex flex-col pb-8 gap-4 items-center lg:items-start max-w-full lg:max-w-xl xl:max-w-4xl xl:mr-80 2xl:max-w-8xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -51,6 +52,6 @@ export default function Hero() {
         </div>
       </div>
       <CurrencyMovingList />
-    </div>
+      </div>
   );
 }

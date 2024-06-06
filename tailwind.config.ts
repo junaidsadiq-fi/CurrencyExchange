@@ -73,6 +73,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -104,6 +109,7 @@ const config = {
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         
       },
     },
