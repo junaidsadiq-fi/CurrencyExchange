@@ -1,3 +1,7 @@
+"use client";
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+
 import {
   TableHead,
   TableRow,
@@ -18,10 +22,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import DotPattern from "./ui/dot-pattern";
 import { cn } from "@/lib/utils";
-import { useState, useEffect, useCallback } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { useCurrencies } from "@/context/CurrencyContext";
-import Image from "next/image";
+import CurrencyConverter from "./CurrencyConverter";
 
 export default function Component() {
   return (
@@ -31,9 +34,9 @@ export default function Component() {
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 mx-20 lg:mx-24 lx:mx-32 gap-8 relative z-10">
+      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 mx-20 sm:mx-8 lg:mx-24 lx:mx-32 gap-8 relative z-10">
         <TableContainer />
-       {/*  <ConverterContainer /> */}
+        <CurrencyConverter className="lg:hidden sm:block" />
       </div>
     </section>
   );
@@ -91,7 +94,7 @@ const TableContainer = () => {
 };
 
 
-function ConverterContainer() {
+/* function ConverterContainer() {
   const [activeTool, setActiveTool] = useState("converter");
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("USD");
@@ -233,4 +236,4 @@ function ConverterContainer() {
     </Card>
   );
 }
-
+ */

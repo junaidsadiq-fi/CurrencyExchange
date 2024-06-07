@@ -12,9 +12,7 @@ import NewHero  from "@/components/NewHero";
 export default function Home() {
   return (
     <div className="w-full h-full overflow-hidden">
-      {/* <Hero /> */}
       <Hero/>
-      {/* <CurrencyMovingList /> */}
       <ForexConverter />
       <MarqueeSection />
       <VisitSection />
