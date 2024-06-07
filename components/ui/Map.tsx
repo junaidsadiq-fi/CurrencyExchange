@@ -9,19 +9,19 @@ mapboxgl.accessToken = mapbox_api;
 const locations = [
   {
     name: "Viale Antonio Gramsci 97, Modena 41122",
-    coordinates: [10.9259, 44.6535],
+    coordinates: [10.936048185220686, 44.6572193156619],
   },
   {
     name: "Viale Guido Mazzoni 31/33, Modena 41121",
-    coordinates: [10.9247, 44.646],
+    coordinates: [10.93362246505307, 44.65341053630263],
   },
   {
     name: "Piazza della libertà 37, Sassuolo 41049",
-    coordinates: [10.7845, 44.5535],
+    coordinates: [10.782896998153038, 44.54467082747539], 
   },
   {
     name: "Via Ciro Menotti 26, Carpi 41012",
-    coordinates: [10.8833, 44.7828],
+    coordinates: [10.883660486505839, 44.78414548441358],
   },
 ];
 

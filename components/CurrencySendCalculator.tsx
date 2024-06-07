@@ -1,33 +1,27 @@
 "use client";
 import { useCurrencies } from "@/context/CurrencyContext";
 import React, { useCallback, useEffect, useState } from "react";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent, CardHeader } from "./ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  SelectValue,
-  SelectTrigger,
-  SelectItem,
-  SelectContent,
-  Select,
-} from "@/components/ui/select";
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { BorderBeam } from "./ui/border-beam";
 
-function CurrencyConverter({ className }: { className?: string }) {
+function CurrencySendCalculator({ className }: { className?: string }) {
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("USD");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(100);
   const [convertedAmount, setConvertedAmount] = useState(0);
+  const [sendFee, setSendFee] = useState(10); // Example sending fee
+  const [totalAmount, setTotalAmount] = useState(0);
   const currencies = useCurrencies();
 
   const getCurrencyRate = useCallback(
     (from, to) => {
-      const fromCurrencyObj = currencies.find(
-        (currency) => currency.name === from
-      );
+      const fromCurrencyObj = currencies.find((currency) => currency.name === from);
       const toCurrencyObj = currencies.find((currency) => currency.name === to);
 
       if (fromCurrencyObj && toCurrencyObj) {
@@ -35,7 +29,7 @@ function CurrencyConverter({ className }: { className?: string }) {
         const toRate = parseFloat(toCurrencyObj.rate) || 1;
         return toRate / fromRate;
       }
-      return 1; // Fallback rate if currencies are not found
+      return 1;
     },
     [currencies]
   );
@@ -46,38 +40,37 @@ function CurrencyConverter({ className }: { className?: string }) {
     } else {
       setToCurrency(currency);
     }
-    calculateConversion(amount, currency, toCurrency);
+    calculateConversion(amount, sendFee, fromCurrency, toCurrency);
   };
 
   const calculateConversion = useCallback(
-    (value, from, to) => {
+    (value, fee, from, to) => {
       const rate = getCurrencyRate(from, to);
       const convertedValue = value * rate;
+      const totalValue = convertedValue + fee;
       setConvertedAmount(parseFloat(convertedValue.toFixed(2)));
+      setTotalAmount(parseFloat(totalValue.toFixed(2)));
     },
     [getCurrencyRate]
   );
 
   useEffect(() => {
-    calculateConversion(amount, fromCurrency, toCurrency);
-  }, [amount, fromCurrency, toCurrency, calculateConversion]);
+    calculateConversion(amount, sendFee, fromCurrency, toCurrency);
+  }, [amount, sendFee, fromCurrency, toCurrency, calculateConversion]);
 
   return (
-    <Card
-      className={cn(
-        "w-full max-h-[40rem] sm:max-w-md lg:max-w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25",
-        className
-      )}
-    >
+    <Card className={cn("w-full max-h-[40rem] sm:max-w-md lg:max-w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25", className)}>
       <BorderBeam />
+      <CardHeader>
+        <div className="rounded-full font-poppins text-2xl text-gray-600 font-bold">
+          Money Send Calculator
+        </div>
+      </CardHeader>
       <CardContent className="grid gap-4">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="from">From</Label>
-            <Select
-              defaultValue={fromCurrency}
-              onValueChange={(value) => handleCurrencyChange(value, "from")}
-            >
+            <Select defaultValue={fromCurrency} onValueChange={(value) => handleCurrencyChange(value, "from")}>
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
@@ -85,12 +78,7 @@ function CurrencyConverter({ className }: { className?: string }) {
                 {currencies.map(({ name, img }) => (
                   <SelectItem key={name} value={name}>
                     <div className="flex items-center">
-                      <Image
-                        src={img}
-                        alt={`${name} flag`}
-                        width={20}
-                        height={20}
-                      />
+                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
                       <span className="ml-2">{name}</span>
                     </div>
                   </SelectItem>
@@ -100,10 +88,7 @@ function CurrencyConverter({ className }: { className?: string }) {
           </div>
           <div>
             <Label htmlFor="to">To</Label>
-            <Select
-              defaultValue={toCurrency}
-              onValueChange={(value) => handleCurrencyChange(value, "to")}
-            >
+            <Select defaultValue={toCurrency} onValueChange={(value) => handleCurrencyChange(value, "to")}>
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
@@ -111,12 +96,7 @@ function CurrencyConverter({ className }: { className?: string }) {
                 {currencies.map(({ name, img }) => (
                   <SelectItem key={name} value={name}>
                     <div className="flex items-center">
-                      <Image
-                        src={img}
-                        alt={`${name} flag`}
-                        width={20}
-                        height={20}
-                      />
+                      <Image src={img} alt={`${name} flag`} width={20} height={20} />
                       <span className="ml-2">{name}</span>
                     </div>
                   </SelectItem>
@@ -124,41 +104,31 @@ function CurrencyConverter({ className }: { className?: string }) {
               </SelectContent>
             </Select>
           </div>
-          <div>
-            <Label htmlFor="amount">Amount</Label>
-            <Input
-              id="amount"
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(parseFloat(e.target.value))}
-              placeholder="Enter amount"
-              className="rounded-full"
-            />
-          </div>
+        </div>
+        <div>
+          <Label htmlFor="amount">Amount</Label>
+          <Input id="amount" type="number" value={amount} onChange={(e) => setAmount(parseFloat(e.target.value))} placeholder="Enter amount" className="rounded-full" />
+        </div>
+        <div>
+          <Label htmlFor="fee">Send Fee</Label>
+          <Input id="fee" type="number" value={sendFee} onChange={(e) => setSendFee(parseFloat(e.target.value))} placeholder="Enter send fee" className="rounded-full" />
         </div>
         <div className="mt-4 flex justify-end">
-          <Button
-            className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
-            onClick={() =>
-              calculateConversion(amount, fromCurrency, toCurrency)
-            }
-          >
-            Convert
+          <Button className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white" onClick={() => calculateConversion(amount, sendFee, fromCurrency, toCurrency)}>
+            Calculate
           </Button>
         </div>
         <div className="mt-4">
           <Label htmlFor="converted">Converted Amount</Label>
-          <Input
-            id="converted"
-            type="text"
-            value={`${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`}
-            readOnly
-            className="rounded-full"
-          />
+          <Input id="converted" type="text" value={convertedAmount} readOnly className="rounded-full" />
+        </div>
+        <div className="mt-4">
+          <Label htmlFor="total">Total Amount (with fee)</Label>
+          <Input id="total" type="text" value={totalAmount} readOnly className="rounded-full" />
         </div>
       </CardContent>
     </Card>
   );
 }
 
-export default CurrencyConverter;
+export default CurrencySendCalculator;

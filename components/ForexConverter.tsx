@@ -36,7 +36,7 @@ export default function Component() {
       />
       <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 sm:mx-8 mx-4 lg:mx-24 xl:mx-32 gap-8 relative z-10">
         <TableContainer />
-        <CurrencyConverter className="lg:hidden sm:block" />
+        {/* <CurrencyConverter className="lg:hidden sm:block" /> */}
       </div>
     </section>
   );

@@ -27,9 +27,9 @@ const locations = [
      image: "/images/locations/piazza.jpg"
   },
   {
-    name: "Piazza della libertà 37",
-    address: "Sassuolo cap 41049",
-    phone: "0536583874",
+    name: "Via Ciro Menotti 26",
+    address: "Carpi cap 41012",
+    phone: "3514304021",
     whatsapp: "3401094619",
     image: "/images/locations/Sassuolo.jpg"
   },
