@@ -39,18 +39,17 @@ const Navbar = () => {
             >
               Services
             </Link>
-
-            <Link
-              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
-              href="/contact-us"
-            >
-              Contact
-            </Link>
             <Link
               className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/locations"
             >
               Locations
+            </Link>
+            <Link
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
+              href="/contact-us"
+            >
+              Contact
             </Link>
             <Link
               className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
@@ -84,21 +83,20 @@ const Navbar = () => {
                 Services
               </Link>
             </NavigationMenuLink>
-
-            <NavigationMenuLink asChild>
-              <Link
-                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                href="/contact-us"
-              >
-                Contact
-              </Link>
-            </NavigationMenuLink>
             <NavigationMenuLink asChild>
               <Link
                 className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                 href="/locations"
               >
                 Locations
+              </Link>
+            </NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link
+                className="group inline-flex h-8 w-max items-center justify-center rounded-full px-4 py-2 text-lg font-medium transition-colors focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                href="/contact-us"
+              >
+                Contact
               </Link>
             </NavigationMenuLink>
           </NavigationMenuList>

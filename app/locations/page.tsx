@@ -10,35 +10,28 @@ const locations = [
     address: "City Modena cap 41122",
     phone: "059454430",
     whatsapp: "3276688805",
-    image: "/images/store/viale.jpeg"
+    image: "/images/locations/viale.jpg"
   },
   {
     name: "Viale Guido Mazzoni 31/33",
     address: "City Modena cap 41121",
     phone: "0597874540",
     whatsapp: "3511699193",
-     image: "/images/store/viale.jpeg"
+     image: "/images/locations/mazzoni.jpg"
   },
   {
     name: "Piazza della libertà 37",
     address: "Sassuolo cap 41049",
     phone: "0536583874",
     whatsapp: "3401094619",
-     image: "/images/store/piazza.jpeg"
-  },
-  {
-    name: "Viale Guido Mazzoni 31/33",
-    address: "City Modena cap 41121",
-    phone: "0597874540",
-    whatsapp: "3511699193",
-     image: "/images/store/mazzoni.jpeg"
+     image: "/images/locations/piazza.jpg"
   },
   {
     name: "Piazza della libertà 37",
     address: "Sassuolo cap 41049",
     phone: "0536583874",
     whatsapp: "3401094619",
-    image: "/images/store/Sassuolo.jpeg"
+    image: "/images/locations/Sassuolo.jpg"
   },
 
 ];
@@ -112,13 +105,14 @@ const Page = () => (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
             {locations.map((location, index) => (
               <div key={index} className="flex flex-col justify-center items-center border rounded-xl p-4 gap-2">
-                <Image
-                  src='/store.png'
-                  alt="branch"
-                  width={200}
-                  height={200}
-                  className="object-cover rounded-xl mb-2"
-                />
+                <div className="relative w-[300px] h-[200px] ">
+                  <Image
+                    src={location.image}
+                    alt="branch"
+                    layout="fill"
+                    className="object-contain"
+                  />
+                </div>
                 <h3 className="text-lg font-bold tracking-tight">
                   {location.name}
                 </h3>
