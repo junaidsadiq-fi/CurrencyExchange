@@ -57,7 +57,7 @@ export default function FaqSection() {
         height={150}
         className="absolute top-0 left-0"
       />
-      <h2 className="text-center mt-4 lg:mt-6 font-extrabold text-muted-foreground tracking-tight md:text-5xl lg:text-6xl flex items-end justify-center">
+      <h2 className="text-center pt-8 lg:pt-12 font-extrabold text-muted-foreground tracking-tight text-4xl md:text-5xl lg:text-6xl flex items-end justify-center">
         FAQ
       </h2>
       <div className="w-full py-10 lg:py-20">

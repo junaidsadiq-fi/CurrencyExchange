@@ -31,7 +31,7 @@ export default function Hero() {
                 className="flex flex-col gap-4 text-center lg:pt-24 lg:text-left 2xl:gap-16"
               >
                 <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tigh md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-tighter">
-                  TELEFONOPIÚ Currency Exchange
+                  Telefonopiú Currency Exchange
                 </h1>
                 <p className="text-lg sm:text-xl md:text-wrap lg:text-2xl leading-relaxed tracking-tight text-muted-foreground">
                   Send Money, Pay Bills, Transfer Funds, and More.

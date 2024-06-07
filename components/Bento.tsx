@@ -165,7 +165,7 @@ export function Bento() {
     {
       Icon: GlobeIcon,
       name: "Locations",
-      description: "5 branches in europe and continously expanding.",
+      description: "4 branches in europe and continously expanding.",
       href: "/",
       cta: "Learn more",
       className: "col-span-3 lg:col-span-2",

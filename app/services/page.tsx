@@ -152,7 +152,7 @@ export default function page() {
         <Bento />
       </div>
       {/* Still got questions call us section */}
-      <div className="z-10 w-screen mx-2">
+      <div className="z-10 min-w-full mx-2 my-4">
         <div className="grid border-[2px] border-grey-50 bg-gradient-to-b from-blue-400 to-black shadow-2xl rounded-xl container py-4 grid-cols-1 gap-4 items-center lg:grid-cols-2">
           <div className="flex gap-4 flex-col">
             <div className="flex gap-2 flex-col">

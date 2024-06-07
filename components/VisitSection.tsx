@@ -30,12 +30,6 @@ const locations = [
     whatsapp: "3401094619",
   },
   {
-    name: "Viale Guido Mazzoni 31/33",
-    address: "City Modena cap 41121",
-    phone: "0597874540",
-    whatsapp: "3511699193",
-  },
-  {
     name: "Via Ciro Menotti 26",
     address: "Carpi cap 41012",
     phone: "3514304021",

@@ -34,7 +34,7 @@ export default function Component() {
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 mx-20 sm:mx-8 lg:mx-24 lx:mx-32 gap-8 relative z-10">
+      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 sm:mx-8 mx-4 lg:mx-24 xl:mx-32 gap-8 relative z-10">
         <TableContainer />
         <CurrencyConverter className="lg:hidden sm:block" />
       </div>
@@ -65,7 +65,7 @@ const TableContainer = () => {
             <TableHead className="font-poppins text-white text-xl">
               Currency
             </TableHead>
-            <TableHead className="text-right font-poppins text-white text-xl">
+            <TableHead className="text-right font-poppins text-white sm:text-sm text-lg">
               Exchange Rate (in PKR)
             </TableHead>
           </TableRow>

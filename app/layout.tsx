@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  title: " TELEFONOPIÚ",
+  title: " Telefonopiú",
   description: "Europs most reliable Currency Exchange",
 };
 

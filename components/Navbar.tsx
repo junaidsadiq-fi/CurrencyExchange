@@ -28,32 +28,32 @@ const Navbar = () => {
           </Link>
           <div className="grid gap-2 py-2">
             <Link
-              className="flex w-full items-center py-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 text-lg font-semibold"
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/"
             >
               Home
             </Link>
             <Link
-              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/services"
             >
               Services
             </Link>
 
             <Link
-              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/contact-us"
             >
               Contact
             </Link>
             <Link
-              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/locations"
             >
               Locations
             </Link>
             <Link
-              className="flex w-full items-center focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 py-2 text-lg font-semibold"
+              className="flex w-full items-center border rounded-full p-2 focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-lg font-semibold"
               href="/about"
             >
               About

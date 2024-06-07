@@ -87,10 +87,10 @@ export const Footer = () => {
                 height="350"
                 alt="logo"
               />
-              <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                TELEFONOPIÚ Exchange Company is a leading currency exchange and
-                money transfer company based in Italy with five branches in Ialy
-                so far and continuously expnadning.
+              <p className="text-lg sm:text;md max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
+                Telefonopiú Exchange Company is a leading currency exchange and
+                money transfer company based in Italy with four branches in
+                Italy so far and continuously expnadning.
               </p>
             </div>
             <div className="flex gap-20 flex-row">
@@ -147,7 +147,7 @@ export const Footer = () => {
         <hr /> {/* Separator line */}
         <div className="flex justify-between items-center pt-2">
           <div>
-            <p>Copyrights © 2024 TELEFONOPIÚ. All rights reserved.</p>
+            <p>Copyrights © 2024 Telefonopiú. All rights reserved.</p>
           </div>
           <div className="flex items-center pt-2 justify-center">
             <Link href="https.twitter.com" className="mx-2">
