@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,40 +17,47 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import CurrencyConverter from "./CurrencyConverter"; // Make sure the path is correct
+import CurrencyConverter from "./CurrencyConverter";
+import CurrencySendCalculator from "./CurrencySendCalculator";
 
 export function CurrencyContainer() {
+  const [activeTab, setActiveTab] = useState("converter");
+
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+  };
+
   return (
-    <Tabs defaultValue="converter" className="w-[900px]">
-      <TabsList className="grid bg-blue-50 border rounded-xl w-full grid-cols-2">
-        <TabsTrigger value="converter">Converter</TabsTrigger>
-        <TabsTrigger value="calculator">Calculator</TabsTrigger>
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="w-[600px]">
+      <TabsList className="grid border rounded-xl w-full grid-cols-2 bg-gray-100 p-1">
+        <TabsTrigger
+          value="converter"
+          className={`py-2 ${activeTab === "converter" ? "bg-blue-500 text-white rounded-xl" : "text-black"}`}
+          style={{ 
+            backgroundColor: activeTab === "converter" ? "#2563EB" : "transparent",
+            color: activeTab === "converter" ? "#fff" : "#000",
+            borderRadius: activeTab === "converter" ? "0.75rem" : "0"
+          }}
+        >
+          Converter
+        </TabsTrigger>
+        <TabsTrigger
+          value="send"
+          className={`py-2 ${activeTab === "send" ? "bg-blue-500 text-white rounded-xl" : "text-black"}`}
+          style={{ 
+            backgroundColor: activeTab === "send" ? "#2563EB" : "transparent",
+            color: activeTab === "send" ? "#fff" : "#000",
+            borderRadius: activeTab === "send" ? "0.75rem" : "0"
+          }}
+        >
+          Send
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="converter">
         <CurrencyConverter />
       </TabsContent>
-      <TabsContent value="calculator">
-        <Card className="border rounded-xl">
-          <CardHeader>
-            <CardTitle>Currency Rate Calculator</CardTitle>
-            <CardDescription>
-              Calculate the exchange rate between different currencies.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="fromCurrency">From</Label>
-              <Input id="fromCurrency" placeholder="Enter currency" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="toCurrency">To</Label>
-              <Input id="toCurrency" placeholder="Enter currency" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Calculate</Button>
-          </CardFooter>
-        </Card>
+      <TabsContent value="send">
+        <CurrencySendCalculator />
       </TabsContent>
     </Tabs>
   );

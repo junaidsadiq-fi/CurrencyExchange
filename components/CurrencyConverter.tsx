@@ -65,7 +65,7 @@ function CurrencyConverter({ className }: { className?: string }) {
   return (
     <Card
       className={cn(
-        "w-full max-h-[40rem] sm:max-w-md lg:max-w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25",
+        "w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25",
         className
       )}
     >
@@ -136,17 +136,8 @@ function CurrencyConverter({ className }: { className?: string }) {
             />
           </div>
         </div>
-        <div className="mt-4 flex justify-end">
-          <Button
-            className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
-            onClick={() =>
-              calculateConversion(amount, fromCurrency, toCurrency)
-            }
-          >
-            Convert
-          </Button>
-        </div>
-        <div className="mt-4">
+        <div className="mt-4 flex justify-between items-center">
+        <div>
           <Label htmlFor="converted">Converted Amount</Label>
           <Input
             id="converted"
@@ -155,6 +146,15 @@ function CurrencyConverter({ className }: { className?: string }) {
             readOnly
             className="rounded-full"
           />
+        </div>
+        <Button
+          className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white"
+          onClick={() =>
+            calculateConversion(amount, fromCurrency, toCurrency)
+          }
+        >
+          Convert
+        </Button>
         </div>
       </CardContent>
     </Card>

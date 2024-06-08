@@ -1,16 +1,15 @@
 "use client";
 import { useCurrencies } from "@/context/CurrencyContext";
 import React, { useCallback, useEffect, useState } from "react";
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Label } from "@/components/ui/label";
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { BorderBeam } from "./ui/border-beam";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 
-function CurrencySendCalculator({ className }: { className?: string }) {
+export default function CurrencySendCalculator({ className }: { className?: string }) {
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("USD");
   const [amount, setAmount] = useState(100);
@@ -59,18 +58,39 @@ function CurrencySendCalculator({ className }: { className?: string }) {
   }, [amount, sendFee, fromCurrency, toCurrency, calculateConversion]);
 
   return (
-    <Card className={cn("w-full max-h-[40rem] sm:max-w-md lg:max-w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25", className)}>
-      <BorderBeam />
-      <CardHeader>
-        <div className="rounded-full font-poppins text-2xl text-gray-600 font-bold">
-          Money Send Calculator
+    <Card className="border items-center shadow-2xl justify-center rounded-xl p-4 bg-[rgba(255,255,255,0.1)] backdrop-blur-md">
+      {/* <CardHeader>
+        <CardTitle>Send Money</CardTitle>
+      </CardHeader> */}
+      <CardContent className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="destinationCountry">Destination country</Label>
+          <Select
+            defaultValue={fromCurrency}
+            onValueChange={(value) => handleCurrencyChange(value, "from")}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select currency" />
+            </SelectTrigger>
+            <SelectContent className="bg-gray-200">
+              {currencies.map(({ name, img }) => (
+                <SelectItem key={name} value={name}>
+                  <div className="flex items-center">
+                    <Image src={img} alt={`${name} flag`} width={20} height={20} />
+                    <span className="ml-2">{name}</span>
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-      </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <Label htmlFor="from">From</Label>
-            <Select defaultValue={fromCurrency} onValueChange={(value) => handleCurrencyChange(value, "from")}>
+        <div className="space-y-2 items-center justify-center flex">
+          <div className="flex-1">
+            <Label htmlFor="sendAmountCurrency">You send</Label>
+            <Select
+              defaultValue={fromCurrency}
+              onValueChange={(value) => handleCurrencyChange(value, "from")}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
@@ -86,9 +106,24 @@ function CurrencySendCalculator({ className }: { className?: string }) {
               </SelectContent>
             </Select>
           </div>
-          <div>
-            <Label htmlFor="to">To</Label>
-            <Select defaultValue={toCurrency} onValueChange={(value) => handleCurrencyChange(value, "to")}>
+          <div className="flex-1 mb-4 ml-2">
+            <Label htmlFor="sendAmount">Amount</Label>
+            <Input
+              id="sendAmount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Enter amount to send"
+              className="border rounded-full"
+            />
+          </div>
+        </div>
+        <div className="space-y-2 items-center justify-cente flex">
+          <div className="flex-1">
+            <Label htmlFor="recipientGetsCurrency">Recipient gets</Label>
+            <Select
+              defaultValue={toCurrency}
+              onValueChange={(value) => handleCurrencyChange(value, "to")}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
@@ -104,31 +139,52 @@ function CurrencySendCalculator({ className }: { className?: string }) {
               </SelectContent>
             </Select>
           </div>
+          <div className="flex-1 items-center mb-4 justify-center ml-2">
+            <Label htmlFor="recipientGets">Amount</Label>
+            <Input
+              id="recipientGets"
+              value={convertedAmount}
+              placeholder="Enter recipient amount"
+              readOnly
+              className="border rounded-full"
+            />
+          </div>
         </div>
-        <div>
-          <Label htmlFor="amount">Amount</Label>
-          <Input id="amount" type="number" value={amount} onChange={(e) => setAmount(parseFloat(e.target.value))} placeholder="Enter amount" className="rounded-full" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center gap-1">
+          <Label className="font-bold" htmlFor="sendFee">Rate</Label>
+          <IoMdInformationCircleOutline className="h-5 w-5 text-gray-700" />
+          </div>
+          <p id="rate" className="" >
+            {getCurrencyRate(fromCurrency, toCurrency)}
+          </p>
         </div>
-        <div>
-          <Label htmlFor="fee">Send Fee</Label>
-          <Input id="fee" type="number" value={sendFee} onChange={(e) => setSendFee(parseFloat(e.target.value))} placeholder="Enter send fee" className="rounded-full" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center gap-1">
+          <Label className="font-bold" htmlFor="sendFee">Send Fee</Label>
+          <IoMdInformationCircleOutline className="h-5 w-5 text-gray-700" />
+          </div>
+          <p
+            id="sendFee"
+            className="text-bold"
+          >
+            {sendFee}
+          </p>
         </div>
-        <div className="mt-4 flex justify-end">
-          <Button className="bg-gradient-to-b from-sky-600 to-blue-900 py-2 px-4 border rounded-full hover:bg-blue-500 text-white" onClick={() => calculateConversion(amount, sendFee, fromCurrency, toCurrency)}>
-            Calculate
-          </Button>
-        </div>
-        <div className="mt-4">
-          <Label htmlFor="converted">Converted Amount</Label>
-          <Input id="converted" type="text" value={convertedAmount} readOnly className="rounded-full" />
-        </div>
-        <div className="mt-4">
-          <Label htmlFor="total">Total Amount (with fee)</Label>
-          <Input id="total" type="text" value={totalAmount} readOnly className="rounded-full" />
+        <div className="border-b-gray-600 border-[1px]"></div>
+
+        <div className="flex items-center justify-between">
+          <div className="">
+          <Label className="font-bold" htmlFor="total">Total</Label>
+          <p id="total" className="" >
+            {totalAmount}
+          </p>
+          </div>
+        <Button className="bg-gradient-to-b to-blue-800 from-sky-600 text-white border rounded-full">Calculate</Button>
         </div>
       </CardContent>
+      <CardFooter>
+      </CardFooter>
     </Card>
   );
 }
-
-export default CurrencySendCalculator;
