@@ -26,15 +26,15 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { useCurrencies } from "@/context/CurrencyContext";
 import CurrencyConverter from "./CurrencyConverter";
 
-export default function Component() {
+export default function ForexConverter() {
   return (
-    <section className="w-full max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-6 relative">
+    <section className="w-full relative">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 sm:mx-8 mx-4 lg:mx-24 xl:mx-32 gap-8 relative z-10">
+      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 gap-8 relative z-10">
         <TableContainer />
         {/* <CurrencyConverter className="lg:hidden sm:block" /> */}
       </div>
@@ -66,7 +66,7 @@ const TableContainer = () => {
               Currency
             </TableHead>
             <TableHead className="text-right font-poppins text-white sm:text-sm text-lg">
-              Exchange Rate (in PKR)
+              Exchange Rate (in Euro)
             </TableHead>
           </TableRow>
         </TableHeader>

@@ -5,17 +5,18 @@ import CurrencyMovingList from "./CurrencyMovingList";
 import { CurrencyContainer } from "./CurrencyContainer";
 import DotPattern from "./ui/dot-pattern";
 import { cn } from "@/lib/utils";
+import ForexConverter from "./ForexConverter";
 
 export default function Hero() {
   return (
     <>
       <CurrencyMovingList />
       <div className="w-full flex flex-col justify-center items-center bg-background ">
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
-        )}
-      />
+        <DotPattern
+          className={cn(
+            "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+          )}
+        />
         <div className="w-full max-w-screen-xl relative px-4 min-h-[calc(50vh)]  mx-auto flex flex-col justify-center items-center h-full">
           <div className="flex flex-col pb-8 gap-4 items-center pt-4 w-full text-center">
             <motion.div
@@ -32,11 +33,15 @@ export default function Hero() {
               </p>
             </motion.div>
           </div>
-
-          <div className="flex justify-center items-center w-full my-2">
-            <CurrencyContainer />
+          <div className="w-full flex flex-col md:flex-row justify-center items-start gap-4">
+            {/*  <div className="flex justify-center items-center w-full my-2"> */}
+            <div className="w-full md:w-1/2 p-4 order-first sm:order-last">
+              <ForexConverter />
+            </div>
+            <div className="w-full md:w-1/2 p-4 order-last sm:order-first" >
+              <CurrencyContainer />
+            </div>
           </div>
-          <div className="flex justify-center items-center w-full"></div>
         </div>
       </div>
     </>
