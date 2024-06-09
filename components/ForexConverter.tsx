@@ -34,7 +34,7 @@ export default function ForexConverter() {
           "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]"
         )}
       />
-      <div className="grid grid-cols-none lg:grid-cols-1 md:grid-cols-1 gap-8 relative z-10">
+      <div className="grid grid-cols-1 gap-8 relative z-10">
         <TableContainer />
         {/* <CurrencyConverter className="lg:hidden sm:block" /> */}
       </div>
@@ -45,6 +45,7 @@ export default function ForexConverter() {
 
 const TableContainer = () => {
   const currencies = useCurrencies();
+  const visibleCurrencies = currencies.filter(currency => currency.visible);
 
   const convertedCurrencies = currencies.map((currency) => ({
     ...currency,
@@ -61,7 +62,7 @@ const TableContainer = () => {
     >
       <Table id="converter" className="">
         <TableHeader className="bg-gradient-to-b from-sky-600 to-blue-900">
-          <TableRow className=" h-16">
+          <TableRow className=" h-8">
             <TableHead className="font-poppins text-white text-xl">
               Currency
             </TableHead>
@@ -71,18 +72,19 @@ const TableContainer = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {convertedCurrencies.map((currency) => (
+          {visibleCurrencies.map((currency) => (
             <TableRow key={currency.name}>
               <TableCell className="flex items-center space-x-2">
                 <Image
                   src={currency.img}
                   alt={`${currency.name} flag`}
                   width="30"
-                  height="20"
+                  height="30"
+                  className="rounded-full"
                 />
-                <span className="text-xl">{currency.name}</span>
+                <span className="text-lg">{currency.name}</span>
               </TableCell>
-              <TableCell className="text-right text-xl font-bold">
+              <TableCell className="text-right text-lg font-bold">
                 {currency.rate}
               </TableCell>
             </TableRow>

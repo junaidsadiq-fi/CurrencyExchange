@@ -11,53 +11,59 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CurrencyConverter from "./CurrencyConverter";
 import CurrencySendCalculator from "./CurrencySendCalculator";
 
 export function CurrencyContainer() {
-  const [activeTab, setActiveTab] = useState("converter");
+  const [activeTab, setActiveTab] = useState("convert");
 
   const handleTabChange = (value) => {
     setActiveTab(value);
   };
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="w-[600px]">
-      <TabsList className="grid border rounded-xl w-full grid-cols-2 bg-gray-100 p-1">
-        <TabsTrigger
-          value="converter"
-          className={`py-2 ${activeTab === "converter" ? "bg-blue-500 text-white rounded-xl" : "text-black"}`}
-          style={{ 
-            backgroundColor: activeTab === "converter" ? "#2563EB" : "transparent",
-            color: activeTab === "converter" ? "#fff" : "#000",
-            borderRadius: activeTab === "converter" ? "0.75rem" : "0"
-          }}
-        >
-          Converter
-        </TabsTrigger>
+    <Tabs
+      value={activeTab}
+      onValueChange={handleTabChange}
+      className="max-w-md pb-4 lg:max-w-lg py-4 lg:mx-12 mx-auto pt-0"
+    >
+       <TabsList className="grid w-full grid-cols-2 border rounded-xl bg-gray-50">
         <TabsTrigger
           value="send"
-          className={`py-2 ${activeTab === "send" ? "bg-blue-500 text-white rounded-xl" : "text-black"}`}
-          style={{ 
+          className={`${
+            activeTab === "send"  ? "bg-blue-500 py-1 text-white rounded-lg" : "text-black py-0"
+          }`}
+          style={{
             backgroundColor: activeTab === "send" ? "#2563EB" : "transparent",
             color: activeTab === "send" ? "#fff" : "#000",
-            borderRadius: activeTab === "send" ? "0.75rem" : "0"
+            borderRadius: activeTab === "send" ? "0.75rem" : "0",
           }}
         >
           Send
         </TabsTrigger>
+        <TabsTrigger
+          value="convert"
+          className={`py-2 ${
+            activeTab === "convert"
+              ? "bg-blue-500 text-white rounded-xl py-1"
+              : "text-black py-0"
+          }`}
+          style={{
+            backgroundColor:
+              activeTab === "convert" ? "#2563EB" : "transparent",
+            color: activeTab === "convert" ? "#fff" : "#000",
+            borderRadius: activeTab === "convert" ? "0.75rem" : "0",
+          }}
+        >
+          Converter
+        </TabsTrigger>
       </TabsList>
-      <TabsContent value="converter">
-        <CurrencyConverter />
-      </TabsContent>
       <TabsContent value="send">
         <CurrencySendCalculator />
+      </TabsContent>
+      <TabsContent value="convert">
+        <CurrencyConverter />
       </TabsContent>
     </Tabs>
   );
