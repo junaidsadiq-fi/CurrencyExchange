@@ -5,15 +5,13 @@ import VisitSection from "@/components/VisitSection";
 import MarqueeSection from "@/components/MarqueeSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import FaqSection from "@/components/FaqSection";
-import Navbar from "@/components/Navbar";
-/* import ForexConverter from "@/components/ForexConverter"; */
+import MainNavbar from "@/components/MainNavbar";
 
 export default function Home() {
   return (
     <div className="w-full h-full overflow-hidden">
-      {/* <Navbar/> */}
+      <MainNavbar />
       <Hero/>
-      {/* <ForexConverter /> */}
       <MarqueeSection />
       <VisitSection />
       <FaqSection />

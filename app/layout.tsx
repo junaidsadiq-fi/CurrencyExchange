@@ -3,11 +3,11 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { WhatsappButton } from "@/components/WhatsappButton";
+import MainNavbar from "@/components/MainNavbar";
 /* import Navbar from "@/components/Navbar";
 import {Footer} from "@/components/Footer" */
 const fontSans = FontSans({
@@ -37,7 +37,7 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        <Navbar />
+        {/* <MainNavbar /> */}
         <CurrencyProvider>
           {children}
           <WhatsappButton />
@@ -47,3 +47,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+

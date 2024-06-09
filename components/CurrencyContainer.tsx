@@ -16,7 +16,7 @@ import CurrencyConverter from "./CurrencyConverter";
 import CurrencySendCalculator from "./CurrencySendCalculator";
 
 export function CurrencyContainer() {
-  const [activeTab, setActiveTab] = useState("convert");
+  const [activeTab, setActiveTab] = useState("send");
 
   const handleTabChange = (value) => {
     setActiveTab(value);
