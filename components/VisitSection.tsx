@@ -9,6 +9,7 @@ import { Check } from "lucide-react";
 import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
 import Map from "./ui/Map";
+import { BsWhatsapp } from "react-icons/bs";
 
 const locations = [
   {
@@ -33,7 +34,7 @@ const locations = [
     name: "Via Ciro Menotti 26",
     address: "Carpi cap 41012",
     phone: "3514304021",
-    whatsapp: "3401094619",
+    /* whatsapp: "3401094619", */
   },
 ];
 
@@ -75,8 +76,21 @@ function VisitSection() {
                 <div key={index} className="mb-4">
                   <h2 className="text-md font-semibold">{location.name}</h2>
                   <p>{location.address}</p>
-                  <p>Phone: {location.phone}</p>
-                  <p>WhatsApp: {location.whatsapp}</p>
+                  <p>
+                    <a href={`tel:${location.phone}`} className="flex items-center hover:text-blue-400 hover:cursor-pointer hover:underline gap-2">
+                      <PhoneCall className="text-blue-400" size={16} />
+                      <span>{location.phone}</span>
+                    </a>
+                  </p>
+                  {!location.whatsapp ? null :  (
+                    <a
+                      href={`https://wa.me/${location.whatsapp}`}
+                      className="flex items-center hover:cursor-pointer hover:text-green-500 hover:underline gap-2"
+                    >
+                      <BsWhatsapp className="text-green-700" size={16} />
+                      <span>{location.whatsapp}</span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
