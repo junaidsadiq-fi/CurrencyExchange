@@ -6,26 +6,20 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const mapbox_api = process.env.NEXT_PUBLIC_MAPBOX_API_KEY ?? "";
 mapboxgl.accessToken = mapbox_api;
 
-const locations = [
-  {
-    name: "Viale Antonio Gramsci 97, Modena 41122",
-    coordinates: [10.936048185220686, 44.6572193156619],
-  },
-  {
-    name: "Viale Guido Mazzoni 31/33, Modena 41121",
-    coordinates: [10.93362246505307, 44.65341053630263],
-  },
-  {
-    name: "Piazza della libertà 37, Sassuolo 41049",
-    coordinates: [10.782896998153038, 44.54467082747539], 
-  },
-  {
-    name: "Via Ciro Menotti 26, Carpi 41012",
-    coordinates: [10.883660486505839, 44.78414548441358],
-  },
-];
+interface Location {
+  name: string;
+  coordinates: [number, number];
+  address: string;
+  phone: string;
+  whatsapp?: string;
+}
 
-const Map = () => {
+interface MapProps {
+  locations: Location[];
+  selectedLocation: [number, number] | null;
+}
+
+const Map = ({ locations, selectedLocation }: MapProps) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
@@ -57,22 +51,24 @@ const Map = () => {
           .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(location.name))
           .addTo(map.current);
 
-        // Add click event listener to each marker
-        marker.getElement().addEventListener("click", () => {
-          map.current.flyTo({
-            center: location.coordinates,
-            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-          });
+        // Fit the map to the bounds with padding
+        map.current.fitBounds(bounds, {
+          padding: 60,
+          maxZoom: 14, // Maximum zoom to fit all locations
         });
       });
-
-      // Fit the map to the bounds with padding
-      map.current.fitBounds(bounds, {
-        padding: 60,
-        maxZoom: 14, // Maximum zoom to fit all locations
-      });
     });
-  }, []);
+  }, [locations]);
+
+  useEffect(() => {
+    if (selectedLocation && map.current) {
+      map.current.flyTo({
+        center: selectedLocation,
+        zoom: 10,
+        essential: true,
+      });
+    }
+  }, [selectedLocation]);
 
   return (
     <div
