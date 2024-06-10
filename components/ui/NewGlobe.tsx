@@ -18,13 +18,23 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [45.4642, 9.19], size: 0.03 }, // Milan
-    { location: [41.9028, 12.4964], size: 0.1 }, // Rome
-    { location: [45.4408, 12.3155], size: 0.05 }, // Venice
-    { location: [43.7696, 11.2558], size: 0.07 }, // Florence
-    { location: [40.8518, 14.2681], size: 0.08 }, // Naples
     { location: [44.4949, 11.3426], size: 0.1 }, // Bologna
-    // Add more locations as needed
+    { location: [31.5497, 74.3436], size: 0.1 }, // Lahore
+    { location: [19.076, 72.8777], size: 0.1 }, // Mumbai
+    { location: [5.6037, -0.187], size: 0.1 },
+    { location: [25.276987, 55.296249], size: 0.1 },
+    { location: [40.7128, -74.006], size: 0.1 },
+    { location: [52.52, 13.405], size: 0.1 },
+    { location: [-25.2744, 133.7751], size: 0.1 },
+    { location: [-14.235, -51.9253], size: 0.1 },
+    //helsinki
+    { location: [60.1695, 24.9354], size: 0.1 },
+    //sweden
+    { location: [60.1282, 18.6435], size: 0.1 },
+    //norway
+    { location: [60.472, 8.4689], size: 0.1 },
+    //denmark
+    { location: [56.2639, 9.5018], size: 0.1 },
   ],
 };
 

@@ -133,7 +133,7 @@ export default function page() {
                     height={220}
                   />
                   <CardTitle>
-                    <span className="flex flex-row gap-4 items-center font-normal text-bold justify-center">
+                    <span className="flex flex-row gap-4 items-center font-normal font-bold justify-center">
                       Wide Range of Currencies
                     </span>
                   </CardTitle>
@@ -165,7 +165,7 @@ export default function page() {
               <h2 className="text-2xl sm:text-xl  font-extrabold tracking-tight text-white lg:text-6xl max-w-xl text-left">
                 Still Got Questions?
               </h2>
-              <p className="text-lg leading-relaxed text-white tracking-tight max-w-xl text-left">
+              <p className="text-lg leading-relaxed text-white tracking-tight max-w-xl">
                 Call our customer service team for any queries or concerns.
               </p>
             </div>
