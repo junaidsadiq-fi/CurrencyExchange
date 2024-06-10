@@ -79,7 +79,7 @@ export const Footer = () => {
           <div className="flex gap-8 flex-col items-start">
             <div className="flex gap-2 flex-col">
               <Image
-                src="/images/logo.png"
+                src="/images/Logo.webp"
                 width="350"
                 height="350"
                 alt="logo"

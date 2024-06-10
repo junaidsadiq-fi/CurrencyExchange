@@ -6,7 +6,7 @@ const locations = [
       address: "City Modena cap 41122",
       phone: "059454430",
       whatsapp: "3276688805",
-      image: "/images/locations/viale.jpg"
+      image: "/images/locations/viale.webp"
     },
     {
       name: "Viale Guido Mazzoni 31/33",
@@ -14,7 +14,7 @@ const locations = [
       address: "City Modena cap 41121",
       phone: "0597874540",
       whatsapp: "3511699193",
-    image: "/images/locations/mazzoni.jpg"
+    image: "/images/locations/mazzoni.webp"
 
     },
     {
@@ -23,14 +23,14 @@ const locations = [
       address: "Sassuolo cap 41049",
       phone: "0536583874",
       whatsapp: "3401094619",
-        image: "/images/locations/Sassuolo.jpg"
+        image: "/images/locations/Sassuolo.webp"
     },
     {
       name: "Via Ciro Menotti 26",
       coordinates: [10.883660486505839, 44.78414548441358],
       address: "Carpi cap 41012",
       phone: "3514304021",
-      image: "/images/locations/Sassuolo.jpg"
+      image: "/images/locations/via.webp"
     },
   ];
   

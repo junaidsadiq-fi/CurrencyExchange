@@ -14,7 +14,7 @@ const page = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <div className="w-full py-20 lg:py-40 bg-blue-100">
+    <div className="w-full py-20 lg:py-40 bg-blue-50">
       <div className="container max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10">
           <div className="flex flex-col gap-6">

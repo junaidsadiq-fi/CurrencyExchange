@@ -1,14 +1,27 @@
-import React from "react";
-import CurrencyMovingList from "./CurrencyMovingList";
+import React, {Suspense} from "react";
+import dynamic from "next/dynamic";
 import DotPattern from "./ui/dot-pattern";
 import { cn } from "@/lib/utils";
-import ForexConverter from "./ForexConverter";
-import CurrencyContainer from "./CurrencyContainer";
+import Loader from "./Loader";
+
+const CurrencyContainer = dynamic(() => import("./CurrencyContainer"), {
+  ssr: false,
+});
+
+const ForexConverter = dynamic(() => import("./ForexConverter"), {
+  ssr: false,
+});
+
+const CurrencyMovingList = dynamic(() => import("./CurrencyMovingList"), {
+  ssr: false,
+});
 
 export default function Hero() {
   return (
     <>
+    <Suspense fallback={null}>
       <CurrencyMovingList />
+    </Suspense>
       <div className="w-full flex flex-col justify-center items-center bg-background ">
         <DotPattern
           className={cn(
@@ -30,10 +43,14 @@ export default function Hero() {
           </div>
           <div className="w-full flex flex-col md:flex-row justify-center items-start gap-4">
             <div className="w-full md:w-1/2 p-4 order-1 md:order-2">
+            <Suspense fallback={<Loader/>}>
               <CurrencyContainer />
+              </Suspense>
             </div>
             <div className="w-full md:w-1/2 p-4 order-2 md:order-1">
+            <Suspense fallback={<Loader/>}>
               <ForexConverter />
+            </Suspense>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { BorderBeam } from "./ui/border-beam";
+/* import { BorderBeam } from "./ui/border-beam"; */
 
 function CurrencyConverter({ className }: { className?: string }) {
   const [fromCurrency, setFromCurrency] = useState("EUR");
@@ -75,7 +75,7 @@ function CurrencyConverter({ className }: { className?: string }) {
         className
       )}
     >
-      <BorderBeam />
+      {/* <BorderBeam /> */}
       <CardContent className="grid gap-4">
         <div className="grid grid-cols-3 gap-4">
           <div>

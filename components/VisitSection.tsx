@@ -1,17 +1,17 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { MoveRight, MoveRightIcon, MoveUpIcon, PhoneCall } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import GridPattern from "./ui/grid-pattern";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { Check } from "lucide-react";
-import { FaLocationArrow } from "react-icons/fa";
+import React, { useState, useRef, Suspense } from "react";
 import Link from "next/link";
-import Map from "./ui/Map";
-import { BsWhatsapp } from "react-icons/bs";
 import locations from "../data/locations";
+import dynamic from 'next/dynamic';
+
+import { cn } from "@/lib/utils";
+import GridPattern from "./ui/grid-pattern";
+import { FaLocationArrow } from "react-icons/fa6";
+import { PhoneCall } from "lucide-react";
+import { BsWhatsapp } from "react-icons/bs";
+import Loading from "@/app/services/loading";
+
+const Map = dynamic(() => import("./ui/Map"), { ssr: false });
 
 function VisitSection() {
   const [selectedLocation, setSelectedLocation] = useState<[number, number] | null>(null);
@@ -94,7 +94,9 @@ function VisitSection() {
             </div>
           </div>
           <div ref={mapRef} className="rounded-md pt-12 aspect-square">
+            <Suspense fallback={<Loading/>}>
             <Map locations={locations} selectedLocation={selectedLocation} />
+            </Suspense>
           </div>
         </div>
       </div>

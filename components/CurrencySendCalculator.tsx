@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import TransferFeeRate from "@/data/TransferFeeRate";
-import { BorderBeam } from "./ui/border-beam";
+/* import { BorderBeam } from "./ui/border-beam"; */
 
 export default function CurrencySendCalculator({ className }: { className?: string }) {
   const [fromCurrency, setFromCurrency] = useState("EUR");
@@ -117,7 +117,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
 
   return (
     <Card className="border items-center shadow-2xl justify-center rounded-xl p-4 bg-[rgba(255,255,255,0.1)] backdrop-blur-md">
-      <BorderBeam />
+      {/* <BorderBeam /> */}
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="destinationCountry">Destination country</Label>

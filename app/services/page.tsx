@@ -3,8 +3,7 @@ import { MoveRight, PhoneCall, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { Bento } from "@/components/Bento";
-import { User } from "lucide-react";
+import dynamic from 'next/dynamic';
 import {
   Card,
   CardContent,
@@ -13,9 +12,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-/* import GridPattern from "@/components/ui/grid-pattern"; */
 import DotPattern from "@/components/ui/dot-pattern";
+import { Suspense } from "react";
 
+const Bento = dynamic(() => import("@/components/Bento"), { ssr: false });
 export default function page() {
   const handlePhoneClick = () => {
     const phoneNumber = "+393276688805";
@@ -47,7 +47,7 @@ export default function page() {
           </div>
           <div className="bg-muted pt-5 lg:pt-20 rounded-md md:justify-center md:items-center aspect-square">
             <Image
-              src="/images/services1.jpg"
+              src="/images/services1.webp"
               alt="services"
               className="object-cover"
               width={500}
@@ -72,7 +72,7 @@ export default function page() {
               <Card className="w-full rounded-xl bg-white">
                 <CardHeader>
                   <Image
-                    src="/images/services5.jpg"
+                    src="/images/services5.webp"
                     alt="feature 1"
                     className="object-cover mx-auto"
                     width={220}
@@ -99,7 +99,7 @@ export default function page() {
               <Card className="w-full shadow-2xl rounded-xl bg-white">
                 <CardHeader>
                   <Image
-                    src="/images/services2.jpg"
+                    src="/images/services2.webp"
                     alt="feature 2"
                     className="object-cover mx-auto"
                     width={220}
@@ -126,7 +126,7 @@ export default function page() {
               <Card className="w-full rounded-xl bg-white">
                 <CardHeader>
                   <Image
-                    src="/images/features7.png"
+                    src="/images/features7.webp"
                     alt="feature 3"
                     className="object-cover mx-auto"
                     width={220}
@@ -155,7 +155,9 @@ export default function page() {
         </div>
       </div>
       <div className="mx-20 my-16 xl:mx-32 2xl:mx-64">
+        <Suspense fallback={null}>
         <Bento />
+        </Suspense>
       </div>
       {/* Still got questions call us section */}
       <div className="z-10 min-w-lg mx-16 lg:mx-32 my-4">
@@ -182,7 +184,7 @@ export default function page() {
           </div>
           <div className="rounded-md pt-2">
             <Image
-              src="/images/faces/thinking.png"
+              src="/images/faces/thinking.webp"
               alt="services"
               className="object-cover mx-auto my-auto"
               width={120}

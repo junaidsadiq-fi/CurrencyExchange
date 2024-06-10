@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
 import { Check, PhoneCall } from "lucide-react";
-import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Map from "@/components/ui/Map";

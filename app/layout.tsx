@@ -6,10 +6,6 @@ import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { WhatsappButton } from "@/components/WhatsappButton";
-import MainNavbar from "@/components/MainNavbar";
-/* import Navbar from "@/components/Navbar";
-import {Footer} from "@/components/Footer" */
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -20,7 +16,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   title: " Telefonopiú",
-  description: "Europs most reliable Currency Exchange",
+  description: `Italy's most reliable Currency Exchange`,
 };
 
 export default function RootLayout({
@@ -37,10 +33,9 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        {/* <MainNavbar /> */}
         <CurrencyProvider>
           {children}
-          <WhatsappButton />
+          {/* <WhatsappButton /> */}
           <Footer />
         </CurrencyProvider>
       </body>

@@ -23,7 +23,7 @@ const SecondaryNavbar = () => {
         </SheetTrigger>
         <SheetContent className="opacity-[1] bg-white py-2" side="right">
           <Link href="/">
-            <Image src="/images/logo.png" alt="logo" width={150} height={150} />
+            <Image src="/images/Logo.webp" alt="logo" width={150} height={150} />
             <span className="sr-only">Money Exchange</span>
           </Link>
           <div className="grid gap-2 py-2">
@@ -61,7 +61,7 @@ const SecondaryNavbar = () => {
         </SheetContent>
       </Sheet>
       <Link className="mr-4 hidden lg:flex" href="/">
-        <Image src="/images/logo.png" alt="logo" width={130} height={130} />
+        <Image src="/images/Logo.webp" alt="logo" width={130} height={130} />
         <span className="sr-only">Money</span>
       </Link>
       <div className="flex w-full justify-center">

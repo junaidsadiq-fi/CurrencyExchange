@@ -27,35 +27,35 @@ export default function SubscribeSection() {
                 <div className="flex justify-center -space-x-3">
                 <Avatar className="bg-gray-200 h-8 w-8 ">
                     <AvatarImage
-                      src="/images/faces/lawyer.png"
+                      src="/images/faces/lawyer.webp"
                       alt="@lawyer"
                     />
                     {/* <AvatarFallback>lawyer</AvatarFallback> */}
                   </Avatar>
                   <Avatar className="bg-gray-200 h-8 w-8 ">
                     <AvatarImage
-                      src="/images/faces/women.png"
+                      src="/images/faces/women.webp"
                       alt="@Women"
                     />
                  {/*    <AvatarFallback>Women</AvatarFallback> */}
                   </Avatar>
                   <Avatar className=" bg-gray-200 h-8 w-8 ">
                     <AvatarImage
-                      src="/images/faces/black.png"
+                      src="/images/faces/black.webp"
                       alt="@Black African Man"
                     />
                     {/* <AvatarFallback>Arab</AvatarFallback> */}
                   </Avatar>
                   <Avatar className="bg-gray-200 h-8 w-8 ">
                     <AvatarImage
-                      src="/images/faces/arab.png"
+                      src="/images/faces/arab.webp"
                       alt="@Arab Man"
                     />
                     {/* <AvatarFallback>Engineer</AvatarFallback> */}
                   </Avatar>
                   <Avatar className="bg-gray-200 h-8 w-8 ">
                     <AvatarImage
-                      src="/images/faces/Engineer.png"
+                      src="/images/faces/Engineer.webp"
                       alt="@Engineer"
                     />
                     {/* <AvatarFallback>Engineer</AvatarFallback> */}

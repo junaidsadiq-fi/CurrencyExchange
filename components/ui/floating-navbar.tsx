@@ -63,7 +63,7 @@ export const FloatingNav = ({
         )}
       >
         <Link href="/" className="mr-4 ">
-          <Image src="/images/logo.png" alt="logo" width={100} height={100} />
+          <Image src="/images/Logo.webp" alt="logo" width={100} height={100} />
           <span className="sr-only">Money</span>
         </Link>
         <Sheet>
@@ -75,7 +75,7 @@ export const FloatingNav = ({
           </SheetTrigger>
           <SheetContent className="opacity-[1] bg-white py-2" side="right">
             <Link href="/">
-              <Image src="/images/logo.png" alt="logo" width={150} height={150} />
+              <Image src="/images/Logo.webp" alt="logo" width={150} height={150} />
               <span className="sr-only">Money Exchange</span>
             </Link>
             <div className="grid gap-2 py-2">

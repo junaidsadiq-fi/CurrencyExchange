@@ -19,7 +19,7 @@ type Currency = {
   rate: string;
 };
 
-export function Bento() {
+export default function Bento() {
   const currencies = useCurrencies() as Currency[];
 
   const files = [
