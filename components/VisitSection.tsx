@@ -6,10 +6,10 @@ import dynamic from 'next/dynamic';
 
 import { cn } from "@/lib/utils";
 import GridPattern from "./ui/grid-pattern";
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaLocationArrow } from "react-icons/fa";
 import { PhoneCall } from "lucide-react";
-import { BsWhatsapp } from "react-icons/bs";
-import Loading from "@/app/services/loading";
+import { FaWhatsapp } from "react-icons/fa";
+import Loading from "@/app/(nav-routes)/services/loading";
 
 const Map = dynamic(() => import("./ui/Map"), { ssr: false });
 
@@ -85,7 +85,7 @@ function VisitSection() {
                       href={`https://wa.me/${location.whatsapp}`}
                       className="flex items-center hover:cursor-pointer hover:text-green-500 hover:underline gap-2"
                     >
-                      <BsWhatsapp className="text-green-700" size={16} />
+                      <FaWhatsapp className="text-green-700" size={16} />
                       <span>{location.whatsapp}</span>
                     </a>
                   )}

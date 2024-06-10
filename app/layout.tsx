@@ -36,13 +36,8 @@ export default function RootLayout({
         <CurrencyProvider>
           {children}
           {/* <WhatsappButton /> */}
-          <Footer />
         </CurrencyProvider>
       </body>
     </html>
   );
 }
-
-
-
-

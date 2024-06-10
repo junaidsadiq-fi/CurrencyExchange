@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-const currency_api = process.env.NEXT_PUBLIC_CURRENCY_API_KEY;
+/* const currency_api = process.env.NEXT_PUBLIC_CURRENCY_API_KEY; */
 
 // Define the Currency type
 type Currency = {
@@ -128,7 +128,7 @@ export const CurrencyProvider = ({
           },
           // Mali
           {
-            name: "XOF",
+            name: "Xof",
             img: "/images/flags/Mali-Circle.svg",
             rate: 655.95,
             symbol: "CFA",
@@ -160,7 +160,7 @@ export const CurrencyProvider = ({
           },
           // Costa d'Avorio
           {
-            name: "XOF",
+            name: "XoF",
             img: "/images/flags/Cote-dIvoire.png",
             rate: 655.95,
             symbol: "CFA",

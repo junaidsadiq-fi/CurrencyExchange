@@ -1,8 +1,10 @@
+'"use client';
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/Marquee";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
- const reviews = [
+const reviews = [
   {
     name: "Western Union",
     username: "@westernunion",
@@ -28,12 +30,6 @@ import Image from "next/image";
     img: "/images/partners/Monty.png",
   },
   {
-    name: "Connect Plus",
-    username: "@connectplus",
-    body: "Connecting you to the world",
-    img: "/images/partners/ConnectMoney.png",
-  },
-  {
     name: "Wave",
     username: "@wave",
     body: "Send money with love",
@@ -53,7 +49,7 @@ import Image from "next/image";
   },
   {
     name: "Ria",
-    username: "@connectplus",
+    username: "@Ria",
     body: "Connecting you to the world",
     img: "/images/partners/ria.png",
   },
@@ -95,17 +91,7 @@ const reviews2 = [
 const firstRow = reviews;
 const secondRow = reviews2;
 
-const ReviewCard = ({
-  img,
-  name,
-  username,
-  body,
-}: {
-  img: string;
-  name: string;
-  username: string;
-  body: string;
-}) => {
+const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
       className={cn(
@@ -113,32 +99,44 @@ const ReviewCard = ({
         "border-gray-950/[.1] bg-white hover:bg-gray-100"
       )}
     >
-        <Image
-          className=""
-          width="100"
-          height="100"
-          alt=""
-          src={img}
-        />
+      <Image
+        className=""
+        width={100}
+        height={100}
+        layout="fixed"
+        alt="partner logo"
+        src={img}
+      />
     </figure>
   );
 };
+
 const MarqueeSection = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
-    <div className="relative  bg-blue-50  flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-sm">
+    <div className="relative bg-blue-50 flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-sm">
       <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
         Our Partners
       </h2>
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
+      {isClient && (
+        <>
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {firstRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {secondRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+        </>
+      )}
     </div>
   );
 };

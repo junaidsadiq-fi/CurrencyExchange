@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Map from "@/components/ui/Map";
 import locations from "@/data/locations";
-import { BsWhatsapp } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Page() {
   const [selectedLocation, setSelectedLocation] = useState<
@@ -125,7 +125,7 @@ export default function Page() {
                             href={`https://wa.me/${location.whatsapp}`}
                             className="flex items-center hover:cursor-pointer hover:text-green-500 hover:underline gap-2"
                           >
-                            <BsWhatsapp className="text-green-700" size={16} />
+                            <FaWhatsapp className="text-green-700" size={16} />
                             <span>{location.whatsapp}</span>
                           </a>
                         )}
