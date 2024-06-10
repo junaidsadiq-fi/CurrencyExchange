@@ -1,11 +1,9 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
 import CurrencyMovingList from "./CurrencyMovingList";
-import { CurrencyContainer } from "./CurrencyContainer";
 import DotPattern from "./ui/dot-pattern";
 import { cn } from "@/lib/utils";
 import ForexConverter from "./ForexConverter";
+import CurrencyContainer from "./CurrencyContainer";
 
 export default function Hero() {
   return (
@@ -14,15 +12,12 @@ export default function Hero() {
       <div className="w-full flex flex-col justify-center items-center bg-background ">
         <DotPattern
           className={cn(
-            "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
           )}
         />
         <div className="w-full max-w-screen-xl relative px-4 min-h-[calc(50vh)] mx-auto flex flex-col justify-center items-center h-full">
           <div className="flex flex-col py-12 mt-8 gap-2 items-center pt-4 w-full text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+            <div
               className="flex flex-col gap-4 text-center"
             >
               <h1 className="text-3xl font-extrabold md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl tracking-tighter">
@@ -31,7 +26,7 @@ export default function Hero() {
               <p className="text-lg md:text-wrap lg:text-xl leading-relaxed tracking-tight text-muted-foreground">
                 Send Money, Pay Bills, Transfer Funds, and More.
               </p>
-            </motion.div>
+            </div>
           </div>
           <div className="w-full flex flex-col md:flex-row justify-center items-start gap-4">
             <div className="w-full md:w-1/2 p-4 order-1 md:order-2">

@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss"
 
 const svgToDataUri = require("mini-svg-data-uri");
  
-const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -25,9 +24,6 @@ const config = {
       },
     },
     extend: {
-      backgroundImage: {
-        'custom-radial-gradient': 'radial-gradient(circle, #1e3a8a, #1e40af, #1e3a8a)', // Adjust colors as needed
-      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
@@ -110,6 +106,7 @@ const config = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
         
       },
     },
@@ -138,16 +135,5 @@ const config = {
     );
   },
 } satisfies Config
-
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
 
 export default config

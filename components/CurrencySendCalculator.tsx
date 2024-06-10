@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import TransferFeeRate from "@/data/TransferFeeRate";
+import { BorderBeam } from "./ui/border-beam";
 
 export default function CurrencySendCalculator({ className }: { className?: string }) {
   const [fromCurrency, setFromCurrency] = useState("EUR");
@@ -60,7 +62,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
 
   const calculateSendFee = useCallback(
     (country, amount) => {
-      const feeStructure = {
+      /* const feeStructure = {
         Ghana: { ranges: [[1, 50, 3.5], [50, 100, 4], [100, 150, 5], [150, 200, 6], [200, 300, 7], [300, 400, 8], [400, 500, 12], [500, 600, 14], [600, 700, 17.5], [700, 800, 20.5], [800, 900, 21.5], [900, 1000, 22.5]] },
         Nigeria: { ranges: [[1, 50, 4.5], [50, 100, 5], [100, 200, 8], [200, 300, 12], [300, 400, 14], [400, 500, 14], [500, 600, 22], [600, 700, 25], [700, 800, 27], [800, 900, 28], [900, 1000, 29]] },
         Marocco: { ranges: [[1, 100, 3.8], [100, 200, 7.5], [200, 300, 9.9], [300, 400, 11.5], [400, 500, 12.9], [500, 600, 17.4], [600, 700, 20], [700, 800, 22], [800, 900, 25], [900, 1000, 29.5]] },
@@ -80,9 +82,9 @@ export default function CurrencySendCalculator({ className }: { className?: stri
         Peru: { ranges: [[1, 100, 3], [100, 400, 4.9], [400, 500, 7.5], [500, 600, 9], [600, 700, 10.5], [700, 800, 16], [800, 900, 18], [900, 1000, 20]] },
         "Costa Davorio": { ranges: [[1, 200, 2.9], [200, 600, 5.9], [600, 1000, 9.9]] },
         Srilanka: { ranges: [[1, 400, 5], [500, 1000, 6]] },
-      };
+      }; */
 
-      const fees = feeStructure[country]?.ranges;
+      const fees = TransferFeeRate[country]?.ranges;
       if (fees) {
         for (const [min, max, fee] of fees) {
           if (amount >= min && amount <= max) {
@@ -115,6 +117,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
 
   return (
     <Card className="border items-center shadow-2xl justify-center rounded-xl p-4 bg-[rgba(255,255,255,0.1)] backdrop-blur-md">
+      <BorderBeam />
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="destinationCountry">Destination country</Label>

@@ -7,25 +7,28 @@ import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Card, CardHeader, CardDescription, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const page = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <div className="w-full py-20 lg:py-40">
+    <div className="w-full py-20 lg:py-40 bg-blue-100">
       <div className="container max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <div>
-                <Badge>Contact</Badge>
+              <div >
+                <Badge className="bg-white border rounded-xl">Contact</Badge>
               </div>
               <div className="flex flex-col gap-2">
                 <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular">
                   Get in Touch
                 </h4>
                 <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-sm text-left">
-                  Have questions or need assistance? Reach out to our customer service team.
+                  Have questions or need assistance? Reach out to our customer
+                  service team.
                 </p>
               </div>
             </div>
@@ -59,32 +62,53 @@ const page = () => {
           </div>
 
           <div className="justify-center flex items-center">
-            <div className="rounded-md max-w-sm flex flex-col border p-8 gap-4">
-              <p>Contact Us</p>
-              <div className="grid w-full max-w-sm items-center gap-1">
-                <Label htmlFor="firstname">First Name</Label>
-                <Input id="firstname" type="text" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1">
-                <Label htmlFor="lastname">Last Name</Label>
-                <Input id="lastname" type="text" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1">
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" type="text" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1">
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" rows={4} />
-              </div>
-              <Button className="gap-4 w-full">
-                Send Message <MoveRight className="w-4 h-4" />
-              </Button>
-            </div>
+            <Card className="w-full bg-white backdrop-blur-md shadow-2xl border rounded-xl max-w-md">
+            <BorderBeam/>
+              <CardHeader>
+                <CardTitle>Contact Us</CardTitle>
+                <CardDescription>
+                  Fill out the form below and we'll get back to you as soon as
+                  possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="first-name">First Name</Label>
+                      <Input className="border rounded-xl" id="first-name" placeholder="John" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="last-name">Last Name</Label>
+                      <Input className=" border rounded-xl" id="last-name" placeholder="Doe" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      className=" border rounded-xl"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      placeholder="How can we help you?"
+                      className="min-h-[100px]"
+                      className=" border rounded-xl"
+                    />
+                  </div>
+                </form>
+              </CardContent>
+              <CardFooter>
+                <Button className="border rounded-full bg-gradient-to-b from-gray-500 to-blue-600 text-white hover:bg-white hover:text-black focus:border-gray-900  ml-auto " type="submit">
+                  Submit
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </div>

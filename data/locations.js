@@ -14,7 +14,7 @@ const locations = [
       address: "City Modena cap 41121",
       phone: "0597874540",
       whatsapp: "3511699193",
-    image: "/images/locations/viale.jpg"
+    image: "/images/locations/mazzoni.jpg"
 
     },
     {
@@ -23,7 +23,7 @@ const locations = [
       address: "Sassuolo cap 41049",
       phone: "0536583874",
       whatsapp: "3401094619",
-        image: "/images/locations/piazza.jpg"
+        image: "/images/locations/Sassuolo.jpg"
     },
     {
       name: "Via Ciro Menotti 26",

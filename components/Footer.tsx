@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import LinearGradient from "./ui/linear-gradient";
 import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
@@ -75,8 +74,6 @@ export const Footer = () => {
   };
   return (
     <div className="w-full bg-gray-50 relative pt-10 bg-foreground text-background">
-      {/*  <LinearGradient/> */}
-      {/*  <RadialGradient/> */}
       <div className="container z-10 mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="flex gap-8 flex-col items-start">

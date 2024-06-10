@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/Marquee";
 import Image from "next/image";
 
-const reviews = [
+ const reviews = [
   {
     name: "Western Union",
     username: "@westernunion",
@@ -113,7 +113,6 @@ const ReviewCard = ({
         "border-gray-950/[.1] bg-white hover:bg-gray-100"
       )}
     >
-      <div className="">
         <Image
           className=""
           width="100"
@@ -121,18 +120,9 @@ const ReviewCard = ({
           alt=""
           src={img}
         />
-        <div className="flex flex-col">
-          {/*  <figcaption className="text-sm font-medium dark:text-white">
-            {name}
-          </figcaption> */}
-          {/* <p className="text-xs font-medium dark:text-white/40">{username}</p> */}
-        </div>
-      </div>
-      {/*  <blockquote className="mt-2 text-sm">{body}</blockquote> */}
     </figure>
   );
 };
-/* bg-gradient-to-b from-sky-600 to-blue-900 */
 const MarqueeSection = () => {
   return (
     <div className="relative  bg-blue-50  flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-sm">
@@ -149,8 +139,6 @@ const MarqueeSection = () => {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-    {/*   <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white dark:from-background"></div> */}
     </div>
   );
 };

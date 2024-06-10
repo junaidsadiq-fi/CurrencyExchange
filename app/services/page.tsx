@@ -13,7 +13,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import GridPattern from "@/components/ui/grid-pattern";
+/* import GridPattern from "@/components/ui/grid-pattern"; */
+import DotPattern from "@/components/ui/dot-pattern";
 
 export default function page() {
   const handlePhoneClick = () => {
@@ -21,10 +22,15 @@ export default function page() {
     window.open(`tel:${phoneNumber}`);
   };
   return (
-    <div className="w-full py-10 lg:py-20">
+    <div className="w-full py-20 lg:py-24">
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+        )}
+      />
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2">
-          <div className="flex gap-4 flex-col">
+          <div className="flex gap-4 flex-col justify-center items-center">
             <div>
               <Badge variant="outline">Effortless Exchange</Badge>
             </div>
@@ -39,7 +45,7 @@ export default function page() {
               </p>
             </div>
           </div>
-          <div className="bg-muted pt-20 rounded-md aspect-square">
+          <div className="bg-muted pt-5 lg:pt-20 rounded-md md:justify-center md:items-center aspect-square">
             <Image
               src="/images/services1.jpg"
               alt="services"
@@ -51,19 +57,19 @@ export default function page() {
         </div>
       </div>
       {/* feature cards */}
-      <div className="w-full py-10 lg:py-20">
-        <div className="container mx-auto">
-          <div className="flex text-center justify-center items-center gap-4 flex-col">
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-3x font-bold md:text-5xl tracking-tighter max-w-xl text-center font-regular">
+      <div className="w-full py-10 lg:py-20 bg-yellow-50">
+        <div className="container mx-auto ">
+          <div className="flex text-center justify-center items-center gap-4  flex-col">
+            <div className="flex gap-2 flex-col ">
+              <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl xl:text-7xl tracking-tighter text-center font-regular">
                 Our Exchange Features
               </h2>
-              <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-center">
+              <p className="text-md leading-relaxed tracking-tight text-muted-foreground  text-xl md:text-lg text-center">
                 Exchanging forex has never been easier.
               </p>
             </div>
-            <div className="grid pt-20 text-center grid-cols-1 lg:grid-cols-3 w-full gap-8">
-              <Card className="w-full rounded-xl">
+            <div className="grid pt-20  text-center grid-cols-1 lg:grid-cols-3 w-full gap-8">
+              <Card className="w-full rounded-xl bg-white">
                 <CardHeader>
                   <Image
                     src="/images/services5.jpg"
@@ -73,7 +79,7 @@ export default function page() {
                     height={220}
                   />
                   <CardTitle>
-                    <span className="flex flex-row gap-4 items-center font-normal justify-center">
+                    <span className="flex flex-row gap-4 items-center font-bold justify-center">
                       Lowest Rates in the Market
                     </span>
                   </CardTitle>
@@ -82,7 +88,7 @@ export default function page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     Save money on your forex transactions with our
                     industry-leading rates. Our commitment to providing the best
                     value means you get more for your money, whether you’re
@@ -90,7 +96,7 @@ export default function page() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="w-full shadow-2xl rounded-xl">
+              <Card className="w-full shadow-2xl rounded-xl bg-white">
                 <CardHeader>
                   <Image
                     src="/images/services2.jpg"
@@ -100,7 +106,7 @@ export default function page() {
                     height={220}
                   />
                   <CardTitle>
-                    <span className="flex flex-row gap-4 items-center font-normal justify-center">
+                    <span className="flex flex-row gap-4 font-bold items-center justify-center">
                       Fast and Secure Transactions
                     </span>
                   </CardTitle>
@@ -109,7 +115,7 @@ export default function page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     Experience the peace of mind that comes with fast and secure
                     forex transactions. Our advanced technology and robust
                     security measures ensure your funds are transferred safely
@@ -117,7 +123,7 @@ export default function page() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="w-full rounded-xl">
+              <Card className="w-full rounded-xl bg-white">
                 <CardHeader>
                   <Image
                     src="/images/features7.png"
@@ -127,7 +133,7 @@ export default function page() {
                     height={220}
                   />
                   <CardTitle>
-                    <span className="flex flex-row gap-4 items-center font-normal justify-center">
+                    <span className="flex flex-row gap-4 items-center font-normal text-bold justify-center">
                       Wide Range of Currencies
                     </span>
                   </CardTitle>
@@ -136,7 +142,7 @@ export default function page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     Whether you need euros, yen, or pesos, we’ve got you
                     covered. Our extensive range of supported currencies makes
                     it easy to exchange the money you need, no matter where
@@ -152,18 +158,18 @@ export default function page() {
         <Bento />
       </div>
       {/* Still got questions call us section */}
-      <div className="z-10 min-w-full mx-2 my-4">
+      <div className="z-10 min-w-lg mx-16 lg:mx-32 my-4">
         <div className="grid border-[2px] border-grey-50 bg-gradient-to-b from-blue-400 to-black shadow-2xl rounded-xl container py-4 grid-cols-1 gap-4 items-center lg:grid-cols-2">
           <div className="flex gap-4 flex-col">
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-4xl font-extrabold tracking-tight text-white lg:text-6xl max-w-xl text-left">
+            <div className="flex gap-2 flex-col sm:items-center sm:justify-center">
+              <h2 className="text-2xl sm:text-xl  font-extrabold tracking-tight text-white lg:text-6xl max-w-xl text-left">
                 Still Got Questions?
               </h2>
               <p className="text-lg leading-relaxed text-white tracking-tight max-w-xl text-left">
                 Call our customer service team for any queries or concerns.
               </p>
             </div>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4  lg:justify-start sm:items-center sm:justify-center">
               <Button
                 onClick={handlePhoneClick}
                 size="lg"
@@ -174,13 +180,13 @@ export default function page() {
               </Button>
             </div>
           </div>
-          <div className="rounded-md pt-2 lg:flex lg:justify-center">
+          <div className="rounded-md pt-2">
             <Image
               src="/images/faces/thinking.png"
-              alt="Locate Us"
+              alt="services"
+              className="object-cover mx-auto my-auto"
               width={120}
               height={120}
-              className="rounded-md opacity-90"
             />
           </div>
         </div>

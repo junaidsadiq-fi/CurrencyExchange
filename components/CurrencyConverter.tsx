@@ -35,7 +35,7 @@ function CurrencyConverter({ className }: { className?: string }) {
         const toRate = parseFloat(toCurrencyObj.rate) || 1;
         return toRate / fromRate;
       }
-      return 1; // Fallback rate if currencies are not found
+      return 1; 
     },
     [currencies]
   );

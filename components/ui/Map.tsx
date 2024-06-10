@@ -64,7 +64,7 @@ const Map = ({ locations, selectedLocation }: MapProps) => {
     if (selectedLocation && map.current) {
       map.current.flyTo({
         center: selectedLocation,
-        zoom: 10,
+        zoom: 15,
         essential: true,
       });
     }

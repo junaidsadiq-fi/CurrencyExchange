@@ -1,44 +1,18 @@
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import {
-  CalendarIcon,
-  FileTextIcon,
-  GlobeIcon,
-  InputIcon,
-} from "@radix-ui/react-icons";
+import { GlobeIcon } from "@radix-ui/react-icons";
 import Marquee from "./ui/Marquee";
 import Globe from "./ui/NewGlobe";
 import OrbitingCircles from "@/components/ui/orbiting-circles";
-import { IconProps } from "@radix-ui/react-icons/dist/types";
-import { Rubik_Pixels } from "next/font/google";
 import { CiBadgeDollar } from "react-icons/ci";
-import { HiOutlineCurrencyEuro } from "react-icons/hi";
 import { AnimatedBeamGrid } from "./AnimatedBeams";
-import {
-  AiFillDollarCircle,
-  AiFillEuroCircle,
-  AiFillPoundCircle,
-  AiOutlineArrowDown,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
+import { AiFillDollarCircle, AiFillEuroCircle } from "react-icons/ai";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import {
-  TbArrowsExchange,
-  TbCurrencyDinar,
-  TbCurrencyRiyal,
-} from "react-icons/tb";
+import { TbArrowsExchange } from "react-icons/tb";
 import { RiTimeZoneLine } from "react-icons/ri";
-import { GrSend } from "react-icons/gr";
 import { useCurrencies } from "@/context/CurrencyContext";
+import { GrSend } from "react-icons/gr";
+import Image from "next/image";
 
 type Currency = {
   name: string;
@@ -51,12 +25,16 @@ export function Bento() {
   const files = [
     {
       name: "Euro",
-      body: `${currencies.find(currency => currency.name === 'EUR')?.rate || 'N/A'} Pkr`,
+      body: `${
+        currencies.find((currency) => currency.name === "EUR")?.rate || "N/A"
+      } Pkr`,
       rateIncreased: true,
     },
     {
       name: "Dollar",
-      body: `${currencies.find(currency => currency.name === 'USD')?.rate || 'N/A'} Pkr`,
+      body: `${
+        currencies.find((currency) => currency.name === "USD")?.rate || "N/A"
+      } Pkr`,
     },
     {
       name: "Yen",
@@ -152,7 +130,6 @@ export function Bento() {
                   <figcaption className="flex text-sm font-bold dark:text-white">
                     {f.name}
                     {/* Add the arrow icon here */}
-                   
                   </figcaption>
                 </div>
               </div>
@@ -170,7 +147,18 @@ export function Bento() {
       cta: "Learn more",
       className: "col-span-3 lg:col-span-2",
       background: (
-        <Globe className="top-0 h-[600px] w-[600px] transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] group-hover:scale-105 sm:left-40" />
+        <>
+          <div className="flex items-center justify-center">
+            {" "}
+            <Image
+              alt="globe"
+              src="/map.jpg"
+              width={200}
+              height={200}
+              className="top-2 lg:left-48 h-[210px] w-[500px] lg:w-[550px] transition-all duration-300 ease-out  group-hover:scale-105 -z-10"
+            />
+          </div>
+        </>
       ),
     },
     {
@@ -192,4 +180,7 @@ export function Bento() {
       ))}
     </BentoGrid>
   );
+}
+{
+  /* <Globe className="top-0 h-[600px] w-[600px] transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] group-hover:scale-105 sm:left-40" /> */
 }

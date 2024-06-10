@@ -8,8 +8,10 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
+import { CiMenuFries } from "react-icons/ci";
 
 export const FloatingNav = ({
   navItems,
@@ -23,11 +25,9 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
 
@@ -66,18 +66,45 @@ export const FloatingNav = ({
           <Image src="/images/logo.png" alt="logo" width={100} height={100} />
           <span className="sr-only">Money</span>
         </Link>
-        {navItems.map((navItem: any, idx: number) => (
-          <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 font-bold text-neutral-600 dark:hover:text-neutral-300 p-2 rounded-full focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:bg-gradient-to-b focus:outline-none "
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
-        ))}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button className="lg:hidden" size="icon">
+              <CiMenuFries className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="opacity-[1] bg-white py-2" side="right">
+            <Link href="/">
+              <Image src="/images/logo.png" alt="logo" width={150} height={150} />
+              <span className="sr-only">Money Exchange</span>
+            </Link>
+            <div className="grid gap-2 py-2">
+              {navItems.map((navItem, idx) => (
+                <Link
+                  key={idx}
+                  className="flex w-full items-center font-bold p-2 max-w-20 rounded-full focus:bg-gradient-to-b focus:from-blue-800 focus:to-sky-900 focus:text-white text-xl"
+                  href={navItem.link}
+                >
+                  {navItem.name}
+                </Link>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+        <div className="hidden lg:flex">
+          {navItems.map((navItem, idx) => (
+            <Link
+              key={idx}
+              href={navItem.link}
+              className={cn(
+                "relative dark:text-neutral-50 items-center flex space-x-1 font-bold text-neutral-600 dark:hover:text-neutral-300 p-2 rounded-full focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:bg-gradient-to-b focus:outline-none "
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="hidden sm:block text-sm">{navItem.name}</span>
+            </Link>
+          ))}
+        </div>
       </motion.div>
     </AnimatePresence>
   );

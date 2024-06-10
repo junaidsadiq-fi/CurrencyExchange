@@ -10,7 +10,7 @@ import FamilyButton from "@/components/ui/FamilyButton";
 
 export function WhatsappButton() {
   return (
-    <div className="fixed backdrop-blur-lg sm:max-w-8 md:max-w-12 lg:max-w-16 x:max-w-20 bottom-4 right-4 z-50">
+    <div className="fixed backdrop-blur-sm sm:max-w-4 md:max-w-6 lg:max-w-10 x:max-w-16 bottom-4 right-4 z-50">
       <div className="absolute backdrop-blur-lg bottom-4 right-4">
         <FamilyButton>
           <OgImageSection />
@@ -87,7 +87,7 @@ export function OgImageSection() {
   };
 
   return (
-    <div className="flex flex-col items-center pt-4 ">
+    <div className="flex flex-col items-center p-4 ">
         <p className="mb-1 font-bold font-sm">Contact Us</p>
       <div className="flex space-x-1 border border-none rounded-[8px] cursor-pointer bg-gradient-to-b from-blue-900 to-gray-700  px-[3px] py-[3.2px] shadow-inner-shadow">
         {tabs.map((tab, i) => (
