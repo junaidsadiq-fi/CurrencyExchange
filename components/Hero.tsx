@@ -22,7 +22,7 @@ const CurrencyMovingList = dynamic(() => import("./CurrencyMovingList"), {
 export default function Hero() {
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={null}>
         <CurrencyMovingList />
       </Suspense>
       <div className="w-full flex flex-col justify-center items-center bg-background ">

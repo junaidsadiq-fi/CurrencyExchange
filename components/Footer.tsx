@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 
-export default function Footer () {
+export default function Footer() {
   const navigationItems = [
     {
       title: "Home",
@@ -41,71 +41,54 @@ export default function Footer () {
   return (
     <div className="w-full bg-gray-50 relative pt-10 bg-foreground text-background">
       <div className="container z-10 mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="flex gap-8 flex-col items-start">
-            <div className="flex gap-2 flex-col">
-              <div style={{ position: 'relative', width: '350px', height: '350px' }}>
-                <Image
-                  src="/images/Logo.webp"
-                  alt="logo"
-                  fill
-                  sizes="(max-width: 600px) 100vw, 350px"
-                  style={{ objectFit: 'contain' }}
-                  priority
-                />
-              </div>
-              <p className="text-lg sm:text-md max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                Telefonopiú Exchange Company is a leading currency exchange and
-                money transfer company based in Italy with four branches in
-                Italy so far and continuously expanding.
-              </p>
+        <div className="grid lg:grid-cols-4 gap-10 items-start">
+          <div className="lg:col-span-1 flex flex-col items-start">
+            <div style={{ position: 'relative', width: '150px', height: '150px' }}>
+              <Image
+                src="/images/Logo.webp"
+                alt="logo"
+                fill
+                sizes="(max-width: 600px) 100vw, 150px"
+                style={{ objectFit: 'contain' }}
+                priority
+              />
             </div>
-            <div className="flex gap-20 flex-row">
-              <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <p>Viale Antonio Gramsci</p>
-                <p>97 Modena 41122</p>
-                <p>ITALY</p>
-              </div>
-              <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                <Link href="/">Terms & Conditions</Link>
-                <Link href="/">File A Complaint</Link>
-              </div>
-            </div>
+            <p className="text-lg sm:text-md max-w-lg leading-relaxed tracking-tight text-background/75 text-left mt-4">
+              Telefonopiú Exchange Company is a leading currency exchange and
+              money transfer company based in Italy with four branches in
+              Italy so far and continuously expanding.
+            </p>
           </div>
-          <div className="grid lg:grid-cols-3 gap-10 items-start">
+          <div className="lg:col-span-3 grid lg:grid-cols-3 gap-10">
             {navigationItems.map((item) => (
-              <div key={item.title} className="flex text-base gap-1 flex-col items-start">
-                <div className="flex flex-col gap-2">
-                  {item.href ? (
-                    <Link href={item.href} className="flex justify-between items-center">
-                      <span className="text-xl">{item.title}</span>
-                    </Link>
-                  ) : (
-                    <p className="text-xl">{item.title}</p>
-                  )}
-                  {item.items &&
-                    item.items.map((subItem) => (
-                      <Link
-                        key={subItem.title}
-                        href={subItem.href}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-background/75">{subItem.title}</span>
-                      </Link>
-                    ))}
-                </div>
+              <div key={item.title} className="flex flex-col items-start">
+                <h3 className="text-xl mb-2">{item.title}</h3>
+                {item.items && item.items.map((subItem) => (
+                  <Link
+                    key={subItem.title}
+                    href={subItem.href}
+                    className="text-background/75 mb-1"
+                  >
+                    {subItem.title}
+                  </Link>
+                ))}
               </div>
             ))}
           </div>
         </div>
       </div>
       <div className="container py-8 mx-auto">
-        <hr />
-        <div className="flex justify-between items-center pt-2">
-          <div>
-            <p>Copyrights © 2024 Telefonopiú. All rights reserved.</p>
+        <div className="flex flex-col lg:flex-row justify-between items-center">
+          <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">
+            <p>Viale Antonio Gramsci</p>
+            <p>97 Modena 41122</p>
+            <p>ITALY</p>
           </div>
-          <div className="flex items-center pt-2 justify-center">
+          <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">
+            <Link href="/">Terms & Conditions</Link>
+            <Link href="/">File A Complaint</Link>
+          </div>
+          <div className="flex items-center">
             <Link href="https://twitter.com" className="mx-2" aria-label="Twitter">
               <FaTwitter className="h-6 w-6" />
             </Link>
@@ -120,7 +103,11 @@ export default function Footer () {
             </Link>
           </div>
         </div>
+        <hr className="my-4" />
+        <div className="flex justify-between items-center">
+          <p>Copyrights © 2024 Telefonopiú. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );
-};
+}

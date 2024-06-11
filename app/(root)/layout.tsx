@@ -3,7 +3,7 @@ import { ReactNode, Suspense } from "react";
 import dynamic from "next/dynamic";
 
 const MainNavbar = dynamic(() => import("@/components/MainNavbar"));
-const Footer = dynamic(() => import("@/components/Footer"));
+const NewFooter = dynamic(() => import("@/components/newFooter"));
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -13,7 +13,7 @@ function Layout({ children }: { children: ReactNode }) {
       </Suspense>
       <Suspense fallback={null}>{children}</Suspense>
       <Suspense fallback={null}>
-        <Footer />
+        <NewFooter />
       </Suspense>
     </>
   );

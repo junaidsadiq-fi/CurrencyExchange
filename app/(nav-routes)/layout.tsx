@@ -2,7 +2,7 @@ import { ReactNode, Suspense } from "react";
 import dynamic from "next/dynamic";
 
 const SecondaryNavbar = dynamic(() => import("@/components/SecondaryNavbar"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const NewFooter = dynamic(() => import("@/components/newFooter"));
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +14,7 @@ function Layout({ children }: { children: ReactNode }) {
         {children}
       </Suspense>
       <Suspense fallback={null}>
-        <Footer />
+        <NewFooter />
       </Suspense>
     </>
   );

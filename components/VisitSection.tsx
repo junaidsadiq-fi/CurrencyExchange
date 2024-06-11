@@ -23,12 +23,6 @@ function VisitSection() {
       mapRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-  
-  // Fix the argument type of handleLocationClick
-  const handleClick = (coordinates: number[]) => {
-    const [latitude, longitude] = coordinates;
-    handleLocationClick([latitude, longitude]);
-  };
 
   return (
     <div id="visit" className="w-full relative bg-white py-10 lg:py-20">

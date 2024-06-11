@@ -1,7 +1,6 @@
-"use client";
+"use client"
 import React, { createContext, useContext, useState, useEffect } from "react";
-
-/* const currency_api = process.env.NEXT_PUBLIC_CURRENCY_API_KEY; */
+import TransferFeeRate from "@/data/TransferFeeRate";
 
 // Define the Currency type
 type Currency = {
@@ -10,17 +9,14 @@ type Currency = {
   rate: number;
   symbol: string;
   visible: boolean; // Add a visible flag
+  transferFeeRate?: number[][]; // Optional field for transfer fee rates
 };
 
 // Create the context with an initial empty array of Currency
 const CurrencyContext = createContext<Currency[]>([]);
 
 // Provider component
-export const CurrencyProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const CurrencyProvider = ({ children }: { children: React.ReactNode }) => {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
 
   useEffect(() => {
@@ -37,6 +33,7 @@ export const CurrencyProvider = ({
             rate: 16.2,
             symbol: "GH₵",
             visible: true,
+            transferFeeRate: TransferFeeRate.Ghana.ranges,
           },
           // Nigeria
           {
@@ -45,6 +42,7 @@ export const CurrencyProvider = ({
             rate: 1622,
             symbol: "₦",
             visible: true,
+            transferFeeRate: TransferFeeRate.Nigeria.ranges,
           },
           // Marocco
           {
@@ -53,6 +51,7 @@ export const CurrencyProvider = ({
             rate: 10.84,
             symbol: "د.م.",
             visible: true,
+            transferFeeRate: TransferFeeRate.Marocco.ranges,
           },
           // Tunisia
           {
@@ -61,6 +60,7 @@ export const CurrencyProvider = ({
             rate: 3.37,
             symbol: "د.ت",
             visible: true,
+            transferFeeRate: TransferFeeRate.Tunisia.ranges,
           },
           // Pakistan
           {
@@ -69,6 +69,7 @@ export const CurrencyProvider = ({
             rate: 305,
             symbol: "Rs",
             visible: true,
+            transferFeeRate: TransferFeeRate.Pakistan.ranges,
           },
           // Colombia
           {
@@ -77,6 +78,7 @@ export const CurrencyProvider = ({
             rate: 4220,
             symbol: "$",
             visible: true,
+            transferFeeRate: TransferFeeRate.Colombia.ranges,
           },
           // Republic Dominicana
           {
@@ -85,6 +87,7 @@ export const CurrencyProvider = ({
             rate: 64.76,
             symbol: "RD$",
             visible: true,
+            transferFeeRate: TransferFeeRate["Republica Dominicana"].ranges,
           },
           // Guinea Conakry
           {
@@ -93,6 +96,7 @@ export const CurrencyProvider = ({
             rate: 9316,
             symbol: "FG",
             visible: true,
+            transferFeeRate: TransferFeeRate["Guinea Conakry"].ranges,
           },
           // Senegal
           {
@@ -101,6 +105,7 @@ export const CurrencyProvider = ({
             rate: 655.95,
             symbol: "CFA",
             visible: true,
+            transferFeeRate: TransferFeeRate.Senegal.ranges,
           },
           // Gambia
           {
@@ -109,6 +114,7 @@ export const CurrencyProvider = ({
             rate: 70.25,
             symbol: "D",
             visible: true,
+            transferFeeRate: TransferFeeRate.Gambia.ranges,
           },
           // Brazil
           {
@@ -117,6 +123,7 @@ export const CurrencyProvider = ({
             rate: 5.72,
             symbol: "R$",
             visible: true,
+            transferFeeRate: TransferFeeRate.Brazil.ranges,
           },
           // Philippine
           {
@@ -125,6 +132,7 @@ export const CurrencyProvider = ({
             rate: 63.93,
             symbol: "₱",
             visible: true,
+            transferFeeRate: TransferFeeRate.Philippine.ranges,
           },
           // Mali
           {
@@ -133,6 +141,7 @@ export const CurrencyProvider = ({
             rate: 655.95,
             symbol: "CFA",
             visible: true,
+            transferFeeRate: TransferFeeRate.Mali.ranges,
           },
           // India
           {
@@ -141,6 +150,7 @@ export const CurrencyProvider = ({
             rate: 90.67,
             symbol: "₹",
             visible: true,
+            transferFeeRate: TransferFeeRate.India.ranges,
           },
           // Bangladesh
           {
@@ -149,6 +159,7 @@ export const CurrencyProvider = ({
             rate: 128.24,
             symbol: "৳",
             visible: true,
+            transferFeeRate: TransferFeeRate.Bangladesh.ranges,
           },
           // Peru
           {
@@ -157,6 +168,7 @@ export const CurrencyProvider = ({
             rate: 4037,
             symbol: "S/",
             visible: true,
+            transferFeeRate: TransferFeeRate.Peru.ranges,
           },
           // Costa d'Avorio
           {
@@ -165,6 +177,7 @@ export const CurrencyProvider = ({
             rate: 655.95,
             symbol: "CFA",
             visible: true,
+            transferFeeRate: TransferFeeRate["Costa Davorio"].ranges,
           },
           // Sri Lanka
           {
@@ -173,8 +186,10 @@ export const CurrencyProvider = ({
             rate: 329.99,
             symbol: "Rs",
             visible: true,
+            transferFeeRate: TransferFeeRate.Srilanka.ranges,
           },
         ];
+
         const convertedCurrencies = initialCurrencies.map((currency) => ({
           ...currency,
           rate: Number(currency.rate.toFixed(4)),
