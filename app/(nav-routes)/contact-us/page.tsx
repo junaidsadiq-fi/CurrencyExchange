@@ -62,7 +62,7 @@ const page = () => {
           </div>
 
           <div className="justify-center flex items-center">
-            <Card className="w-full bg-white backdrop-blur-md shadow-2xl border rounded-xl max-w-md">
+            <Card className="w-full bg-white shadow-2xl border rounded-xl max-w-md">
             <BorderBeam/>
               <CardHeader>
                 <CardTitle>Contact Us</CardTitle>

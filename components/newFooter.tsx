@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NewFooter() {
   return (
-    <footer className="bg-gray-50 py-12 dark:bg-gray-800">
+    <footer className="bg-gray-50 py-12 ">
       <div className="container mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:max-w-6xl px-4">
         <div className="flex flex-col items-start gap-4">
           <Link href="#" className="flex items-center gap-2" prefetch={false}>
@@ -20,10 +20,10 @@ export default function NewFooter() {
               />
             </div>
           </Link>
-          <p className="text-gray-500 dark:text-gray-400">
-              <p>Viale Antonio Gramsci</p>
+          <p className="text-gray-500 ">
+              <span>Viale Antonio Gramsci</span>
               <span>97 Modena 41122, Italy</span>
-                <Link href="mailto:openskypoint@gmail.com" className="text-gray-500 hover:text-gray-900 flex items-center justify-center gap-2">
+                <Link href="mailto:openskypoint@gmail.com" className="text-gray-500 hover:text-gray-900 flex items-center gap-2">
                     <MailIcon className="h-5 w-5" />
                     <p>
                     openskypoint@gmail.com
@@ -38,135 +38,135 @@ export default function NewFooter() {
           </p>
         </div>
         <div className="grid gap-2">
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+          <h4 className="text-lg font-semibold text-gray-900 ">
             Products
           </h4>
           <Link
             href="/"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Currency Calculator
           </Link>
           <Link
             href="/"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Currency Converter
           </Link>
           <Link
             href="/"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900 "
             prefetch={false}
           >
           Real-time Currency Rates 
           </Link>
           <Link
             href="#"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Funds Transfer
           </Link>
         </div>
         <div className="grid gap-2">
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+          <h4 className="text-lg font-semibold text-gray-900">
             Services
           </h4>
           <Link
             href="/about"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Exchange Currencies
           </Link>
           <Link
             href="/locations"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Moeny Transfer
           </Link>
           <Link
             href="/contact-us"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Forex Trading
           </Link>
         </div>
         <div className="grid gap-2">
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+          <h4 className="text-lg font-semibold text-gray-900">
             Company
           </h4>
           <Link
             href="/about"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Who We Are
           </Link>
           <Link
             href="/locations"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Branch Network
           </Link>
           <Link
             href="/contact"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900 "
             prefetch={false}
           >
             Contact us
           </Link>
           <Link
             href="/faqs"
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="text-gray-500 hover:text-gray-900"
             prefetch={false}
           >
             Faqs
           </Link>
         </div>
       </div>
-      <div className="mt-12 border-t border-gray-200 pt-6 dark:border-gray-700">
+      <div className="mt-12 border-t border-gray-200 pt-6">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 sm:flex-row px-4">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500">
             &copy; 2024 Telefonopiú. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              className="text-gray-500 hover:text-gray-900"
               prefetch={false}
             >
               <InstagramIcon className="h-5 w-5" />
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              className="text-gray-500 hover:text-gray-900"
               prefetch={false}
             >
               <FacebookIcon className="h-5 w-5" />
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              className="text-gray-500 hover:text-gray-900"
               prefetch={false}
             >
               <PhoneIcon className="h-5 w-5" />
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              className="text-gray-500 hover:text-gray-900"
               prefetch={false}
             >
               <TwitterIcon className="h-5 w-5" />
             </Link>
             <Link
               href="mailto:openskypoint@gmail.com"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              className="text-gray-500 hover:text-gray-900"
               prefetch={false}
             >
               <MailIcon className="h-5 w-5" />

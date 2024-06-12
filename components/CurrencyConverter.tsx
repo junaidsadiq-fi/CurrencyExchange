@@ -71,7 +71,7 @@ function CurrencyConverter({ className }: { className?: string }) {
   return (
     <Card
       className={cn(
-        "w-full rounded-xl shadow-2xl bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-gray-200 border-opacity-25",
+        "w-full rounded-xl shadow-2xl bg-white  border border-gray-200 border-opacity-25",
         className
       )}
     >

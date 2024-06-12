@@ -22,10 +22,10 @@ function WorldGlobe({ ...props }) {
           transition={{ duration: 1 }}
           className="text-center lg:text-left lg:mt-32 lg:w-1/2"
         >
-          <h2 className="font-poppins text-3xl md:text-4xl lg:text-5xl font-extra text-black dark:text-white leading-tight">
+          <h2 className="font-poppins text-3xl md:text-4xl lg:text-5xl font-extra text-black leading-tight">
             Powerful Currency Exchange
           </h2>
-          <p className="font-poppins text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto lg:mx-0">
+          <p className="font-poppins text-base md:text-lg font-normal text-neutral-700 max-w-md mt-2 mx-auto lg:mx-0">
             We make sure all your transactions are convenient and safe.
           </p>
           <div className="mt-8 flex space-x-4">

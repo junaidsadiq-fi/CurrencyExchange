@@ -63,7 +63,7 @@ export default function Bento() {
       className: "col-span-3 lg:col-span-1",
       background: (
         <div className="absolute flex [--duration:20s] [mask-image:linear-gradient(to_top,rgba(0,0,0,0.4)_40%,#000_100%)] h-[360px] w-full max-w-[42rem] items-center justify-center overflow-hidden rounded-lg border bg-background">
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent">
             Exchange
           </span>
 
@@ -121,13 +121,12 @@ export default function Bento() {
               className={cn(
                 "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
                 "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-                "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+                " transition-all duration-300 ease-out hover:blur-none"
               )}
             >
               <div className="flex flex-row items-center gap-2">
                 <div className="flex gap-2 justify-between">
-                  <figcaption className="flex text-sm font-bold dark:text-white">
+                  <figcaption className="flex text-sm font-bold">
                     {f.name}
                     {/* Add the arrow icon here */}
                   </figcaption>
@@ -150,12 +149,13 @@ export default function Bento() {
         <>
           <div className="flex items-center justify-center">
             {" "}
-            <Image
+            {/* <Globe className="top-0 h-[600px] w-[600px] transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] group-hover:scale-105 sm:left-40" /> */}
+             <Image
               alt="globe"
-              src="/map.jpg"
+              src="/map.webp"
               width={200}
               height={200}
-              className="top-2 lg:left-48 h-[210px] w-[500px] lg:w-[550px] transition-all duration-300 ease-out  group-hover:scale-105 -z-10"
+              className="top-2 lg:left-48 h-[210px] w-[500px] lg:w-[550px] transition-all duration-300 ease-out "
             />
           </div>
         </>

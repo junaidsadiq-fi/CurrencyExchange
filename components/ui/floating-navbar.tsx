@@ -58,7 +58,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border-transparent dark:border-white/[0.2] rounded-full dark:bg-black backdrop-blur-md bg-white/50  z-[5000] pr-8 pl-8 items-center justify-center space-x-4  shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border-transparent  rounded-full backdrop-blur-md bg-white/50  z-[5000] pr-8 pl-8 items-center justify-center space-x-4  shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           className
         )}
       >
@@ -97,7 +97,7 @@ export const FloatingNav = ({
               key={idx}
               href={navItem.link}
               className={cn(
-                "relative dark:text-neutral-50 items-center flex space-x-1 font-bold text-neutral-600 dark:hover:text-neutral-300 p-2 rounded-full focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:bg-gradient-to-b focus:outline-none "
+                "relative items-center flex space-x-1 font-bold text-neutral-600 p-2 rounded-full focus:from-blue-800 focus:to-sky-900 focus:text-white hover:bg-blue-100 hover:text-blue-900 focus:bg-gradient-to-b focus:outline-none "
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>

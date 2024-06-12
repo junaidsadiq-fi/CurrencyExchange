@@ -9,8 +9,8 @@ export default function Footer() {
       title: "Home",
       href: "/",
       items: [
-        { title: "Forex Rates", href: "#converter" },
-        { title: "Forex Calculator", href: "#converter" },
+        { title: "Forex Rates", href: "/" },
+        { title: "Forex Calculator", href: "/" },
       ],
     },
     {
@@ -80,25 +80,25 @@ export default function Footer() {
       <div className="container py-8 mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center">
           <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">
-            <p>Viale Antonio Gramsci</p>
-            <p>97 Modena 41122</p>
-            <p>ITALY</p>
+            <div>Viale Antonio Gramsci</div>
+            <span>97 Modena 41122</span>
+            <span>Italy</span>
           </div>
           <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">
             <Link href="/">Terms & Conditions</Link>
             <Link href="/">File A Complaint</Link>
           </div>
           <div className="flex items-center">
-            <Link href="https://twitter.com" className="mx-2" aria-label="Twitter">
+            <Link id="twitter" href="https://twitter.com" className="mx-2" aria-label="Twitter">
               <FaTwitter className="h-6 w-6" />
             </Link>
-            <Link href="https://facebook.com" className="mx-2" aria-label="Facebook">
+            <Link id="facebook" href="https://facebook.com" className="mx-2" aria-label="Facebook">
               <FaFacebook className="h-6 w-6" />
             </Link>
-            <div onClick={handleWhatsappClick} className="mx-2 cursor-pointer" aria-label="Whatsapp">
+            <div id="whatsapp" onClick={handleWhatsappClick} className="mx-2 cursor-pointer" aria-label="Whatsapp">
               <FaWhatsapp className="h-6 w-6" />
             </div>
-            <Link href="https://instagram.com" className="mx-2" aria-label="Instagram">
+            <Link id="instagram" href="https://instagram.com" className="mx-2" aria-label="Instagram">
               <FaInstagram className="h-6 w-6" />
             </Link>
           </div>

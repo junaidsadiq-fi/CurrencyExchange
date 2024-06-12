@@ -17,11 +17,11 @@ export default function CurrencyContainer() {
       onValueChange={handleTabChange}
       className="max-w-md pb-4 lg:max-w-lg py-4 lg:mx-12 mx-auto pt-0"
     >
-       <TabsList className="grid w-full grid-cols-2 border rounded-xl bg-gray-50">
+       <TabsList className="grid w-full grid-cols-2 border-[2px] border-gray-100 rounded-xl bg-white">
         <TabsTrigger
           value="send"
           className={`${
-            activeTab === "send"  ? "bg-blue-500 py-1 text-white rounded-lg" : "text-black py-0"
+            activeTab === "send"  ? "bg-blue-500 py-1 text-white rounded-xl" : "text-black py-0"
           }`}
           style={{
             backgroundColor: activeTab === "send" ? "#2563EB" : "transparent",

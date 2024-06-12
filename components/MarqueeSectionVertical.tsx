@@ -1,4 +1,4 @@
-'"use client';
+'use client';
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/Marquee";
 import Image from "next/image";
@@ -95,14 +95,15 @@ const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
       className={cn(
-        "flex items-center justify-center cursor-pointer overflow-hidden rounded-2xl border p-4",
-        "border-gray-950/[.1] bg-white hover:bg-gray-100"
+        "flex items-center justify-center cursor-pointer overflow-hidden rounded-full border",
+        "border-gray-950/[.1] bg-blue-50 hover:bg-gray-100"
       )}
+      style={{ width: '100px', height: '100px' }} 
     >
       <Image
         className=""
-        width={100}
-        height={100}
+        width={60}
+        height={60}
         layout="fixed"
         alt="partner logo"
         src={img}
@@ -111,35 +112,6 @@ const ReviewCard = ({ img, name, username, body }) => {
   );
 };
 
-const MarqueeSection = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  return (
-    <div className="relative bg-blue-50 flex h-full my-4 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-6 md:shadow-sm">
-      <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
-        Our Partners
-      </h2>
-      {isClient && (
-        <>
-          <Marquee pauseOnHover className="[--duration:20s]">
-            {firstRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:20s]">
-            {secondRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-        </>
-      )}
-    </div>
-  );
-};
 const MarqueeSectionVertical = () => {
   const [isClient, setIsClient] = useState(false);
 
@@ -148,10 +120,10 @@ const MarqueeSectionVertical = () => {
   }, []);
 
   return (
-    <div className="relative bg-blue-50 flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-sm">
-      <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+    <div className="relative bg-gradient-to-b from-blue-600 to-black flex h-72 max-w-lg mx-auto flex-row items-center justify-center overflow-hidden rounded-2xl border bg-background sm:px-20 gap-2 md:shadow-xl">
+     {/*  <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-4">
         Our Partners
-      </h2>
+      </h2> */}
       {isClient && (
         <>
           <Marquee pauseOnHover vertical className="[--duration:20s]">
@@ -159,16 +131,18 @@ const MarqueeSectionVertical = () => {
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:20s]">
+          <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
             {secondRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
         </>
+
       )}
     </div>
   );
 };
 
-
-export default MarqueeSection;
+export default MarqueeSectionVertical;

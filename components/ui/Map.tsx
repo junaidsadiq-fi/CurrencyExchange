@@ -40,17 +40,20 @@ const Map = ({ locations, selectedLocation }: MapProps) => {
       // Create bounds to fit all locations
       const bounds = new mapboxgl.LngLatBounds();
 
-      locations.forEach((location) => {
+      locations.forEach((location, index) => {
         // Extend bounds to include each location's coordinates
         bounds.extend(location.coordinates);
-
+      
+        // Add a small offset for each marker
+        const offset = index * 0.0001;
+      
         const marker = new mapboxgl.Marker({
           color: "blue", // Change marker color here
         })
-          .setLngLat(location.coordinates)
+          .setLngLat([location.coordinates[0] + offset, location.coordinates[1] + offset])
           .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(location.name))
           .addTo(map.current);
-
+      
         // Fit the map to the bounds with padding
         map.current.fitBounds(bounds, {
           padding: 60,

@@ -1,3 +1,4 @@
+"use client"
 import React, { useCallback, useEffect, useState } from "react";
 import { useCurrencies } from "@/context/CurrencyContext";
 import { Input } from "@/components/ui/input";
@@ -78,9 +79,9 @@ export default function CurrencySendCalculator({ className }: { className?: stri
   }, [amount, toCountry, calculateSendFee, fromCurrency, calculateConversion]);
 
   return (
-    <Card className={`border items-center shadow-2xl justify-center rounded-xl p-4 bg-[rgba(255,255,255,0.1)] backdrop-blur-md ${className}`}>
-      <CardContent className="space-y-4">
-        <div className="space-y-2">
+    <Card className={`border items-center shadow-2xl justify-center rounded-xl p-4 bg-white ${className}`}>
+      <CardContent className="space-y-3">
+        <div className="space-y-3">
           <Label htmlFor="destinationCountry">Destination Country</Label>
           <Select
             defaultValue={toCountry}
@@ -89,11 +90,11 @@ export default function CurrencySendCalculator({ className }: { className?: stri
             <SelectTrigger>
               <SelectValue placeholder="Select country" />
             </SelectTrigger>
-            <SelectContent className="bg-gray-200">
+            <SelectContent id="destination__countries" className="bg-gray-50 border rounded-xl">
                 {currencies.map((currency) => (
                   <SelectItem key={currency.name} value={currency.name}>
                     <div className="flex items-center">
-                      <Image src={currency.img} alt={currency.name} width={20} height={20} className="mr-2" />
+                      <Image src={currency.img} alt={`${currency.name} flag`} width={20} height={20} className="mr-2" />
                       {currency.name}
                     </div>
                   </SelectItem>
@@ -101,7 +102,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
             </SelectContent>
           </Select>
         </div>
-        <div className="space-y-2 items-center justify-center flex">
+        <div className="items-center justify-center flex">
           <div className="flex-1">
             <Label htmlFor="sendAmountCurrency">You Send</Label>
             <Select
@@ -111,7 +112,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
               <SelectTrigger>
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-200">
+              <SelectContent id="select_countries" className="bg-gray-50 border rounded-xl">
                 {currencies.map(({ name, img }) => (
                   <SelectItem key={name} value={name}>
                     <div className="flex items-center">
@@ -123,7 +124,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
               </SelectContent>
             </Select>
           </div>
-          <div className="flex-1 mb-4 ml-2">
+          <div className="flex-1 ml-2">
             <Label htmlFor="sendAmount">Amount</Label>
             <Input
               id="sendAmount"
@@ -175,6 +176,7 @@ export default function CurrencySendCalculator({ className }: { className?: stri
             </p>
           </div>
           <Button
+            id="calculate"
             className="bg-gradient-to-b to-blue-800 from-sky-600 text-white border rounded-full"
             onClick={() => calculateConversion(amount, fromCurrency, toCountry, sendFee)}
           >

@@ -22,15 +22,15 @@ const FamilyButton: React.FC<FamilyButtonProps> = ({ children }) => {
   return (
     <div
       className={cn(
-        "rounded-[24px] border border-black/10  shadow-sm dark:border-yellow-400/20",
+        "rounded-[24px] border border-black/10  shadow-sm ",
         "bg-gradient-to-b  from-blue-700 to-sky-950",
         isExpanded
-          ? "w-[204px] bg-gradient-to-b dark:from-stone-900 dark:to-neutral-900/80"
-          : "dark:from-neutral-900 dark:to-stone-950 bg-gradient-to-b"
+          ? "w-[204px] bg-gradient-to-b"
+          : "bg-gradient-to-b"
       )}
     >
       <div className="rounded-[23px] border   border-black/10 ">
-        <div className="rounded-[22px] border  dark:border-stone-800 border-white/50 ">
+        <div className="rounded-[22px] border  border-white/50 ">
           <div className="rounded-[21px] border    border-neutral-950/10   flex items-center justify-center ">
             <FamilyButtonContainer
               isExpanded={isExpanded}
@@ -76,7 +76,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
       className={cn(
         "relative   border-white/10 border shadow-lg flex flex-col space-y-1  items-center  text-white  cursor-pointer z-10",
         !isExpanded
-          ? "bg-blue-800/50 dark:from-stone-700 dark:to-neutral-800/80"
+          ? "bg-blue-800/50"
           : ""
       )}
       layoutRoot
@@ -123,7 +123,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
       >
         {isExpanded ? (
           <motion.div
-            className="p-[8px] group bg-blue-800/10 dark:bg-black/50 border border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300 "
+            className="p-[8px] group bg-blue-800/10 border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300 "
             onClick={toggleExpand}
             layoutId="expand-toggle"
             initial={false}
@@ -136,14 +136,14 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
           >
             <XIcon
               className={cn(
-                "h-7 w-7 text-white dark:text-neutral-400/80 group-hover:text-neutral-500 transition-colors duration-200 "
+                "h-7 w-7 text-white  group-hover:text-neutral-500 transition-colors duration-200 "
               )}
             />
           </motion.div>
         ) : (
           <motion.div
             className={cn(
-              "p-[8px] group bg-blue-800/10 dark:bg-black/50 border border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300"
+              "p-[8px] group bg-blue-800/10  border-blue-50 hover:border-neutral-200 hover:text-gray-50 text-orange-50 rounded-full shadow-2xl transition-colors duration-300"
             )}
             style={{ borderRadius: 24 }}
             onClick={toggleExpand}
@@ -156,7 +156,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
               },
             }}
           >
-            <PlusIcon  className="h-7 w-7 text-white dark:text-neutral-900" />
+            <PlusIcon  className="h-7 w-7 text-white " />
           </motion.div>
         )}
       </motion.div>

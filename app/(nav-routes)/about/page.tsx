@@ -81,7 +81,7 @@ const page = () => (
     </div>
     <div className="mx-20 mt-6 mb-4">
       <div className="relative flex h-full w-full lg:max-w-[128rem] items-center justify-center overflow-hidden rounded-xl border bg-background px-40 pb-40 pt-8 md:pb-60 md:shadow-xl">
-        <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-50/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-50/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent">
           Exchange Currencies with Ease Globally
         </span>
         <Suspense fallback={null}>
