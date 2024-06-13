@@ -28,7 +28,7 @@ const TableContainer = () => {
     <div
       className={cn(
         "border rounded-[20px] overflow-auto max-h-[600px] scrollbar-hide",
-        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.5)]"
+        "bg-white drop-shadow-lg border-gray-200 border-opacity-25"
       )}
     >
       <Table id="converter" className="min-w-full">
