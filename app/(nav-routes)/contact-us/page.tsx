@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardDescription, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { BorderBeam } from "@/components/ui/border-beam";
 
 const page = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -63,7 +62,6 @@ const page = () => {
 
           <div className="justify-center flex items-center">
             <Card className="w-full bg-white shadow-2xl border rounded-xl max-w-md">
-            <BorderBeam/>
               <CardHeader>
                 <CardTitle>Contact Us</CardTitle>
                 <CardDescription>

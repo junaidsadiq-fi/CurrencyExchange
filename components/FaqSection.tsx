@@ -84,7 +84,7 @@ export default function FaqSection() {
         alt="Background"
         width={150}
         height={150}
-        className=" absolute bottom-0 opacity-70 right-0"
+        className="absolute bottom-0 opacity-70 right-0 transform scaleX(-260)"
       />
     </div>
   );
