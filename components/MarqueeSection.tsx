@@ -100,9 +100,9 @@ const ReviewCard = ({ img, name, username, body }) => {
       )}
     >
       <Image
-        className=""
-        width={80}
-        height={180}
+        className="h-25 w-25 lg:h-30 lg:w-30"
+        width={120}
+        height={120}
         layout="fixed"
         alt="partner logo"
         src={img}
@@ -119,7 +119,7 @@ const MarqueeSection = () => {
   }, []);
 
   return (
-    <div className="relative bg-blue-50 flex h-full mt-8 w-full flex-col items-center justify-center overflow-hidden md:shadow-sm py-2">
+    <div className="relative bg-blue-50 flex h-full mt-4 lg:mt-8 w-full flex-col items-center justify-center overflow-hidden md:shadow-sm py-2">
      {/*  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 mb-4">
         Our Partners
       </h2> */}
