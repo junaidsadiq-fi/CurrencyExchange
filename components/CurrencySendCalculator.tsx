@@ -79,8 +79,8 @@ export default function CurrencySendCalculator({ className }: { className?: stri
   }, [amount, toCountry, calculateSendFee, fromCurrency, calculateConversion]);
 
   return (
-    <Card className={`border items-center shadow-2xl justify-center rounded-xl p-4 bg-white ${className}`}>
-      <CardContent className="space-y-3">
+    <Card className={`border items-center max-w-lg lg:max-w-xl shadow-lg justify-center rounded-xl p-4 bg-white ${className}`}>
+      <CardContent className="space-y-6">
         <div className="space-y-3">
           <Label htmlFor="destinationCountry">Destination Country</Label>
           <Select

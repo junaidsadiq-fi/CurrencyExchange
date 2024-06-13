@@ -45,9 +45,9 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
     const fetchCurrencyRates = async () => {
       try {
         const initialCurrencies: Currency[] = [
-          { name: "USD", img: "/images/flags/United-States-Circle.svg", rate: 1, symbol: "$", visible: false },
-          { name: "EUR", img: "/images/flags/European-Union-Circle.svg", rate: 0.92, symbol: "€", visible: false },
-          { name: "GBP", img: "/images/flags/United-Kingdom-Circle.svg", rate: 0.81, symbol: "£", visible: false },
+          { name: "USD", img: "/images/flags/United-States-Circle.svg", rate: 0.92, symbol: "$", visible: false },
+          { name: "EUR", img: "/images/flags/European-Union-Circle.svg", rate: 1, symbol: "€", visible: false },
+          { name: "GBP", img: "/images/flags/United-Kingdom-Circle.svg", rate: 1.2 , symbol: "£", visible: false },
           // Ghana
           {
             name: "GHS",

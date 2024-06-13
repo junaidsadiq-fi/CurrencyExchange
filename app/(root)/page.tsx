@@ -7,7 +7,10 @@ const MainNavbar = dynamic(() => import("@/components/MainNavbar"), {
   ssr: false,
 });
 const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
-const MarqueeSection = dynamic(() => import("@/components/MarqueeSection"), {
+/* const MarqueeSection = dynamic(() => import("@/components/MarqueeSection"), {
+  ssr: false,
+}); */
+const ServicesSection = dynamic(() => import("@/components/ServicesSection"), {
   ssr: false,
 });
 const VisitSection = dynamic(() => import("@/components/VisitSection"), {
@@ -30,8 +33,11 @@ export default function Home() {
       <Suspense fallback={<Loading />}>
         <Hero />
       </Suspense>
+        <Suspense fallback={null}>
+          <CurrencyContainer />
+        </Suspense>
       <Suspense fallback={null}>
-         <MarqueeSection />
+        <ServicesSection />
       </Suspense>
       <Suspense fallback={null}>
         <VisitSection />

@@ -27,41 +27,39 @@ const TableContainer = () => {
   return (
     <div
       className={cn(
-        "border rounded-[20px] overflow-auto max-h-[520px] scrollbar-hide", // Hide scrollbar
+        "border rounded-[20px] overflow-auto max-h-[600px] scrollbar-hide",
         "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.5)]"
       )}
     >
-      <Table id="converter" className="">
-        <TableHeader className="bg-gradient-to-b from-sky-600 to-blue-900">
-          <TableRow className="h-12">
-            <TableHead className="font-poppins text-center text-white text-xl">
+      <Table id="converter" className="min-w-full">
+        <TableHeader className="">
+          <TableRow className="h-6">
+            <TableHead className="font-poppins bg-gradient-to-b from-sky-600 to-blue-700 text-center text-white font-bold text-xl">
               Exchange Rates
             </TableHead>
-           {/*  <TableHead className="font-poppins text-white text-xl">
-              Currency
-            </TableHead>
-            <TableHead className="font-poppins text-white text-xl">
-              Currency
-            </TableHead> */}
           </TableRow>
         </TableHeader>
-        <TableBody className="grid grid-flow-row-dense auto-rows-max grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+        <TableBody className="grid grid-cols-2 grid-flow-row-dense auto-rows-max sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 py-8 px-2">
           {visibleCurrencies.map((currency) => (
             <TableCell
               key={currency.name}
-              className="flex items-center space-x-3"
+              className="flex sm:flex-row items-center space-x-2 sm:space-x-3 md:space-x-4 text-center sm:text-left"
             >
               <Image
                 src={currency.img}
                 alt={`${currency.name} flag`}
-                width="25"
-                height="25"
-                className="rounded-full"
+                width={40}
+                height={40}
+                className="rounded-full sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
               />
-              <span className="text-xl md:text-lg font-bold">{currency.name}</span>
-              <span className="text-right text-lg md:text-md ">
-                {currency.rate}
-              </span>
+              <div className="flex flex-col">
+                <figcaption className="text-sm font-bold text-gray-700  ">
+                  {currency.name}
+                </figcaption>
+                <p className="text-lg font-bold text-gray-800">
+                  {currency.rate}
+                </p>
+              </div>
             </TableCell>
           ))}
         </TableBody>

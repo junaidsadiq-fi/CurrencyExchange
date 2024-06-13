@@ -41,7 +41,7 @@ function VisitSection() {
           <div className="flex gap-10 flex-col">
             <div className="flex gap-4 flex-col">
               <div className="flex gap-2 flex-col">
-                <h2 className="text-6xl font-extrabold tracking-tigh lg:text-8xl tracking-tighter max-w-xl text-left font-regular">
+                <h2 className="text-6xl font-extrabold tracking-tigh lg:text-6xl lg:w-1/2 tracking-tighter max-w-xl text-left font-regular">
                   Find our branches
                 </h2>
                 <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">

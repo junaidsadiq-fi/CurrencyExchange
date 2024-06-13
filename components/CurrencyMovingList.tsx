@@ -27,7 +27,7 @@ const CurrencyCard = ({
     >
       <div className="flex flex-row items-center gap-2">
         <Image
-          className="rounded-full xl:w-12 xl:h-12 lg:w-10 lg:h-10  md:h-8 md:w-8 "
+          className="rounded-full xl:w-12 xl:h-12 lg:w-10 lg:h-10  md:h-8 md:w-8"
           width="40"
           height="40"
           alt="country flag"
@@ -52,7 +52,7 @@ const CurrencyMovingList = () => {
     <div
       className="
     relative bg-gradient-to-b from-sky-600 to-blue-900 flex h-full
-      w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-1 "
+      w-full flex-col items-center justify-center overflow-hidden rounded-lg border-y-gray-200 bg-background py-1"
     >
       <Marquee pauseOnHover className="[--duration:40s]">
         {visibleCurrencies.map((currency) => (

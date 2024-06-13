@@ -51,7 +51,7 @@ const reviews = [
     name: "Ria",
     username: "@Ria",
     body: "Connecting you to the world",
-    img: "/images/partners/ria.png",
+    img: "/images/partners/ria.svg",
   },
 ];
 
@@ -95,14 +95,14 @@ const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
       className={cn(
-        "flex items-center justify-center cursor-pointer overflow-hidden rounded-2xl border p-4",
-        "border-gray-950/[.1] bg-white hover:bg-gray-100"
+        "flex items-center justify-center cursor-pointer overflow-hidden p-2",
+       /*  "bg-gray-100 hover:bg-gray-100 border rounded-2xl" */
       )}
     >
       <Image
         className=""
-        width={100}
-        height={100}
+        width={80}
+        height={180}
         layout="fixed"
         alt="partner logo"
         src={img}
@@ -119,10 +119,10 @@ const MarqueeSection = () => {
   }, []);
 
   return (
-    <div className="relative bg-blue-50 flex h-full my-4 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-6 md:shadow-sm">
-      <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+    <div className="relative bg-blue-50 flex h-full mt-8 w-full flex-col items-center justify-center overflow-hidden md:shadow-sm py-2">
+     {/*  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 mb-4">
         Our Partners
-      </h2>
+      </h2> */}
       {isClient && (
         <>
           <Marquee pauseOnHover className="[--duration:20s]">
@@ -148,7 +148,7 @@ const MarqueeSectionVertical = () => {
   }, []);
 
   return (
-    <div className="relative bg-blue-50 flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-sm">
+    <div className="relative bg-gradient-to-b from-blue-500 to-black flex h-full my-8 w-full flex-col items-center justify-center overflow-hidden r bg-background py-20 md:shadow-sm">
       <h2 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
         Our Partners
       </h2>
