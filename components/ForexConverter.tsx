@@ -27,7 +27,7 @@ const TableContainer = () => {
   return (
     <div
       className={cn(
-        "border rounded-[20px] overflow-auto md:min-w-[calc(50vw)] lg:min-w-[calc(55vw)] lg:min-h-[400px] md:min-h-[550px] scrollbar-hide",
+        "border rounded-[20px] overflow-auto md:min-w-[calc(50vw)] lg:min-w-[calc(53vw)] lg:min-h-[400px] md:min-h-[550px] scrollbar-hide",
         "bg-white drop-shadow-lg border-gray-200 border-opacity-25"
       )}
     >

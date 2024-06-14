@@ -80,7 +80,7 @@ function ServicesSection() {
                 height={220}
               />
               <CardTitle>
-                <span className="flex flex-row gap-4 items-center font-normal justify-center">
+                <span className="flex flex-row gap-4 items-center font-bold justify-center">
                   Wide Range of Currencies
                 </span>
               </CardTitle>
