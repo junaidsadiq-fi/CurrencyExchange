@@ -80,8 +80,8 @@ export default function Footer() {
       <div className="container py-8 mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center">
           <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">
-            <div>Viale Antonio Gramsci</div>
-            <span>97 Modena 41122</span>
+            <div>Viale Antonio Gramsci,</div>
+            <span>{' '} 97 Modena 41122</span>
             <span>Italy</span>
           </div>
           <div className="flex flex-col items-start text-sm text-background/75 mb-4 lg:mb-0">

@@ -1,9 +1,41 @@
+import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function SubscribeSection() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        setMessage("Subscription successful!");
+        setName("");
+        setEmail("");
+      } else {
+        setMessage(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setMessage("Something went wrong.");
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -25,7 +57,7 @@ export default function SubscribeSection() {
               <div className="flex-shrink-0 pb-5 sm:flex sm:pb-0 sm:pe-5">
                 {/* Avatar Group */}
                 <div className="flex justify-center -space-x-3">
-                <Avatar className="bg-gray-200 h-8 w-8 ">
+                  <Avatar className="bg-gray-200 h-8 w-8 ">
                     <AvatarImage
                       src="/images/faces/lawyer.webp"
                       alt="@lawyer"
@@ -33,11 +65,8 @@ export default function SubscribeSection() {
                     {/* <AvatarFallback>lawyer</AvatarFallback> */}
                   </Avatar>
                   <Avatar className="bg-gray-200 h-8 w-8 ">
-                    <AvatarImage
-                      src="/images/faces/women.webp"
-                      alt="@Women"
-                    />
-                 {/*    <AvatarFallback>Women</AvatarFallback> */}
+                    <AvatarImage src="/images/faces/women.webp" alt="@Women" />
+                    {/*    <AvatarFallback>Women</AvatarFallback> */}
                   </Avatar>
                   <Avatar className=" bg-gray-200 h-8 w-8 ">
                     <AvatarImage
@@ -70,21 +99,31 @@ export default function SubscribeSection() {
               </div>
               <div className="border-t sm:border-t-0 sm:border-s  w-32 h-px sm:w-auto sm:h-full mx-auto sm:mx-0" />
               <div className="pt-5 sm:pt-0 sm:ps-5">
-                <div className="text-lg font-semibold">Over thounsands of happy customers</div>
+                <div className="text-lg font-semibold">
+                  Over thounsands of happy customers
+                </div>
                 <div className="text-sm text-muted-foreground">
-                  With over thounsands of happy customers, we are the best in the business.
+                  With over thounsands of happy customers, we are the best in
+                  the business.
                 </div>
               </div>
             </div>
             {/* End Avatar Group */}
             {/* Form */}
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mx-auto max-w-2xl sm:flex sm:space-x-3 backdrop-blur-md bg-blue-50/50 p-3 border rounded-xl shadow-xl shadow-primary-foreground ">
                 <div className="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
                   <Label htmlFor="name">
                     <span className="border rounded-xl sr-only">Your name</span>
                   </Label>
-                  <Input className="border rounded-full border-gray-400" type="text" id="name" placeholder="Your name" />
+                  <Input
+                    className="border rounded-full border-gray-400"
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="pt-2 sm:pt-0 sm:ps-3 border-t sm:border-t-0 sm:border-s sm:flex-[1_0_0%]">
                   <Label
@@ -93,20 +132,30 @@ export default function SubscribeSection() {
                   >
                     <span className="sr-only">Your email address</span>
                   </Label>
-                  <Input className="border rounded-full border-gray-400" type="email" id="email" placeholder="Your email" />
+                  <Input
+                    className="border rounded-full border-gray-400"
+                    type="email"
+                    id="email"
+                    placeholder="Your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
                 <div className="pt-2 sm:pt-0 grid sm:block sm:flex-[0_0_auto]">
-                  <Button className="hover:text-gray-700">Get started</Button>
+                  <Button type="submit" className="hover:text-gray-700">
+                    Get started
+                  </Button>
                 </div>
               </div>
+              {message && <p className="text-center mt-4 text-sm">{message}</p>}
             </form>
-            {/* End Form */} 
-           {/* SVG Element */}
+            {/* End Form */}
+            {/* SVG Element */}
             <div
               className="hidden absolute top-2/4 start-0 transform -translate-y-2/4 -translate-x-40 md:block lg:-translate-x-80"
               aria-hidden="true"
             >
-  	         <svg
+              <svg
                 className="w-52 h-auto"
                 width={717}
                 height={653}
@@ -127,7 +176,7 @@ export default function SubscribeSection() {
                 <path
                   d="M229.298 165.61C225.217 159.371 216.85 157.621 210.61 161.702C204.371 165.783 202.621 174.15 206.702 180.39L229.298 165.61ZM703.921 410.871C711.364 410.433 717.042 404.045 716.605 396.602L709.47 275.311C709.032 267.868 702.643 262.189 695.2 262.627C687.757 263.065 682.079 269.454 682.516 276.897L688.858 384.71L581.045 391.052C573.602 391.49 567.923 397.879 568.361 405.322C568.799 412.765 575.187 418.444 582.63 418.006L703.921 410.871ZM206.702 180.39C239.898 231.14 343.567 329.577 496.595 322.758L495.394 295.785C354.802 302.049 259.09 211.158 229.298 165.61L206.702 180.39ZM496.595 322.758C567.523 319.598 610.272 335.61 637.959 353.957C651.944 363.225 662.493 373.355 671.17 382.695C675.584 387.447 679.351 391.81 683.115 396.047C686.719 400.103 690.432 404.172 694.159 407.484L712.097 387.304C709.691 385.166 706.92 382.189 703.298 378.113C699.837 374.217 695.636 369.362 690.951 364.319C681.43 354.07 669.255 342.306 652.874 331.451C619.829 309.553 571.276 292.404 495.394 295.785L496.595 322.758Z"
                   fill="currentColor"
-             className="fill-sky-600"
+                  className="fill-sky-600"
                 />
               </svg>
             </div>
@@ -148,7 +197,8 @@ export default function SubscribeSection() {
                 <path
                   d="M0.990203 279.321C-1.11035 287.334 3.68307 295.534 11.6966 297.634L142.285 331.865C150.298 333.965 158.497 329.172 160.598 321.158C162.699 313.145 157.905 304.946 149.892 302.845L33.8132 272.418L64.2403 156.339C66.3409 148.326 61.5475 140.127 53.5339 138.026C45.5204 135.926 37.3213 140.719 35.2207 148.733L0.990203 279.321ZM424.31 252.289C431.581 256.26 440.694 253.585 444.664 246.314C448.635 239.044 445.961 229.931 438.69 225.96L424.31 252.289ZM23.0706 296.074C72.7581 267.025 123.056 230.059 187.043 212.864C249.583 196.057 325.63 198.393 424.31 252.289L438.69 225.96C333.77 168.656 249.817 164.929 179.257 183.892C110.144 202.465 54.2419 243.099 7.92943 270.175L23.0706 296.074Z"
                   fill="currentColor"
-        qw             className="fill-blue-700"
+                  qw
+                  className="fill-blue-700"
                 />
                 <path
                   d="M451.609 382.417C446.219 388.708 446.95 398.178 453.241 403.567L555.763 491.398C562.054 496.788 571.524 496.057 576.913 489.766C582.303 483.474 581.572 474.005 575.281 468.615L484.15 390.544L562.222 299.413C567.612 293.122 566.881 283.652 560.59 278.263C554.299 272.873 544.829 273.604 539.44 279.895L451.609 382.417ZM837.202 559.655C841.706 566.608 850.994 568.593 857.947 564.09C864.9 559.586 866.885 550.298 862.381 543.345L837.202 559.655ZM464.154 407.131C508.387 403.718 570.802 395.25 638.136 410.928C704.591 426.401 776.318 465.66 837.202 559.655L862.381 543.345C797.144 442.631 718.724 398.89 644.939 381.709C572.033 364.734 504.114 373.958 461.846 377.22L464.154 407.131Z"
