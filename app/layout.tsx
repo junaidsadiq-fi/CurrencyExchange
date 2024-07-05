@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react"
-import { WhatsappButton } from "@/components/WhatsappButton";
+/* import { WhatsappButton } from "@/components/WhatsappButton"; */
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -36,7 +36,7 @@ export default function RootLayout({
         <Analytics/>
         <CurrencyProvider>
           {children}
-          <WhatsappButton />
+         {/*  <WhatsappButton /> */}
         </CurrencyProvider>
       </body>
     </html>
