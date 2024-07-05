@@ -43,11 +43,11 @@ export default function Hero() {
           )}
         />
         <div className="w-full max-w-screen-2xl relative lg:px-20 sm:px-8 md:px-16 min-h-[calc(60vh)] lg:min-h-[calc(65vh)] mx-auto flex flex-col md:flex-row justify-center items-center h-full gap-8 lg:ml-12">
-          <div className="flex flex-col gap-4 order-2 md:order-1 sm:mt-8 md:mt-16">
-            <h1 className="sm:text-4xl font-extrabold md:text-5xl lg:text-6xl xl:text-7xl tracking-tighter max-w-lg text-left font-regular">
+          <div className="flex flex-col gap-4 order-2 md:order-1 mt-8 md:mt-16">
+            <h1 className="text-4xl font-extrabold md:text-5xl lg:text-6xl xl:text-7xl tracking-tighter max-w-lg text-center lg:text-left font-regular">
               Telefonopiú Currency Exchange
             </h1>
-            <p className="text-lg md:text-wrap lg:text-xl leading-relaxed tracking-tight text-muted-foreground">
+            <p className="text-center sm:text-left sm:text-wrap sm:mx-4 text-lg md:text-wrap lg:text-xl leading-relaxed tracking-tight text-muted-foreground">
               Send Money, Pay Bills, Transfer Funds, and More.
             </p>
           </div>
