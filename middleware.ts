@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  const isOffline = process.env.SITE_OFFLINE === 'true';
+  const isOffline = process.env.SITE_OFFLINE === 'false';
 
   // Add logging for debugging
   console.log('Middleware running');
