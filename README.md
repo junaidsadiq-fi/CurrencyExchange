@@ -21,7 +21,7 @@ This is a currency exchange website that shows real-time data from a currency AP
 To get a local copy up and running, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/your-username/your-repo.git
+git clone [https://github.com/your-username/your-repo.git](https://github.com/junaidsadiq-fi/CurrencyExchange)
 
 2. Install the dependencies:
 
